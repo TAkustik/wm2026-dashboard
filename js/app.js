@@ -524,6 +524,77 @@ window.applySettings  = applySettings;
 window.setFilter      = setFilter;
 
 // ═══════════════════════════════════════════════════════════════
+// LIVE REFRESH
+// Lädt scores.json alle 60 Sekunden neu wenn ein Spiel läuft
+// ═══════════════════════════════════════════════════════════════
+let liveRefreshTimer = null;
+
+async function fetchScores() {
+  try {
+    // Cache umgehen mit Timestamp
+    const res  = await fetch(`./scores.json?t=${Date.now()}`);
+    if (!res.ok) return null;
+    return await res.json();
+  } catch {
+    return null;
+  }
+}
+
+function applyScores(data) {
+  if (!data?.scores) return;
+
+  let hasLive    = false;
+  let hasChanges = false;
+
+  matches.forEach(m => {
+    // Key bauen — gleiche Logik wie im fetch-Skript
+    const homeNorm = m.home.toLowerCase().replace(/\s/g, '_');
+    const key      = `${m.date}_${homeNorm}`;
+    const entry    = data.scores[key];
+    if (!entry) return;
+
+    // Score aktualisieren
+    if (entry.score && entry.score !== m.score) {
+      m.score    = entry.score;
+      hasChanges = true;
+    }
+
+    // Live-Status merken
+    if (entry.isLive) hasLive = true;
+
+    // Laufende Minute auf Spielkarte zeigen
+    m.isLive  = entry.isLive  ?? false;
+    m.minute  = entry.minute  ?? null;
+  });
+
+  // Wenn sich etwas geändert hat → neu rendern
+  if (hasChanges) {
+    console.log('Neue Ergebnisse — Dashboard wird aktualisiert');
+    renderAll();
+  }
+
+  // Live-Badge blinken lassen wenn Spiel läuft
+  const badge = document.querySelector('.live-badge');
+  if (badge) {
+    badge.style.display = hasLive ? 'inline-block' : 'none';
+  }
+
+  return hasLive;
+}
+
+async function checkForUpdates() {
+  const data   = await fetchScores();
+  const isLive = applyScores(data);
+
+  // Wenn Spiel läuft: alle 30 Sek prüfen
+  // Sonst: alle 60 Sek
+  const interval = isLive ? 30_000 : 60_000;
+
+  if (liveRefreshTimer) clearTimeout(liveRefreshTimer);
+  liveRefreshTimer = setTimeout(checkForUpdates, interval);
+}
+
+// ═══════════════════════════════════════════════════════════════
 // INIT
 // ═══════════════════════════════════════════════════════════════
 document.addEventListener('DOMContentLoaded', () => {
@@ -531,4 +602,5 @@ document.addEventListener('DOMContentLoaded', () => {
   renderAll();
   setInterval(updateClock, 1000);
   updateClock();
+  checkForUpdates();
 });
