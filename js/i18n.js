@@ -84,6 +84,27 @@ export const i18n = {
       P3:  'Pl. 3',
       F:   'Finale',
     },
+    
+	teams: {
+      // Europa
+      DE:'Deutschland', AT:'Österreich', CH:'Schweiz', FR:'Frankreich',
+      ES:'Spanien', GB:'England', NL:'Niederlande', PT:'Portugal',
+      BE:'Belgien', HR:'Kroatien', RS:'Serbien', RO:'Rumänien',
+      UA:'Ukraine', SK:'Slowakei', SI:'Slowenien', AL:'Albanien',
+      GE:'Georgien', IT:'Italien', PL:'Polen', SE:'Schweden', TR:'Türkei',
+      // Americas
+      US:'USA', BR:'Brasilien', AR:'Argentinien', MX:'Mexiko', CA:'Kanada',
+      CO:'Kolumbien', UY:'Uruguay', EC:'Ecuador', VE:'Venezuela', PE:'Peru',
+      PY:'Paraguay', BO:'Bolivien', CW:'Curaçao', PA:'Panama', HN:'Honduras',
+      CR:'Costa Rica', JM:'Jamaika',
+      // Afrika
+      MA:'Marokko', SN:'Senegal', EG:'Ägypten', NG:'Nigeria', CM:'Kamerun',
+      CI:'Elfenbeinküste', ZA:'Südafrika', TN:'Tunesien', GH:'Ghana',
+      TZ:'Tansania', AO:'Angola', BF:'Burkina Faso', CF:'Zentralafrika', MZ:'Mosambik',
+      // Asien & Ozeanien
+      JP:'Japan', KR:'Südkorea', SA:'Saudi-Arabien', IR:'Iran', AU:'Australien',
+      NZ:'Neuseeland', UZ:'Usbekistan', QA:'Katar', CN:'China', TH:'Thailand', IQ:'Irak',
+    },
   },
 
   // ═══════════════════════════════════════════════════════════════
@@ -154,6 +175,23 @@ export const i18n = {
       P3:  '3rd',
       F:   'Final',
     },
+	
+	teams: {
+      DE:'Germany', AT:'Austria', CH:'Switzerland', FR:'France',
+      ES:'Spain', GB:'England', NL:'Netherlands', PT:'Portugal',
+      BE:'Belgium', HR:'Croatia', RS:'Serbia', RO:'Romania',
+      UA:'Ukraine', SK:'Slovakia', SI:'Slovenia', AL:'Albania',
+      GE:'Georgia', IT:'Italy', PL:'Poland', SE:'Sweden', TR:'Turkey',
+      US:'USA', BR:'Brazil', AR:'Argentina', MX:'Mexico', CA:'Canada',
+      CO:'Colombia', UY:'Uruguay', EC:'Ecuador', VE:'Venezuela', PE:'Peru',
+      PY:'Paraguay', BO:'Bolivia', CW:'Curaçao', PA:'Panama', HN:'Honduras',
+      CR:'Costa Rica', JM:'Jamaica',
+	  MA:'Morocco', SN:'Senegal', EG:'Egypt', NG:'Nigeria', CM:'Cameroon',
+	  CI:'Ivory Coast', ZA:'South Africa', TN:'Tunisia', GH:'Ghana',
+	  TZ:'Tanzania', AO:'Angola', BF:'Burkina Faso', CF:'Central Africa', MZ:'Mozambique',
+	  JP:'Japan', KR:'South Korea', SA:'Saudi Arabia', IR:'Iran', AU:'Australia',
+	  NZ:'New Zealand', UZ:'Uzbekistan', QA:'Qatar', CN:'China', TH:'Thailand', IQ:'Iraq',
+	},
   },
 
   // ═══════════════════════════════════════════════════════════════
@@ -223,6 +261,23 @@ export const i18n = {
       SF:  'SF',
       P3:  '3e',
       F:   'Finale',
+    },
+	
+	teams: {
+      DE:'Allemagne', AT:'Autriche', CH:'Suisse', FR:'France',
+      ES:'Espagne', GB:'Angleterre', NL:'Pays-Bas', PT:'Portugal',
+      BE:'Belgique', HR:'Croatie', RS:'Serbie', RO:'Roumanie',
+      UA:'Ukraine', SK:'Slovaquie', SI:'Slovénie', AL:'Albanie',
+      GE:'Géorgie', IT:'Italie', PL:'Pologne', SE:'Suède', TR:'Turquie',
+      US:'États-Unis', BR:'Brésil', AR:'Argentine', MX:'Mexique', CA:'Canada',
+      CO:'Colombie', UY:'Uruguay', EC:'Équateur', VE:'Venezuela', PE:'Pérou',
+      PY:'Paraguay', BO:'Bolivie', CW:'Curaçao', PA:'Panama', HN:'Honduras',
+      CR:'Costa Rica', JM:'Jamaïque',
+      MA:'Maroc', SN:'Sénégal', EG:'Égypte', NG:'Nigéria', CM:'Cameroun',
+      CI:"Côte d'Ivoire", ZA:'Afrique du Sud', TN:'Tunisie', GH:'Ghana',
+      TZ:'Tanzanie', AO:'Angola', BF:'Burkina Faso', CF:'Centrafrique', MZ:'Mozambique',
+      JP:'Japon', KR:'Corée du Sud', SA:'Arabie Saoudite', IR:'Iran', AU:'Australie',
+      NZ:'Nouvelle-Zélande', UZ:'Ouzbékistan', QA:'Qatar', CN:'Chine', TH:'Thaïlande', IQ:'Irak',
     },
   },
 
@@ -294,6 +349,23 @@ export const i18n = {
       P3:  '3er',
       F:   'Final',
     },
+	
+	teams: {
+      DE:'Alemania', AT:'Austria', CH:'Suiza', FR:'Francia',
+      ES:'España', GB:'Inglaterra', NL:'Países Bajos', PT:'Portugal',
+      BE:'Bélgica', HR:'Croacia', RS:'Serbia', RO:'Rumanía',
+      UA:'Ucrania', SK:'Eslovaquia', SI:'Eslovenia', AL:'Albania',
+      GE:'Georgia', IT:'Italia', PL:'Polonia', SE:'Suecia', TR:'Turquía',
+      US:'EE.UU.', BR:'Brasil', AR:'Argentina', MX:'México', CA:'Canadá',
+      CO:'Colombia', UY:'Uruguay', EC:'Ecuador', VE:'Venezuela', PE:'Perú',
+      PY:'Paraguay', BO:'Bolivia', CW:'Curaçao', PA:'Panamá', HN:'Honduras',
+      CR:'Costa Rica', JM:'Jamaica',
+      MA:'Marruecos', SN:'Senegal', EG:'Egipto', NG:'Nigeria', CM:'Camerún',
+      CI:'Costa de Marfil', ZA:'Sudáfrica', TN:'Túnez', GH:'Ghana',
+      TZ:'Tanzania', AO:'Angola', BF:'Burkina Faso', CF:'República Centroafricana', MZ:'Mozambique',
+      JP:'Japón', KR:'Corea del Sur', SA:'Arabia Saudita', IR:'Irán', AU:'Australia',
+      NZ:'Nueva Zelanda', UZ:'Uzbekistán', QA:'Catar', CN:'China', TH:'Tailandia', IQ:'Irak',
+    },
   },
 
   // ═══════════════════════════════════════════════════════════════
@@ -364,6 +436,23 @@ export const i18n = {
       P3:  '3e',
       F:   'Finale',
     },
+	
+	teams: {
+      DE:'Duitsland', AT:'Oostenrijk', CH:'Zwitserland', FR:'Frankrijk',
+      ES:'Spanje', GB:'Engeland', NL:'Nederland', PT:'Portugal',
+      BE:'België', HR:'Kroatië', RS:'Servië', RO:'Roemenië',
+      UA:'Oekraïne', SK:'Slowakije', SI:'Slovenië', AL:'Albanië',
+      GE:'Georgië', IT:'Italië', PL:'Polen', SE:'Zweden', TR:'Turkije',
+      US:'VS', BR:'Brazilië', AR:'Argentinië', MX:'Mexico', CA:'Canada',
+      CO:'Colombia', UY:'Uruguay', EC:'Ecuador', VE:'Venezuela', PE:'Peru',
+      PY:'Paraguay', BO:'Bolivia', CW:'Curaçao', PA:'Panama', HN:'Honduras',
+      CR:'Costa Rica', JM:'Jamaica',
+      MA:'Marokko', SN:'Senegal', EG:'Egypte', NG:'Nigeria', CM:'Kameroen',
+      CI:'Ivoorkust', ZA:'Zuid-Afrika', TN:'Tunesië', GH:'Ghana',
+      TZ:'Tanzania', AO:'Angola', BF:'Burkina Faso', CF:'Centraal-Afrika', MZ:'Mozambique',
+      JP:'Japan', KR:'Zuid-Korea', SA:'Saudi-Arabië', IR:'Iran', AU:'Australië',
+      NZ:'Nieuw-Zeeland', UZ:'Oezbekistan', QA:'Qatar', CN:'China', TH:'Thailand', IQ:'Irak',
+    },
   },
 
   // ═══════════════════════════════════════════════════════════════
@@ -433,6 +522,23 @@ export const i18n = {
       SF:  'MF',
       P3:  '3º',
       F:   'Final',
+    },
+	
+	teams: {
+      DE:'Alemanha', AT:'Áustria', CH:'Suíça', FR:'França',
+      ES:'Espanha', GB:'Inglaterra', NL:'Países Baixos', PT:'Portugal',
+      BE:'Bélgica', HR:'Croácia', RS:'Sérvia', RO:'Roménia',
+      UA:'Ucrânia', SK:'Eslováquia', SI:'Eslovénia', AL:'Albânia',
+      GE:'Geórgia', IT:'Itália', PL:'Polónia', SE:'Suécia', TR:'Turquia',
+      US:'EUA', BR:'Brasil', AR:'Argentina', MX:'México', CA:'Canadá',
+      CO:'Colômbia', UY:'Uruguai', EC:'Equador', VE:'Venezuela', PE:'Peru',
+      PY:'Paraguai', BO:'Bolívia', CW:'Curaçao', PA:'Panamá', HN:'Honduras',
+      CR:'Costa Rica', JM:'Jamaica',
+      MA:'Marrocos', SN:'Senegal', EG:'Egito', NG:'Nigéria', CM:'Camarões',
+      CI:'Costa do Marfim', ZA:'África do Sul', TN:'Tunísia', GH:'Gana',
+      TZ:'Tanzânia', AO:'Angola', BF:'Burkina Faso', CF:'República Centro-Africana', MZ:'Moçambique',
+      JP:'Japão', KR:'Coreia do Sul', SA:'Arábia Saudita', IR:'Irão', AU:'Austrália',
+      NZ:'Nova Zelândia', UZ:'Uzbequistão', QA:'Catar', CN:'China', TH:'Tailândia', IQ:'Iraque',
     },
   },
 };

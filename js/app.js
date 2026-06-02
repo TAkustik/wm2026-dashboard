@@ -51,6 +51,10 @@ function localMatchTime(m) {
   return convertMatchTime(m.time, fromOffset, toOffset);
 }
 
+function teamName(code, fallback) {
+  return i18n[currentLang]?.teams?.[code] ?? fallback;
+}
+
 function isToday(dateStr) {
   const d = new Date(`${dateStr}T00:00:00`);
   return d.toDateString() === new Date().toDateString();
@@ -115,7 +119,7 @@ function renderMatchCard(m, showDate = false) {
     <div class="match-card${fav ? ' fav' : ''}">
       <div class="match-team">
         <span class="flag">${m.homeflag}</span>
-        <span class="team-name">${m.home}</span>
+        <span class="team-name">${teamName(m.homeCode, m.home)}</span>
       </div>
       <div class="match-center">
         <div class="score">${score}</div>
@@ -124,7 +128,7 @@ function renderMatchCard(m, showDate = false) {
       </div>
       <div class="match-team right">
         <span class="flag">${m.awayflag}</span>
-        <span class="team-name">${m.away}</span>
+        <span class="team-name">${teamName(m.awayCode, m.away)}</span>
       </div>
       <div class="match-tv-row">${renderTVBadge(m, true)}</div>
     </div>`;
@@ -229,12 +233,12 @@ function renderFavTab() {
     heroTeams.innerHTML = `
       <div class="hero-team">
         <span class="hero-flag">${nextMatch.homeflag}</span>
-        <span class="hero-name">${nextMatch.home}</span>
+        <span class="hero-name">${teamName(nextMatch.homeCode, nextMatch.home)}</span>
       </div>
       <div class="hero-vs">VS</div>
       <div class="hero-team">
         <span class="hero-flag">${nextMatch.awayflag}</span>
-        <span class="hero-name">${nextMatch.away}</span>
+        <span class="hero-name">${teamName(nextMatch.awayCode, nextMatch.away)}</span>
       </div>`;
     heroMeta.innerHTML = `
       <div>
@@ -357,7 +361,7 @@ function renderGroups() {
                   <div class="team-cell">
                     <span class="pos">${i + 1}</span>
                     <span class="flag">${team.flag}</span>
-                    <span>${team.name}</span>
+                    <span>${teamName(team.code, team.name)}</span>
                   </div>
                 </td>
                 <td>0</td><td>0</td><td>0</td><td>0</td>
