@@ -59,8 +59,24 @@ function getTVColor(tvName) {
 
 function renderTVBadge(m, mini = false) {
   const cls = mini ? 'tv-mini' : 'tv-badge';
-  const color = getTVColor(m.tv);
-  return `<span class="${cls}" style="background:${color};color:#fff">${m.tv}</span>`;
+  const cc  = countryConfig[currentCountry];
+
+  // Für Deutschland: exakte Spieldaten nutzen
+  if (currentCountry === 'DE') {
+    const color = getTVColor(m.tv);
+    return `<span class="${cls}" style="background:${color};color:#fff">${m.tv}</span>`;
+  }
+
+  // Für alle anderen Länder: ersten passenden Sender aus countryConfig nehmen
+  // Free-TV bevorzugen wenn vorhanden
+  const broadcasters = cc?.broadcasters ?? [];
+  const preferred    = broadcasters.find(b => b.free === true) ?? broadcasters[0];
+
+  if (!preferred) {
+    return `<span class="${cls}" style="background:#444;color:#fff">TBD</span>`;
+  }
+
+  return `<span class="${cls}" style="background:${preferred.color};color:#fff">${preferred.name}</span>`;
 }
 
 // ═══════════════════════════════════════════════════════════════
