@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WM 2026 Dashboard</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HEADER
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="header">
+    <div class="header-left">
+      <span style="font-size:28px">🏆</span>
+      <div>
+        <h1>WM 2026 <span>/ Dashboard</span></h1>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="live-badge">LIVE</span>
+      <div class="clock-wrap">
+        <div class="clock" id="clock">00:00:00</div>
+        <div class="tournament-dates">11.06 – 19.07.2026</div>
+      </div>
+      <button class="settings-btn" onclick="toggleSettings()" title="Einstellungen">⚙️</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EINSTELLUNGEN
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="settings-panel" id="settings-panel">
+    <div class="settings-title">⚙ Konfiguration</div>
+    <div class="settings-row">
+
+      <div class="settings-field">
+        <label>🌍 Mein Land / Favorit</label>
+        <select class="settings-select" id="sel-country">
+          <!-- Europa -->
+          <optgroup label="Europa">
+            <option value="DE">🇩🇪 Deutschland</option>
+            <option value="AT">🇦🇹 Österreich</option>
+            <option value="CH">🇨🇭 Schweiz</option>
+            <option value="FR">🇫🇷 Frankreich</option>
+            <option value="ES">🇪🇸 Spanien</option>
+            <option value="GB">🏴󠁧󠁢󠁥󠁮󠁧󠁿 England</option>
+            <option value="NL">🇳🇱 Niederlande</option>
+            <option value="PT">🇵🇹 Portugal</option>
+            <option value="BE">🇧🇪 Belgien</option>
+            <option value="HR">🇭🇷 Kroatien</option>
+            <option value="RS">🇷🇸 Serbien</option>
+            <option value="RO">🇷🇴 Rumänien</option>
+            <option value="UA">🇺🇦 Ukraine</option>
+            <option value="SK">🇸🇰 Slowakei</option>
+            <option value="SI">🇸🇮 Slowenien</option>
+            <option value="AL">🇦🇱 Albanien</option>
+            <option value="GE">🇬🇪 Georgien</option>
+            <option value="IT">🇮🇹 Italien</option>
+            <option value="PL">🇵🇱 Polen</option>
+            <option value="SE">🇸🇪 Schweden</option>
+            <option value="TR">🇹🇷 Türkei</option>
+          </optgroup>
+          <!-- Americas -->
+          <optgroup label="Americas">
+            <option value="US">🇺🇸 USA</option>
+            <option value="BR">🇧🇷 Brasilien</option>
+            <option value="AR">🇦🇷 Argentinien</option>
+            <option value="MX">🇲🇽 Mexiko</option>
+            <option value="CA">🇨🇦 Kanada</option>
+            <option value="CO">🇨🇴 Kolumbien</option>
+            <option value="UY">🇺🇾 Uruguay</option>
+            <option value="EC">🇪🇨 Ecuador</option>
+            <option value="VE">🇻🇪 Venezuela</option>
+            <option value="PE">🇵🇪 Peru</option>
+            <option value="PY">🇵🇾 Paraguay</option>
+            <option value="BO">🇧🇴 Bolivien</option>
+            <option value="CW">🇨🇼 Curaçao</option>
+            <option value="PA">🇵🇦 Panama</option>
+            <option value="HN">🇭🇳 Honduras</option>
+            <option value="CR">🇨🇷 Costa Rica</option>
+            <option value="JM">🇯🇲 Jamaika</option>
+          </optgroup>
+          <!-- Afrika -->
+          <optgroup label="Afrika">
+            <option value="MA">🇲🇦 Marokko</option>
+            <option value="SN">🇸🇳 Senegal</option>
+            <option value="EG">🇪🇬 Ägypten</option>
+            <option value="NG">🇳🇬 Nigeria</option>
+            <option value="CM">🇨🇲 Kamerun</option>
+            <option value="CI">🇨🇮 Elfenbeinküste</option>
+            <option value="ZA">🇿🇦 Südafrika</option>
+            <option value="TN">🇹🇳 Tunesien</option>
+            <option value="GH">🇬🇭 Ghana</option>
+            <option value="TZ">🇹🇿 Tansania</option>
+            <option value="AO">🇦🇴 Angola</option>
+            <option value="BF">🇧🇫 Burkina Faso</option>
+            <option value="CF">🇨🇫 Zentralafrika</option>
+            <option value="MZ">🇲🇿 Mosambik</option>
+          </optgroup>
+          <!-- Asien & Ozeanien -->
+          <optgroup label="Asien &amp; Ozeanien">
+            <option value="JP">🇯🇵 Japan</option>
+            <option value="KR">🇰🇷 Südkorea</option>
+            <option value="SA">🇸🇦 Saudi-Arabien</option>
+            <option value="IR">🇮🇷 Iran</option>
+            <option value="AU">🇦🇺 Australien</option>
+            <option value="NZ">🇳🇿 Neuseeland</option>
+            <option value="UZ">🇺🇿 Usbekistan</option>
+            <option value="QA">🇶🇦 Katar</option>
+            <option value="CN">🇨🇳 China</option>
+            <option value="TH">🇹🇭 Thailand</option>
+            <option value="IQ">🇮🇶 Irak</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div class="settings-field">
+        <label>🗣 Sprache</label>
+        <select class="settings-select" id="sel-lang">
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="en">🇬🇧 English</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="nl">🇳🇱 Nederlands</option>
+          <option value="pt">🇵🇹 Português</option>
+        </select>
+      </div>
+
+      <button class="settings-apply" onclick="applySettings()">
+        Übernehmen
+      </button>
+
+    </div>
+    <div class="ha-hint-settings">
+      💡 Home Assistant: <code>?country=DE&amp;lang=de</code> als URL-Parameter möglich
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TABS
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="tabs">
+    <button class="tab active"
+            id="tab-btn-spielplan"
+            onclick="switchTab('spielplan', this)">
+      🗓 <span data-i18n="schedule">Spielplan</span>
+    </button>
+    <button class="tab"
+            id="tab-btn-favorit"
+            onclick="switchTab('favorit', this)">
+      🇩🇪 <span id="fav-tab-label">Deutschland</span>
+    </button>
+    <button class="tab"
+            id="tab-btn-gruppen"
+            onclick="switchTab('gruppen', this)">
+      📊 <span data-i18n="groups">Gruppen</span>
+    </button>
+    <button class="tab"
+            id="tab-btn-bracket"
+            onclick="switchTab('bracket', this)">
+      🏆 <span data-i18n="bracket">Bracket</span>
+    </button>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TAB: SPIELPLAN
+  ═══════════════════════════════════════════════════════════════ -->
+  <div id="tab-spielplan" class="view active">
+    <div class="filter-bar">
+      <button class="filter-btn active"
+              onclick="setFilter('all', this)"
+              data-i18n="filter_all">Alle</button>
+      <button class="filter-btn"
+              onclick="setFilter('heute', this)"
+              data-i18n="filter_today">Heute</button>
+      <button class="filter-btn"
+              onclick="setFilter('fav', this)"
+              id="filter-fav-btn">🇩🇪 Deutschland</button>
+      <button class="filter-btn"
+              onclick="setFilter('freietv', this)"
+              id="filter-freetv-btn"
+              data-i18n="filter_freetv">Free-TV</button>
+    </div>
+    <div id="match-list-container">
+      <!-- wird von app.js befüllt -->
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TAB: FAVORIT
+  ═══════════════════════════════════════════════════════════════ -->
+  <div id="tab-favorit" class="view">
+
+    <div class="next-match-hero" id="next-match-hero">
+      <div class="next-label" data-i18n="next_match">⚡ Nächstes Spiel</div>
+      <div class="hero-teams" id="hero-teams">
+        <!-- wird von app.js befüllt -->
+      </div>
+      <div class="hero-meta" id="hero-meta">
+        <!-- wird von app.js befüllt -->
+      </div>
+    </div>
+
+    <div class="countdown" id="countdown-box">
+      <div>
+        <div class="countdown-label" data-i18n="kickoff_in">Anpfiff in</div>
+      </div>
+      <div class="countdown-time" id="countdown-display">––</div>
+    </div>
+
+    <div class="section-title" data-i18n="all_group_matches">
+      Alle Gruppenspiele
+    </div>
+    <div class="match-list" id="fav-match-list">
+      <!-- wird von app.js befüllt -->
+    </div>
+
+    <div class="section-title" data-i18n="tv_rights">TV-Rechte</div>
+    <div class="tv-rights-box" id="tv-rights-box">
+      <!-- wird von app.js befüllt -->
+    </div>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TAB: GRUPPEN
+  ═══════════════════════════════════════════════════════════════ -->
+  <div id="tab-gruppen" class="view">
+    <div id="groups-container">
+      <!-- wird von app.js befüllt -->
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TAB: BRACKET
+  ═══════════════════════════════════════════════════════════════ -->
+  <div id="tab-bracket" class="view">
+    <div id="bracket-container">
+      <!-- wird von app.js befüllt -->
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="ha-hint">
+    💡 Home Assistant: Als <code>webpage</code>-Card einbinden
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SCRIPTS — Reihenfolge wichtig!
+  ═══════════════════════════════════════════════════════════════ -->
+  <script type="module" src="js/app.js"></script>
+
+</body>
+</html>
