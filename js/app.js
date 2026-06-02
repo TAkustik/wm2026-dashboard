@@ -32,6 +32,25 @@ function getMatchDateTime(m) {
   return new Date(`${m.date}T${m.time}:00`);
 }
 
+function convertMatchTime(timeStr, fromOffset, toOffset) {
+  // timeStr = "21:00", fromOffset = 2 (MESZ), toOffset = z.B. -4 (US)
+  const [hours, minutes] = timeStr.split(':').map(Number);
+  const diffHours = toOffset - fromOffset;
+  let newHours    = hours + diffHours;
+
+  // Über Mitternacht / vor Mitternacht abfangen
+  newHours = ((newHours % 24) + 24) % 24;
+
+  return `${String(newHours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+}
+
+function localMatchTime(m) {
+  const cc         = countryConfig[currentCountry];
+  const toOffset   = cc?.tzOffset ?? 2;
+  const fromOffset = 2; // Alle Spiele gespeichert in MESZ (UTC+2)
+  return convertMatchTime(m.time, fromOffset, toOffset);
+}
+
 function isToday(dateStr) {
   const d = new Date(`${dateStr}T00:00:00`);
   return d.toDateString() === new Date().toDateString();
@@ -100,7 +119,7 @@ function renderMatchCard(m, showDate = false) {
       </div>
       <div class="match-center">
         <div class="score">${score}</div>
-        <div class="match-time">${dateStr}${m.time}</div>
+        <div class="match-time">${dateStr}${localMatchTime(m)}</div>
         ${roundLabel}
       </div>
       <div class="match-team right">
@@ -220,7 +239,7 @@ function renderFavTab() {
     heroMeta.innerHTML = `
       <div>
         <div class="hero-datetime">
-          <strong>${formatDate(nextMatch.date, currentLang)}</strong> · ${nextMatch.time}
+          <strong>${formatDate(nextMatch.date, currentLang)}</strong> · ${localMatchTime(nextMatch)}
         </div>
         <div class="hero-venue">
           ${nextMatch.group ? t(currentLang, 'group') + ' ' + nextMatch.group : t(currentLang, nextMatch.round ?? '')}
