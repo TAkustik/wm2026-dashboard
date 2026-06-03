@@ -508,7 +508,7 @@ function updateFavTabLabel() {
   const tabBtn   = document.getElementById('tab-btn-favorit');
   const tabLabel = document.getElementById('fav-tab-label');
   if (tabBtn)   tabBtn.firstChild.textContent = cc.flag + ' ';
-  if (tabLabel) tabLabel.textContent          = cc.name;
+  if (tabLabel) tabLabel.textContent = teamName(currentCountry, cc.name);
 }
 
 // ═══════════════════════════════════════════════════════════════
