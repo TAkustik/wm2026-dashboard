@@ -323,6 +323,75 @@ function startCountdown(target) {
 }
 
 // ═══════════════════════════════════════════════════════════════
+// GRUPPENTABELLE BERECHNEN
+// ═══════════════════════════════════════════════════════════════
+function calcGroupStandings(groupLetter) {
+  const grp       = groups[groupLetter];
+  if (!grp) return [];
+
+  // Basis-Eintrag für jedes Team
+  const table = {};
+  grp.teams.forEach(team => {
+    table[team.code] = {
+      code:   team.code,
+      name:   team.name,
+      flag:   team.flag,
+      played: 0,
+      won:    0,
+      drawn:  0,
+      lost:   0,
+      gf:     0,  // goals for
+      ga:     0,  // goals against
+      gd:     0,  // goal difference
+      pts:    0,
+    };
+  });
+
+  // Alle abgeschlossenen Gruppenspiele dieser Gruppe auswerten
+  matches
+    .filter(m => m.group === groupLetter && m.score !== null)
+    .forEach(m => {
+      const [hg, ag] = m.score.split(':').map(Number);
+      if (isNaN(hg) || isNaN(ag)) return;
+
+      const home = table[m.homeCode];
+      const away = table[m.awayCode];
+      if (!home || !away) return;
+
+      // Gespielte Spiele
+      home.played++;
+      away.played++;
+
+      // Tore
+      home.gf += hg; home.ga += ag;
+      away.gf += ag; away.ga += hg;
+
+      // Punkte
+      if (hg > ag) {
+        home.won++;  home.pts += 3;
+        away.lost++;
+      } else if (hg < ag) {
+        away.won++;  away.pts += 3;
+        home.lost++;
+      } else {
+        home.drawn++; home.pts += 1;
+        away.drawn++; away.pts += 1;
+      }
+    });
+
+  // Tordifferenz berechnen
+  Object.values(table).forEach(t => { t.gd = t.gf - t.ga; });
+
+  // Sortierung: Punkte → Tordifferenz → Tore → alphabetisch
+  return Object.values(table).sort((a, b) => {
+    if (b.pts !== a.pts) return b.pts - a.pts;
+    if (b.gd  !== a.gd)  return b.gd  - a.gd;
+    if (b.gf  !== a.gf)  return b.gf  - a.gf;
+    return a.name.localeCompare(b.name);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════
 // GRUPPEN TAB
 // ═══════════════════════════════════════════════════════════════
 function renderGroups() {
@@ -337,40 +406,49 @@ function renderGroups() {
     return a.localeCompare(b);
   });
 
-  container.innerHTML = sorted.map(([letter, grp]) => `
-    <div class="group-block">
-      <div class="group-header">
-        ${t(currentLang, 'group')} ${letter}
-      </div>
-      <table class="standings-table">
-        <thead><tr>
-          <th>Team</th>
-          <th>${t(currentLang, 'played')}</th>
-          <th>${t(currentLang, 'won')}</th>
-          <th>${t(currentLang, 'drawn')}</th>
-          <th>${t(currentLang, 'lost')}</th>
-          <th>${t(currentLang, 'goals')}</th>
-          <th>${t(currentLang, 'points')}</th>
-        </tr></thead>
-        <tbody>
-          ${grp.teams.map((team, i) => {
-            const isFav = team.code === cc.teamCode;
-            return `
-              <tr class="${isFav ? 'fav-row' : ''}">
-                <td>
-                  <div class="team-cell">
-                    <span class="pos">${i + 1}</span>
-                    <span class="flag">${team.flag}</span>
-                    <span>${teamName(team.code, team.name)}</span>
-                  </div>
-                </td>
-                <td>0</td><td>0</td><td>0</td><td>0</td>
-                <td>0:0</td><td><strong>0</strong></td>
-              </tr>`;
-          }).join('')}
-        </tbody>
-      </table>
-    </div>`).join('');
+  container.innerHTML = sorted.map(([letter]) => {
+    const standings = calcGroupStandings(letter);
+
+    const rows = standings.map((team, i) => {
+      const isFav = team.code === cc.teamCode;
+      const name  = teamName(team.code, team.name);
+      return `
+        <tr class="${isFav ? 'fav-row' : ''}">
+          <td>
+            <div class="team-cell">
+              <span class="pos">${i + 1}</span>
+              <span class="flag">${team.flag}</span>
+              <span>${name}</span>
+            </div>
+          </td>
+          <td>${team.played}</td>
+          <td>${team.won}</td>
+          <td>${team.drawn}</td>
+          <td>${team.lost}</td>
+          <td>${team.gf}:${team.ga}</td>
+          <td><strong>${team.pts}</strong></td>
+        </tr>`;
+    }).join('');
+
+    return `
+      <div class="group-block">
+        <div class="group-header">
+          ${t(currentLang, 'group')} ${letter}
+        </div>
+        <table class="standings-table">
+          <thead><tr>
+            <th>Team</th>
+            <th>${t(currentLang, 'played')}</th>
+            <th>${t(currentLang, 'won')}</th>
+            <th>${t(currentLang, 'drawn')}</th>
+            <th>${t(currentLang, 'lost')}</th>
+            <th>${t(currentLang, 'goals')}</th>
+            <th>${t(currentLang, 'points')}</th>
+          </tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
+  }).join('');
 }
 
 // ═══════════════════════════════════════════════════════════════
