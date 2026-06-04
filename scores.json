@@ -1,0 +1,437 @@
+{
+  "updatedAt": "2026-06-04T13:45:54.890Z",
+  "scores": {
+    "2026-06-11_mexiko": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-12_südkorea": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-12_kanada": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-13_usa": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-13_australien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-13_katar": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-14_brasilien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-14_haiti": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-14_deutschland": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-14_niederlande": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-15_elfenbeinküste": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-15_schweden": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-15_spanien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-15_belgien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-16_saudi_arabien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-16_iran": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-16_österreich": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-16_frankreich": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-17_irak": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-17_argentinien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-17_portugal": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-17_england": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-18_ghana": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-18_usbekistan": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-18_tschechien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-18_schweiz": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-19_kanada": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-19_mexiko": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-19_türkei": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-19_usa": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-20_schottland": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-20_brasilien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-20_tunesien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-20_niederlande": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-20_deutschland": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-21_ecuador": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-21_spanien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-21_belgien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-22_uruguay": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-22_neuseeland": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-22_argentinien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-22_frankreich": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-23_norwegen": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-23_jordanien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-23_portugal": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-23_england": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-24_panama": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-24_kolumbien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-24_schweiz": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-24_bosnien_und_herzegowina": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-25_marokko": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-25_schottland": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-25_südafrika": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-25_tschechien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-25_curaçao": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-25_ecuador": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-26_tunesien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-26_japan": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-26_türkei": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-26_paraguay": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-26_norwegen": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-26_senegal": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-27_kap_verde": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-27_uruguay": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-27_neuseeland": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-27_ägypten": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-27_panama": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-27_kroatien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-28_kolumbien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-28_dr_kongo": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-28_algerien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    },
+    "2026-06-28_jordanien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null
+    }
+  }
+}
