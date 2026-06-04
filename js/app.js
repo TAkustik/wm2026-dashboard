@@ -617,10 +617,9 @@ function renderBracket() {
   const finaleX    = leftStart + LEFT_ROUNDS.length * COL_W;
   const rightStart = finaleX + FIN_W + COL_GAP;
 
-  const left  = renderBracketHalf(LEFT_ROUNDS,  leftStart,  true,  cc, totalH);
-  // Rechte Seite: R32 außen (rechts), SF innen (links) → Reihenfolge umkehren für Positionierung
-  const rightStartX = rightStart + (RIGHT_ROUNDS.length - 1) * COL_W;
-  const right = renderBracketHalf(RIGHT_ROUNDS, rightStartX, false, cc, totalH);
+  const left  = renderBracketHalf(LEFT_ROUNDS, leftStart, true, cc, totalH);
+  // Rechte Seite: SF direkt neben Finale, R32 außen rechts → goRight=true ab rightStart
+  const right = renderBracketHalf(RIGHT_ROUNDS, rightStart, true, cc, totalH);
 
   // Finale in der Mitte
   const finalMatch = matches.find(m => m.id === 96);
@@ -634,11 +633,11 @@ function renderBracket() {
   // Verbindungslinien SF links → Finale
   const sfLeftX  = leftStart + (LEFT_ROUNDS.length - 1) * COL_W + BOX_W;
   const sfY      = HEADER_H + bracketMatchY(1, 0) + BOX_H / 2;
-  const sfRightX = rightStartX;  // linke Kante der SF-Box rechts
+  const sfRightX = rightStart + BOX_W;  // rechte Kante der SF-Box rechts
 
   let centerLines = '';
   centerLines += `<path d="M${sfLeftX},${sfY} H${finaleX}" fill="none" stroke="#2a3a58" stroke-width="1.5" stroke-linecap="round"/>`;
-  centerLines += `<path d="M${finaleX + FIN_W},${sfY} H${sfRightX}" fill="none" stroke="#2a3a58" stroke-width="1.5" stroke-linecap="round"/>`;
+  centerLines += `<path d="M${finaleX + FIN_W},${sfY} H${rightStart}" fill="none" stroke="#2a3a58" stroke-width="1.5" stroke-linecap="round"/>`;
 
   // Finale-Header
   const finaleHeader = `<div class="b-round-title" style="position:absolute;left:${finaleX}px;top:0;width:${FIN_W}px;text-align:center;color:var(--accent);">
