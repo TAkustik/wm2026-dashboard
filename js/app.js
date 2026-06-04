@@ -540,7 +540,6 @@ function renderBracketHalf(rounds, startX, goRight, cc, totalH) {
   let svgLines  = '';
 
   rounds.forEach((round, rIdx) => {
-    // Beide Seiten: Index 0 = innerste Runde (neben Finale), wächst nach außen
     const x = startX + rIdx * COL_W;
 
     const roundMatches = round.ids.length > 0
@@ -568,28 +567,33 @@ function renderBracketHalf(rounds, startX, goRight, cc, totalH) {
         <div class="b-match-date">${dateLabel}</div>
       </div>`;
 
-      // Verbindungslinien: immer von dieser Runde zur nächsten (inneren) Runde
-      if (rIdx < rounds.length - 1) {
-        const nextRound = rounds[rIdx + 1];
-        const nextI = Math.floor(i / 2);
-        const y1    = HEADER_H + bracketMatchY(round.count, i) + BOX_H / 2;
-        const y2    = HEADER_H + bracketMatchY(nextRound.count, nextI) + BOX_H / 2;
-        const lc    = hasFav ? '#e8c84a44' : '#2a3a58';
-
-        let x1, x2, midX;
-        if (goRight) {
-          // Linke Seite: von rechter Kante dieser Box → nach rechts zur nächsten Box
-          x1   = x + BOX_W;
-          x2   = startX + (rIdx + 1) * COL_W;
-          midX = x1 + COL_GAP / 2;
-        } else {
-          // Rechte Seite: von linker Kante dieser Box → nach links zur nächsten (inneren) Box
-          x1   = x;
-          x2   = startX + (rIdx + 1) * COL_W + BOX_W;
-          midX = x1 - COL_GAP / 2;
+      if (goRight) {
+        // ── Linke Seite: Linie von rechter Kante → rechts zur nächsten Runde ──
+        if (rIdx < rounds.length - 1) {
+          const nextRound = rounds[rIdx + 1];
+          const nextI = Math.floor(i / 2);
+          const y1    = HEADER_H + bracketMatchY(round.count, i) + BOX_H / 2;
+          const y2    = HEADER_H + bracketMatchY(nextRound.count, nextI) + BOX_H / 2;
+          const x1    = x + BOX_W;
+          const x2    = startX + (rIdx + 1) * COL_W;
+          const midX  = x1 + COL_GAP / 2;
+          const lc    = hasFav ? '#e8c84a44' : '#2a3a58';
+          svgLines += `<path d="M${x1},${y1} H${midX} V${y2} H${x2}" fill="none" stroke="${lc}" stroke-width="1.5" stroke-linecap="round"/>`;
         }
-
-        svgLines += `<path d="M${x1},${y1} H${midX} V${y2} H${x2}" fill="none" stroke="${lc}" stroke-width="1.5" stroke-linecap="round"/>`;
+      } else {
+        // ── Rechte Seite: Linie von linker Kante ← links zur inneren Runde ──
+        // Linien nur von rIdx>0 zeichnen (von außen nach innen)
+        if (rIdx > 0) {
+          const prevRound = rounds[rIdx - 1];
+          const prevI = Math.floor(i / 2);
+          const y1    = HEADER_H + bracketMatchY(round.count, i) + BOX_H / 2;
+          const y2    = HEADER_H + bracketMatchY(prevRound.count, prevI) + BOX_H / 2;
+          const x1    = x;                              // linke Kante dieser (äußeren) Box
+          const x2    = startX + (rIdx - 1) * COL_W + BOX_W;  // rechte Kante der inneren Box
+          const midX  = x1 - COL_GAP / 2;
+          const lc    = hasFav ? '#e8c84a44' : '#2a3a58';
+          svgLines += `<path d="M${x1},${y1} H${midX} V${y2} H${x2}" fill="none" stroke="${lc}" stroke-width="1.5" stroke-linecap="round"/>`;
+        }
       }
     });
   });
