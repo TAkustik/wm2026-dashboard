@@ -638,8 +638,9 @@ body {
 /* ── BRACKET (SVG-basiert, absolut positioniert) ── */
 .bracket-outer {
   overflow-x: auto;
-  overflow-y: auto;
+  overflow-y: hidden;
   padding-bottom: 16px;
+  width: 100%;
 }
 
 .bracket-svg-wrap {

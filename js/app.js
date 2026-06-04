@@ -463,47 +463,52 @@ function renderGroups() {
 }
 
 // ═══════════════════════════════════════════════════════════════
-// BRACKET TAB — SVG-basiert (absolut positioniert)
+// BRACKET TAB — gespiegelt (links ↔ rechts, Finale in der Mitte)
 // ═══════════════════════════════════════════════════════════════
 
 // Layout-Konstanten
-const BOX_W   = 152;   // Match-Box Breite
-const BOX_H   = 78;    // Match-Box Höhe (2 Teams + Datum-Zeile)
-const COL_GAP = 52;    // horizontaler Abstand zwischen Runden
-const COL_W   = BOX_W + COL_GAP;
-const HEADER_H = 36;
+const BOX_W    = 130;  // Match-Box Breite
+const BOX_H    = 72;   // Match-Box Höhe
+const COL_GAP  = 28;   // Abstand zwischen Spalten
+const COL_W    = BOX_W + COL_GAP;
+const HEADER_H = 34;
+const FIN_W    = 140;  // Finale-Box Breite (etwas breiter)
 
-const ROUND_DEFS = [
-  { key: 'r32', count: 16, ids: [73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88] },
-  { key: 'r16', count:  8, ids: [] },
-  { key: 'qf',  count:  4, ids: [] },
-  { key: 'sf',  count:  2, ids: [] },
-  { key: 'final', count: 1, ids: [96] },
+// Linke Seite: R32(8) → R16(4) → QF(2) → SF(1)
+// Rechte Seite: SF(1) → QF(2) → R16(4) → R32(8)  (gespiegelt)
+const LEFT_ROUNDS  = [
+  { key: 'r32', count: 8,  ids: [73,74,75,76,77,78,79,80] },
+  { key: 'r16', count: 4,  ids: [] },
+  { key: 'qf',  count: 2,  ids: [] },
+  { key: 'sf',  count: 1,  ids: [] },
+];
+const RIGHT_ROUNDS = [
+  { key: 'sf',  count: 1,  ids: [] },
+  { key: 'qf',  count: 2,  ids: [] },
+  { key: 'r16', count: 4,  ids: [] },
+  { key: 'r32', count: 8,  ids: [81,82,83,84,85,86,87,88] },
 ];
 
-function bracketRoundLabel(key) {
+function bracketRoundLabel(key, side) {
   const labels = {
-    r32:   '1/16  ·  28 Jun – 05 Jul',
-    r16:   '1/8  ·  07–10 Jul',
-    qf:    t(currentLang, 'quarter_final') + '  ·  11–12 Jul',
-    sf:    t(currentLang, 'semi_final') + '  ·  15–16 Jul',
-    final: t(currentLang, 'final') + '  ·  19 Jul',
+    r32:   '1/16',
+    r16:   '1/8',
+    qf:    t(currentLang, 'quarter_final'),
+    sf:    t(currentLang, 'semi_final'),
   };
   return labels[key] || key;
 }
 
-function bracketMatchY(roundCount, index) {
-  // Verteilt Matches gleichmäßig über die Gesamthöhe (16 Slots als Basis)
-  const BASE   = 16;
+// Y-Position: 8 Slots als Basis (pro Hälfte)
+function bracketMatchY(count, index) {
+  const BASE   = 8;
   const totalH = BASE * (BOX_H + 14);
-  const slotH  = totalH / roundCount;
+  const slotH  = totalH / count;
   return index * slotH + (slotH - BOX_H) / 2;
 }
 
-function bracketTotalSize() {
-  const totalH = 16 * (BOX_H + 14) + HEADER_H + 60;
-  const totalW = ROUND_DEFS.length * COL_W + BOX_W + 20;
-  return { w: totalW, h: totalH };
+function bracketTotalH() {
+  return 8 * (BOX_H + 14) + HEADER_H + 40;
 }
 
 function renderBracketTeamRow(m, isHome, cc) {
@@ -524,26 +529,20 @@ function renderBracketTeamRow(m, isHome, cc) {
   const isWinner = h !== null && (isHome ? h > a : a > h);
 
   return `<div class="b-team-row${isWinner ? ' winner' : ''}${isFav ? ' fav-team' : ''}">
-    <span style="font-size:1rem;flex-shrink:0">${flag}</span>
+    <span style="font-size:0.95rem;flex-shrink:0">${flag}</span>
     <span class="b-team-name">${name}</span>
     ${score !== null ? `<span class="b-team-score">${score}</span>` : ''}
   </div>`;
 }
 
-function renderBracket() {
-  const container = document.getElementById('bracket-container');
-  if (!container) return;
-
-  const cc  = countryConfig[currentCountry];
-  const { w: totalW, h: totalH } = bracketTotalSize();
-
+function renderBracketHalf(rounds, startX, goRight, cc, totalH) {
   let boxesHtml = '';
   let svgLines  = '';
 
-  ROUND_DEFS.forEach((round, rIdx) => {
-    const x = rIdx * COL_W;
+  rounds.forEach((round, rIdx) => {
+    const x = startX + (goRight ? rIdx * COL_W : -(rIdx * COL_W));
 
-    // Match-Daten ermitteln
+    // TBD-Matches erzeugen falls keine IDs
     const roundMatches = round.ids.length > 0
       ? round.ids.map(id => matches.find(m => m.id === id)).filter(Boolean)
       : Array(round.count).fill(null).map(() => ({
@@ -552,8 +551,10 @@ function renderBracket() {
           date: '–', score: null,
         }));
 
-    // Runden-Header
-    boxesHtml += `<div class="b-round-title" style="position:absolute;left:${x}px;top:0;width:${BOX_W}px;">
+    // Runden-Header (text-anchor je nach Seite)
+    const headerX = goRight ? x : x + BOX_W;
+    const anchor  = 'middle';
+    boxesHtml += `<div class="b-round-title" style="position:absolute;left:${x}px;top:0;width:${BOX_W}px;text-align:center;">
       ${bracketRoundLabel(round.key)}
     </div>`;
 
@@ -570,32 +571,95 @@ function renderBracket() {
         <div class="b-match-date">${dateLabel}</div>
       </div>`;
 
-      // SVG-Verbindungslinien zum nächsten Round
-      if (rIdx < ROUND_DEFS.length - 1) {
-        const nextRound = ROUND_DEFS[rIdx + 1];
-        const x1   = x + BOX_W;
-        const y1   = HEADER_H + bracketMatchY(round.count, i) + BOX_H / 2;
-        const nextI = Math.floor(i / 2);
-        const x2   = (rIdx + 1) * COL_W;
-        const y2   = HEADER_H + bracketMatchY(nextRound.count, nextI) + BOX_H / 2;
-        const midX = x1 + COL_GAP / 2;
-        const lc   = hasFav ? '#e8c84a44' : '#2a3a58';
+      // Verbindungslinien zur nächsten Runde
+      if (rIdx < rounds.length - 1) {
+        const nextRound = rounds[rIdx + 1];
+        const nextI  = Math.floor(i / 2);
+        const y1     = HEADER_H + bracketMatchY(round.count, i) + BOX_H / 2;
+        const y2     = HEADER_H + bracketMatchY(nextRound.count, nextI) + BOX_H / 2;
+        const lc     = hasFav ? '#e8c84a44' : '#2a3a58';
+
+        let x1, x2, midX;
+        if (goRight) {
+          x1   = x + BOX_W;
+          x2   = startX + (rIdx + 1) * COL_W;
+          midX = x1 + COL_GAP / 2;
+        } else {
+          x1   = x;
+          x2   = startX - (rIdx + 1) * COL_W + BOX_W;
+          midX = x1 - COL_GAP / 2;
+        }
 
         svgLines += `<path d="M${x1},${y1} H${midX} V${y2} H${x2}" fill="none" stroke="${lc}" stroke-width="1.5" stroke-linecap="round"/>`;
       }
     });
   });
 
-  // Sieger-Box unter dem Finale
+  return { boxesHtml, svgLines };
+}
+
+function renderBracket() {
+  const container = document.getElementById('bracket-container');
+  if (!container) return;
+
+  const cc     = countryConfig[currentCountry];
+  const totalH = bracketTotalH();
+
+  // Gesamtbreite: 4 Spalten links + Finale + 4 Spalten rechts
+  const totalW = LEFT_ROUNDS.length * COL_W
+               + FIN_W
+               + RIGHT_ROUNDS.length * COL_W
+               + 20;
+
+  // X-Startpositionen
+  const leftStart  = 10;
+  // Linke Seite endet bei: leftStart + 4*COL_W - COL_GAP (letzte Box)
+  const finaleX    = leftStart + LEFT_ROUNDS.length * COL_W;
+  const rightStart = finaleX + FIN_W + COL_GAP;
+
+  const left  = renderBracketHalf(LEFT_ROUNDS,  leftStart,  true,  cc, totalH);
+  // Rechte Seite: R32 außen (rechts), SF innen (links) → Reihenfolge umkehren für Positionierung
+  const rightStartX = rightStart + (RIGHT_ROUNDS.length - 1) * COL_W;
+  const right = renderBracketHalf(RIGHT_ROUNDS, rightStartX, false, cc, totalH);
+
+  // Finale in der Mitte
   const finalMatch = matches.find(m => m.id === 96);
+  const fm = finalMatch ?? {
+    homeCode: null, homeflag: '🏳️', home: 'TBD',
+    awayCode: null, awayflag: '🏳️', away: 'TBD',
+    date: '19.07', score: null,
+  };
+  const finY = HEADER_H + bracketMatchY(1, 0);
+
+  // Verbindungslinien SF links → Finale
+  const sfLeftX  = leftStart + (LEFT_ROUNDS.length - 1) * COL_W + BOX_W;
+  const sfY      = HEADER_H + bracketMatchY(1, 0) + BOX_H / 2;
+  const sfRightX = rightStartX;  // linke Kante der SF-Box rechts
+
+  let centerLines = '';
+  centerLines += `<path d="M${sfLeftX},${sfY} H${finaleX}" fill="none" stroke="#2a3a58" stroke-width="1.5" stroke-linecap="round"/>`;
+  centerLines += `<path d="M${finaleX + FIN_W},${sfY} H${sfRightX}" fill="none" stroke="#2a3a58" stroke-width="1.5" stroke-linecap="round"/>`;
+
+  // Finale-Header
+  const finaleHeader = `<div class="b-round-title" style="position:absolute;left:${finaleX}px;top:0;width:${FIN_W}px;text-align:center;color:var(--accent);">
+    🏆 ${t(currentLang, 'final')} · 19.07
+  </div>`;
+
+  // Finale-Box
+  const finaleBox = `<div class="b-match-box" style="left:${finaleX}px;top:${finY}px;width:${FIN_W}px;border-color:rgba(232,200,74,0.4);">
+    ${renderBracketTeamRow(fm, true,  cc)}
+    ${renderBracketTeamRow(fm, false, cc)}
+    <div class="b-match-date">19.07 · New York</div>
+  </div>`;
+
+  // Sieger-Box
+  let winnerBox = '';
   if (finalMatch?.score) {
     const [h, a] = finalMatch.score.split(':').map(Number);
-    const winnerCode = h > a ? finalMatch.homeCode : finalMatch.awayCode;
     const winnerFlag = h > a ? finalMatch.homeflag : finalMatch.awayflag;
     const winnerName = h > a ? finalMatch.home     : finalMatch.away;
-    const finalX = (ROUND_DEFS.length - 1) * COL_W;
-    const finalY = HEADER_H + bracketMatchY(1, 0) + BOX_H + 20;
-    boxesHtml += `<div class="b-winner-box" style="left:${finalX}px;top:${finalY}px;">
+    const winY = finY + BOX_H + 16;
+    winnerBox = `<div class="b-winner-box" style="left:${finaleX + (FIN_W - 148) / 2}px;top:${winY}px;">
       <div class="b-winner-flag">${winnerFlag}</div>
       <div class="b-winner-label">🏆 ${winnerName}</div>
     </div>`;
@@ -605,9 +669,15 @@ function renderBracket() {
     <div class="bracket-outer">
       <div class="bracket-svg-wrap" style="width:${totalW}px;height:${totalH}px;">
         <svg style="position:absolute;top:0;left:0;width:${totalW}px;height:${totalH}px;pointer-events:none;" xmlns="http://www.w3.org/2000/svg">
-          ${svgLines}
+          ${left.svgLines}
+          ${right.svgLines}
+          ${centerLines}
         </svg>
-        ${boxesHtml}
+        ${left.boxesHtml}
+        ${right.boxesHtml}
+        ${finaleHeader}
+        ${finaleBox}
+        ${winnerBox}
       </div>
     </div>`;
 }
