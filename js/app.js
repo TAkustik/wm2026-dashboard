@@ -540,7 +540,9 @@ function renderBracketHalf(rounds, startX, goRight, cc, totalH) {
   let svgLines  = '';
 
   rounds.forEach((round, rIdx) => {
-    const x = startX + (goRight ? rIdx * COL_W : -(rIdx * COL_W));
+    const x = goRight
+      ? startX + rIdx * COL_W
+      : startX + rIdx * COL_W;  // rechte Seite: Index 0=SF neben Finale, wächst nach rechts
 
     // TBD-Matches erzeugen falls keine IDs
     const roundMatches = round.ids.length > 0
@@ -581,12 +583,14 @@ function renderBracketHalf(rounds, startX, goRight, cc, totalH) {
 
         let x1, x2, midX;
         if (goRight) {
+          // Linke Seite: Linie von rechter Kante nach rechts zur nächsten Spalte
           x1   = x + BOX_W;
           x2   = startX + (rIdx + 1) * COL_W;
           midX = x1 + COL_GAP / 2;
         } else {
+          // Rechte Seite: Linie von linker Kante nach links zur nächsten (inneren) Spalte
           x1   = x;
-          x2   = startX - (rIdx + 1) * COL_W + BOX_W;
+          x2   = startX + (rIdx + 1) * COL_W + BOX_W;
           midX = x1 - COL_GAP / 2;
         }
 
@@ -617,9 +621,9 @@ function renderBracket() {
   const finaleX    = leftStart + LEFT_ROUNDS.length * COL_W;
   const rightStart = finaleX + FIN_W + COL_GAP;
 
-  const left  = renderBracketHalf(LEFT_ROUNDS, leftStart, true, cc, totalH);
-  // Rechte Seite: SF direkt neben Finale, R32 außen rechts → goRight=true ab rightStart
-  const right = renderBracketHalf(RIGHT_ROUNDS, rightStart, true, cc, totalH);
+  const left  = renderBracketHalf(LEFT_ROUNDS,  leftStart,  true,  cc, totalH);
+  // Rechte Seite: SF direkt neben Finale, R32 außen rechts → Linien zeigen nach links
+  const right = renderBracketHalf(RIGHT_ROUNDS, rightStart, false, cc, totalH);
 
   // Finale in der Mitte
   const finalMatch = matches.find(m => m.id === 96);
