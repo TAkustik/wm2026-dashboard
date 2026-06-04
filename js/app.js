@@ -32,23 +32,32 @@ function getMatchDateTime(m) {
   return new Date(`${m.date}T${m.time}:00`);
 }
 
-function convertMatchTime(timeStr, fromOffset, toOffset) {
-  // timeStr = "21:00", fromOffset = 2 (MESZ), toOffset = z.B. -4 (US)
-  const [hours, minutes] = timeStr.split(':').map(Number);
-  const diffHours = toOffset - fromOffset;
-  let newHours    = hours + diffHours;
+function localMatchDateTime(m) {
+  // Alle Spiele gespeichert in MESZ (UTC+2)
+  const fromOffset = 2;
+  const toOffset   = countryConfig[currentCountry]?.tzOffset ?? 2;
+  const diffHours  = toOffset - fromOffset;
 
-  // Über Mitternacht / vor Mitternacht abfangen
-  newHours = ((newHours % 24) + 24) % 24;
+  const [hours, minutes] = m.time.split(':').map(Number);
+  const totalMinutes = hours * 60 + minutes + diffHours * 60;
 
-  return `${String(newHours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
-}
+  // Datumswechsel: totalMinutes kann negativ oder ≥ 1440 sein
+  const dayDelta     = Math.floor(totalMinutes / (24 * 60));
+  const localMinutes = ((totalMinutes % (24 * 60)) + 24 * 60) % (24 * 60);
+  const localHours   = Math.floor(localMinutes / 60);
+  const localMins    = localMinutes % 60;
 
-function localMatchTime(m) {
-  const cc         = countryConfig[currentCountry];
-  const toOffset   = cc?.tzOffset ?? 2;
-  const fromOffset = 2; // Alle Spiele gespeichert in MESZ (UTC+2)
-  return convertMatchTime(m.time, fromOffset, toOffset);
+  const timeStr = `${String(localHours).padStart(2, '0')}:${String(localMins).padStart(2, '0')}`;
+
+  // Datum nur anpassen wenn dayDelta != 0
+  let dateStr = m.date;
+  if (dayDelta !== 0) {
+    const d = new Date(`${m.date}T00:00:00`);
+    d.setDate(d.getDate() + dayDelta);
+    dateStr = d.toISOString().slice(0, 10);
+  }
+
+  return { date: dateStr, time: timeStr };
 }
 
 function teamName(code, fallback) {
@@ -106,10 +115,11 @@ function renderTVBadge(m, mini = false) {
 // MATCH KARTE
 // ═══════════════════════════════════════════════════════════════
 function renderMatchCard(m, showDate = false) {
-  const fav     = isFavMatch(m);
-  const score   = m.score ?? '– : –';
-  const dateStr = showDate
-    ? `<span class="match-date-label">${formatDate(m.date, currentLang)}</span>`
+  const fav      = isFavMatch(m);
+  const score    = m.score ?? '– : –';
+  const local    = localMatchDateTime(m);
+  const dateStr  = showDate
+    ? `<span class="match-date-label">${formatDate(local.date, currentLang)}</span>`
     : '';
   const roundLabel = m.round && !m.group
     ? `<span class="match-round-label">${t(currentLang, m.round) || m.round}</span>`
@@ -123,7 +133,7 @@ function renderMatchCard(m, showDate = false) {
       </div>
       <div class="match-center">
         <div class="score">${score}</div>
-        <div class="match-time">${dateStr}${localMatchTime(m)}</div>
+        <div class="match-time">${dateStr}${local.time}</div>
         ${roundLabel}
       </div>
       <div class="match-team right">
@@ -142,7 +152,7 @@ function filterMatchList(filter) {
   let list = matches.filter(m => m.group !== null); // nur Gruppenphase + K.o.
   switch (filter) {
     case 'heute':
-      list = list.filter(m => isToday(m.date));
+      list = list.filter(m => isToday(localMatchDateTime(m).date));
       break;
     case 'fav':
       list = list.filter(m => isFavMatch(m));
@@ -167,11 +177,12 @@ function renderSpielplan() {
     return;
   }
 
-  // Nach Datum gruppieren
+  // Nach lokalem Datum gruppieren
   const byDate = {};
   list.forEach(m => {
-    if (!byDate[m.date]) byDate[m.date] = [];
-    byDate[m.date].push(m);
+    const localDate = localMatchDateTime(m).date;
+    if (!byDate[localDate]) byDate[localDate] = [];
+    byDate[localDate].push(m);
   });
 
   let html = '';
@@ -243,7 +254,7 @@ function renderFavTab() {
     heroMeta.innerHTML = `
       <div>
         <div class="hero-datetime">
-          <strong>${formatDate(nextMatch.date, currentLang)}</strong> · ${localMatchTime(nextMatch)}
+          <strong>${formatDate(localMatchDateTime(nextMatch).date, currentLang)}</strong> · ${localMatchDateTime(nextMatch).time}
         </div>
         <div class="hero-venue">
           ${nextMatch.group ? t(currentLang, 'group') + ' ' + nextMatch.group : t(currentLang, nextMatch.round ?? '')}
@@ -452,84 +463,151 @@ function renderGroups() {
 }
 
 // ═══════════════════════════════════════════════════════════════
-// BRACKET TAB
+// BRACKET TAB — SVG-basiert (absolut positioniert)
 // ═══════════════════════════════════════════════════════════════
-const bracketRounds = [
-  { key: 'R32', ids: [73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88] },
-  { key: 'R16', ids: [89,90,91,92,93,94,95,96] },  // Platzhalter — werden befüllt
-  { key: 'QF',  ids: [89,90,91,92] },
-  { key: 'SF',  ids: [93,94] },
+
+// Layout-Konstanten
+const BOX_W   = 152;   // Match-Box Breite
+const BOX_H   = 78;    // Match-Box Höhe (2 Teams + Datum-Zeile)
+const COL_GAP = 52;    // horizontaler Abstand zwischen Runden
+const COL_W   = BOX_W + COL_GAP;
+const HEADER_H = 36;
+
+const ROUND_DEFS = [
+  { key: 'r32', count: 16, ids: [73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88] },
+  { key: 'r16', count:  8, ids: [] },
+  { key: 'qf',  count:  4, ids: [] },
+  { key: 'sf',  count:  2, ids: [] },
+  { key: 'final', count: 1, ids: [96] },
 ];
 
-function renderBracketTeam(code, flag, name) {
-  const cc    = countryConfig[currentCountry];
-  const isFav = code && code === cc.teamCode;
+function bracketRoundLabel(key) {
+  const labels = {
+    r32:   '1/16  ·  28 Jun – 05 Jul',
+    r16:   '1/8  ·  07–10 Jul',
+    qf:    t(currentLang, 'quarter_final') + '  ·  11–12 Jul',
+    sf:    t(currentLang, 'semi_final') + '  ·  15–16 Jul',
+    final: t(currentLang, 'final') + '  ·  19 Jul',
+  };
+  return labels[key] || key;
+}
+
+function bracketMatchY(roundCount, index) {
+  // Verteilt Matches gleichmäßig über die Gesamthöhe (16 Slots als Basis)
+  const BASE   = 16;
+  const totalH = BASE * (BOX_H + 14);
+  const slotH  = totalH / roundCount;
+  return index * slotH + (slotH - BOX_H) / 2;
+}
+
+function bracketTotalSize() {
+  const totalH = 16 * (BOX_H + 14) + HEADER_H + 60;
+  const totalW = ROUND_DEFS.length * COL_W + BOX_W + 20;
+  return { w: totalW, h: totalH };
+}
+
+function renderBracketTeamRow(m, isHome, cc) {
+  const code  = isHome ? m.homeCode : m.awayCode;
+  const flag  = isHome ? m.homeflag : m.awayflag;
+  const name  = isHome ? m.home     : m.away;
+  const score = m.score ? m.score.split(':')[isHome ? 0 : 1] : null;
+
   const isEmpty = !name || name === 'TBD';
-  if (isEmpty) return `<div class="bracket-team empty">&nbsp;</div>`;
-  return `
-    <div class="bracket-team${isFav ? ' fav' : ''}">
-      <span>${flag}</span>
-      <span class="bracket-team-name">${name}</span>
+  if (isEmpty) {
+    return `<div class="b-team-row empty-team">
+      <span class="b-team-name" style="color:var(--border)">─</span>
     </div>`;
+  }
+
+  const isFav    = code && code === cc.teamCode;
+  const [h, a]   = m.score ? m.score.split(':').map(Number) : [null, null];
+  const isWinner = h !== null && (isHome ? h > a : a > h);
+
+  return `<div class="b-team-row${isWinner ? ' winner' : ''}${isFav ? ' fav-team' : ''}">
+    <span style="font-size:1rem;flex-shrink:0">${flag}</span>
+    <span class="b-team-name">${name}</span>
+    ${score !== null ? `<span class="b-team-score">${score}</span>` : ''}
+  </div>`;
 }
 
 function renderBracket() {
   const container = document.getElementById('bracket-container');
   if (!container) return;
 
-  const roundDefs = [
-    { key: 'R32', label: t(currentLang, 'round_of_32'),   matchIds: [73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88] },
-    { key: 'R16', label: t(currentLang, 'round_of_16'),   matchIds: [] }, // nach Gruppenphase
-    { key: 'QF',  label: t(currentLang, 'quarter_final'), matchIds: [] },
-    { key: 'SF',  label: t(currentLang, 'semi_final'),    matchIds: [] },
-  ];
+  const cc  = countryConfig[currentCountry];
+  const { w: totalW, h: totalH } = bracketTotalSize();
 
-  const roundsHtml = roundDefs.map(round => {
-    const roundMatches = round.matchIds.length > 0
-      ? round.matchIds.map(id => matches.find(m => m.id === id)).filter(Boolean)
-      : Array(round.key === 'R16' ? 8 : round.key === 'QF' ? 4 : 2)
-          .fill(null)
-          .map((_, i) => ({
-            id: null,
-            home: 'TBD', homeflag: '🏳️', homeCode: null,
-            away: 'TBD', awayflag: '🏳️', awayCode: null,
-            date: '–', score: null,
-          }));
+  let boxesHtml = '';
+  let svgLines  = '';
 
-    const matchesHtml = roundMatches.map(m => `
-      <div class="bracket-match">
-        ${renderBracketTeam(m.homeCode, m.homeflag, m.home)}
-        ${renderBracketTeam(m.awayCode, m.awayflag, m.away)}
-        <div class="bracket-date">${m.date ?? '–'}</div>
-      </div>`).join('');
+  ROUND_DEFS.forEach((round, rIdx) => {
+    const x = rIdx * COL_W;
 
-    return `
-      <div class="bracket-round">
-        <div class="round-label">${round.label}</div>
-        <div class="bracket-slots">${matchesHtml}</div>
-      </div>`;
-  }).join('');
+    // Match-Daten ermitteln
+    const roundMatches = round.ids.length > 0
+      ? round.ids.map(id => matches.find(m => m.id === id)).filter(Boolean)
+      : Array(round.count).fill(null).map(() => ({
+          homeCode: null, homeflag: '🏳️', home: 'TBD',
+          awayCode: null, awayflag: '🏳️', away: 'TBD',
+          date: '–', score: null,
+        }));
 
-  // Finale separat
-  const finalMatch = matches.find(m => m.id === 96);
-  const finaleHtml = `
-    <div class="bracket-round" style="min-width:150px;">
-      <div class="round-label">${t(currentLang, 'final')} · 19.07</div>
-      <div class="bracket-slots" style="justify-content:center;">
-        <div class="bracket-match">
-          ${renderBracketTeam(finalMatch?.homeCode, finalMatch?.homeflag, finalMatch?.home)}
-          ${renderBracketTeam(finalMatch?.awayCode, finalMatch?.awayflag, finalMatch?.away)}
-          <div class="bracket-date">19.07 · New York</div>
-        </div>
-        <div class="finale-trophy">🏆</div>
-      </div>
+    // Runden-Header
+    boxesHtml += `<div class="b-round-title" style="position:absolute;left:${x}px;top:0;width:${BOX_W}px;">
+      ${bracketRoundLabel(round.key)}
     </div>`;
 
+    roundMatches.forEach((m, i) => {
+      const y      = HEADER_H + bracketMatchY(round.count, i);
+      const hasFav = (m.homeCode === cc.teamCode || m.awayCode === cc.teamCode);
+      const dateLabel = m.date && m.date !== '–'
+        ? (m.date.startsWith('2026') ? m.date.slice(8,10) + '.' + m.date.slice(5,7) : m.date)
+        : '–';
+
+      boxesHtml += `<div class="b-match-box${hasFav ? ' has-fav' : ''}" style="left:${x}px;top:${y}px;">
+        ${renderBracketTeamRow(m, true,  cc)}
+        ${renderBracketTeamRow(m, false, cc)}
+        <div class="b-match-date">${dateLabel}</div>
+      </div>`;
+
+      // SVG-Verbindungslinien zum nächsten Round
+      if (rIdx < ROUND_DEFS.length - 1) {
+        const nextRound = ROUND_DEFS[rIdx + 1];
+        const x1   = x + BOX_W;
+        const y1   = HEADER_H + bracketMatchY(round.count, i) + BOX_H / 2;
+        const nextI = Math.floor(i / 2);
+        const x2   = (rIdx + 1) * COL_W;
+        const y2   = HEADER_H + bracketMatchY(nextRound.count, nextI) + BOX_H / 2;
+        const midX = x1 + COL_GAP / 2;
+        const lc   = hasFav ? '#e8c84a44' : '#2a3a58';
+
+        svgLines += `<path d="M${x1},${y1} H${midX} V${y2} H${x2}" fill="none" stroke="${lc}" stroke-width="1.5" stroke-linecap="round"/>`;
+      }
+    });
+  });
+
+  // Sieger-Box unter dem Finale
+  const finalMatch = matches.find(m => m.id === 96);
+  if (finalMatch?.score) {
+    const [h, a] = finalMatch.score.split(':').map(Number);
+    const winnerCode = h > a ? finalMatch.homeCode : finalMatch.awayCode;
+    const winnerFlag = h > a ? finalMatch.homeflag : finalMatch.awayflag;
+    const winnerName = h > a ? finalMatch.home     : finalMatch.away;
+    const finalX = (ROUND_DEFS.length - 1) * COL_W;
+    const finalY = HEADER_H + bracketMatchY(1, 0) + BOX_H + 20;
+    boxesHtml += `<div class="b-winner-box" style="left:${finalX}px;top:${finalY}px;">
+      <div class="b-winner-flag">${winnerFlag}</div>
+      <div class="b-winner-label">🏆 ${winnerName}</div>
+    </div>`;
+  }
+
   container.innerHTML = `
-    <div class="bracket-wrap">
-      <div class="bracket">
-        ${roundsHtml}
-        ${finaleHtml}
+    <div class="bracket-outer">
+      <div class="bracket-svg-wrap" style="width:${totalW}px;height:${totalH}px;">
+        <svg style="position:absolute;top:0;left:0;width:${totalW}px;height:${totalH}px;pointer-events:none;" xmlns="http://www.w3.org/2000/svg">
+          ${svgLines}
+        </svg>
+        ${boxesHtml}
       </div>
     </div>`;
 }

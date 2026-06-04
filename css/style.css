@@ -635,110 +635,96 @@ body {
 /* ═══════════════════════════════════════════════════════════════
    BRACKET
 ═══════════════════════════════════════════════════════════════ */
-.bracket-wrap {
+/* ── BRACKET (SVG-basiert, absolut positioniert) ── */
+.bracket-outer {
   overflow-x: auto;
-  overflow-y: hidden;
-  padding-bottom: 12px;
+  overflow-y: auto;
+  padding-bottom: 16px;
 }
 
-.bracket {
-  display: flex;
-  align-items: stretch;
-  min-width: 900px;
+.bracket-svg-wrap {
+  position: relative;
 }
 
-.bracket-round {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-width: 140px;
-}
-
-.round-label {
-  font-size: 0.6rem;
-  letter-spacing: 2px;
+.b-round-title {
+  font-size: 0.58rem;
+  letter-spacing: 1.5px;
   color: var(--accent);
   text-transform: uppercase;
   font-weight: 600;
   text-align: center;
-  padding: 8px 4px;
+  padding: 6px 0;
   border-bottom: 1px solid var(--border);
-  margin-bottom: 4px;
 }
 
-.bracket-slots {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  justify-content: space-around;
-  padding: 4px 0;
-}
-
-.bracket-match {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  margin: 4px 6px;
-  position: relative;
-}
-
-.bracket-match::after {
-  content: '';
-  position: absolute;
-  right: -7px;
-  top: 50%;
-  width: 7px;
-  height: 1px;
-  background: var(--border);
-}
-
-.bracket-round:last-child .bracket-match::after { display: none; }
-
-.bracket-team {
+.b-match-box {
   background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 5px 8px;
-  font-size: 0.72rem;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  position: absolute;
+  width: 148px;
+  transition: border-color 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.b-match-box:hover { border-color: #2a3a58; }
+.b-match-box.has-fav { border-color: rgba(232,200,74,0.5); }
+
+.b-team-row {
   display: flex;
   align-items: center;
   gap: 5px;
-  min-height: 28px;
-  white-space: nowrap;
-  overflow: hidden;
-  transition: border-color 0.2s;
+  padding: 5px 8px;
+  font-size: 0.73rem;
+  border-bottom: 1px solid var(--border);
+  min-height: 30px;
+  position: relative;
 }
 
-.bracket-team.winner {
-  border-color: var(--accent);
-  background: rgba(232, 200, 74, 0.08);
-  font-weight: 600;
-}
+.b-team-row:last-of-type { border-bottom: none; }
+.b-team-row.winner       { background: rgba(232,200,74,0.09); font-weight: 600; }
+.b-team-row.fav-team     { border-left: 2px solid var(--accent); }
+.b-team-row.empty-team   { opacity: 0.25; }
 
-.bracket-team.fav   { border-left: 2px solid var(--accent); }
-
-.bracket-team.empty {
-  background: transparent;
-  border-color: transparent;
-}
-
-.bracket-team-name {
+.b-team-name {
+  flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.bracket-date {
-  text-align: center;
+.b-team-score {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.95rem;
+  color: var(--accent);
+  letter-spacing: 1px;
+  margin-left: auto;
+  min-width: 16px;
+  text-align: right;
+}
+
+.b-match-date {
   font-size: 0.58rem;
   color: var(--muted);
-  margin-top: 2px;
+  text-align: center;
+  padding: 3px 4px;
+  background: var(--surface2);
+  border-top: 1px solid var(--border);
 }
 
-.finale-trophy {
-  font-size: 2rem;
+.b-winner-box {
+  position: absolute;
   text-align: center;
-  margin-top: 8px;
+  background: linear-gradient(135deg, var(--surface2), #0f1e3a);
+  border: 1.5px solid var(--accent);
+  border-radius: 10px;
+  padding: 14px 10px;
+  width: 148px;
 }
+
+.b-winner-flag  { font-size: 2rem; }
+.b-winner-label { font-family: 'Bebas Neue', sans-serif; font-size: 0.85rem; color: var(--accent); letter-spacing: 2px; margin-top: 4px; }
 
 /* ═══════════════════════════════════════════════════════════════
    LEERE ZUSTÄNDE
