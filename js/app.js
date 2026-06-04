@@ -540,11 +540,9 @@ function renderBracketHalf(rounds, startX, goRight, cc, totalH) {
   let svgLines  = '';
 
   rounds.forEach((round, rIdx) => {
-    const x = goRight
-      ? startX + rIdx * COL_W
-      : startX + rIdx * COL_W;  // rechte Seite: Index 0=SF neben Finale, wächst nach rechts
+    // Beide Seiten: Index 0 = innerste Runde (neben Finale), wächst nach außen
+    const x = startX + rIdx * COL_W;
 
-    // TBD-Matches erzeugen falls keine IDs
     const roundMatches = round.ids.length > 0
       ? round.ids.map(id => matches.find(m => m.id === id)).filter(Boolean)
       : Array(round.count).fill(null).map(() => ({
@@ -553,16 +551,13 @@ function renderBracketHalf(rounds, startX, goRight, cc, totalH) {
           date: '–', score: null,
         }));
 
-    // Runden-Header (text-anchor je nach Seite)
-    const headerX = goRight ? x : x + BOX_W;
-    const anchor  = 'middle';
     boxesHtml += `<div class="b-round-title" style="position:absolute;left:${x}px;top:0;width:${BOX_W}px;text-align:center;">
       ${bracketRoundLabel(round.key)}
     </div>`;
 
     roundMatches.forEach((m, i) => {
-      const y      = HEADER_H + bracketMatchY(round.count, i);
-      const hasFav = (m.homeCode === cc.teamCode || m.awayCode === cc.teamCode);
+      const y        = HEADER_H + bracketMatchY(round.count, i);
+      const hasFav   = (m.homeCode === cc.teamCode || m.awayCode === cc.teamCode);
       const dateLabel = m.date && m.date !== '–'
         ? (m.date.startsWith('2026') ? m.date.slice(8,10) + '.' + m.date.slice(5,7) : m.date)
         : '–';
@@ -573,22 +568,22 @@ function renderBracketHalf(rounds, startX, goRight, cc, totalH) {
         <div class="b-match-date">${dateLabel}</div>
       </div>`;
 
-      // Verbindungslinien zur nächsten Runde
+      // Verbindungslinien: immer von dieser Runde zur nächsten (inneren) Runde
       if (rIdx < rounds.length - 1) {
         const nextRound = rounds[rIdx + 1];
-        const nextI  = Math.floor(i / 2);
-        const y1     = HEADER_H + bracketMatchY(round.count, i) + BOX_H / 2;
-        const y2     = HEADER_H + bracketMatchY(nextRound.count, nextI) + BOX_H / 2;
-        const lc     = hasFav ? '#e8c84a44' : '#2a3a58';
+        const nextI = Math.floor(i / 2);
+        const y1    = HEADER_H + bracketMatchY(round.count, i) + BOX_H / 2;
+        const y2    = HEADER_H + bracketMatchY(nextRound.count, nextI) + BOX_H / 2;
+        const lc    = hasFav ? '#e8c84a44' : '#2a3a58';
 
         let x1, x2, midX;
         if (goRight) {
-          // Linke Seite: Linie von rechter Kante nach rechts zur nächsten Spalte
+          // Linke Seite: von rechter Kante dieser Box → nach rechts zur nächsten Box
           x1   = x + BOX_W;
           x2   = startX + (rIdx + 1) * COL_W;
           midX = x1 + COL_GAP / 2;
         } else {
-          // Rechte Seite: Linie von linker Kante nach links zur nächsten (inneren) Spalte
+          // Rechte Seite: von linker Kante dieser Box → nach links zur nächsten (inneren) Box
           x1   = x;
           x2   = startX + (rIdx + 1) * COL_W + BOX_W;
           midX = x1 - COL_GAP / 2;
