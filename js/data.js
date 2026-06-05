@@ -19,15 +19,15 @@ export const countryConfig = {
 	tzOffset: 2,
     name: 'Österreich', flag: '🇦🇹', teamCode: 'AT', group: 'J', lang: 'de',
     broadcasters: [
-      { name: 'ORF 1',    color: '#e30613', free: true,  note: 'Ausgewählte Spiele' },
-      { name: 'ServusTV', color: '#d4a017', free: true,  note: 'Ausgewählte Spiele' },
+      { name: 'ORF',      color: '#e30613', free: true,  note: '52 Spiele inkl. alle ÖFB-Spiele' },
+      { name: 'ServusTV', color: '#d4a017', free: true,  note: '52 Spiele' },
     ],
   },
   CH: {
 	tzOffset: 2,
     name: 'Schweiz', flag: '🇨🇭', teamCode: 'CH', group: 'B', lang: 'de',
     broadcasters: [
-      { name: 'SRF', color: '#e30613', free: true, note: 'Ausgewählte Spiele' },
+      { name: 'SRF', color: '#e30613', free: true, note: 'Alle 104 Spiele' },
       { name: 'RTS', color: '#005eb8', free: true, note: 'Ausgewählte Spiele (FR)' },
       { name: 'RSI', color: '#009246', free: true, note: 'Ausgewählte Spiele (IT)' },
     ],
@@ -36,35 +36,31 @@ export const countryConfig = {
 	tzOffset: 2,
     name: 'France', flag: '🇫🇷', teamCode: 'FR', group: 'I', lang: 'fr',
     broadcasters: [
-      { name: 'TF1',  color: '#003087', free: true,  note: 'Matchs sélectionnés' },
-      { name: 'M6',   color: '#ff6600', free: true,  note: 'Matchs sélectionnés' },
-      { name: 'beIN', color: '#e10600', free: false, note: 'Tous les 104 matchs' },
+      { name: 'M6',    color: '#0066cc', free: true,  note: '54 matchs dont tous les Bleus' },
+      { name: 'beIN',  color: '#e10600', free: false, note: 'Tous les 104 matchs' },
     ],
   },
   ES: {
 	tzOffset: 2,
     name: 'España', flag: '🇪🇸', teamCode: 'ES', group: 'H', lang: 'es',
     broadcasters: [
-      { name: 'TVE',    color: '#c60b1e', free: true,  note: 'Partidos seleccionados' },
-      { name: 'Cuatro', color: '#00a3e0', free: true,  note: 'Partidos seleccionados' },
-      { name: 'DAZN',   color: '#111111', free: false, note: 'Todos los partidos' },
+      { name: 'RTVE',  color: '#c60b1e', free: true,  note: '33 partidos incl. todos España' },
+      { name: 'DAZN',  color: '#111111', free: false, note: 'Todos los partidos' },
     ],
   },
   GB: {
 	tzOffset: 1,
     name: 'England', flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', teamCode: 'GB', group: 'L', lang: 'en',
     broadcasters: [
-      { name: 'BBC',       color: '#cc0000', free: true,  note: 'Selected matches' },
-      { name: 'ITV',       color: '#005eb8', free: true,  note: 'Selected matches' },
-      { name: 'TNT Sports',color: '#f7a600', free: false, note: 'All 104 matches' },
+      { name: 'BBC',  color: '#cc0000', free: true,  note: 'Selected matches incl. all England' },
+      { name: 'ITV',  color: '#005eb8', free: true,  note: 'Selected matches' },
     ],
   },
   NL: {
 	tzOffset: 2,
     name: 'Nederland', flag: '🇳🇱', teamCode: 'NL', group: 'F', lang: 'nl',
     broadcasters: [
-      { name: 'NOS',   color: '#e30613', free: true,  note: 'Geselecteerde wedstrijden' },
-      { name: 'Ziggo', color: '#ff6600', free: false, note: 'Alle 104 wedstrijden' },
+      { name: 'NOS',  color: '#e30613', free: true,  note: 'Alle 104 wedstrijden (NPO 1/3)' },
     ],
   },
   PT: {
