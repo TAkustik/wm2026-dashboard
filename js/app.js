@@ -20,9 +20,20 @@ function readURLParams() {
   const rawCountry = (params.get('country') ?? '').toUpperCase();
   const rawLang    =  params.get('lang') ?? '';
 
-  if (countryConfig[rawCountry]) currentCountry = rawCountry;
-  if (i18n[rawLang])             currentLang    = rawLang;
-  else currentLang = countryConfig[currentCountry]?.lang ?? 'de';
+  if (countryConfig[rawCountry]) {
+    currentCountry = rawCountry;
+  } else {
+    const saved = localStorage.getItem('wm_country');
+    if (saved && countryConfig[saved]) currentCountry = saved;
+  }
+
+  if (i18n[rawLang]) {
+    currentLang = rawLang;
+  } else {
+    const savedLang = localStorage.getItem('wm_lang');
+    if (savedLang && i18n[savedLang]) currentLang = savedLang;
+    else currentLang = countryConfig[currentCountry]?.lang ?? 'de';
+  }
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -938,6 +949,8 @@ function applySettings() {
   const selLang    = document.getElementById('sel-lang')?.value;
   if (selCountry && countryConfig[selCountry]) currentCountry = selCountry;
   if (selLang    && i18n[selLang])             currentLang    = selLang;
+  localStorage.setItem('wm_country', currentCountry);
+  localStorage.setItem('wm_lang',    currentLang);
   document.getElementById('settings-panel')?.classList.remove('open');
   renderAll();
 }
