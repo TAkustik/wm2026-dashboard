@@ -803,24 +803,31 @@ function renderBracket() {
   const sfY     = HEADER_H + bracketMatchY(1, 0) + BOX_H / 2;
   const sfLeftX = leftStart + (LEFT_ROUNDS.length - 1) * COL_W + BOX_W;
 
-  // Platz-3-Box: direkt unter Finale, etwas schmaler
+  // Platz-3-Box: unter Finale
   const P3_W  = FIN_W - 10;
   const p3X   = finaleX + (FIN_W - P3_W) / 2;
-  const p3Y   = finY + BOX_H + 52;
+  const p3Y   = finY + BOX_H + 48;
+  const p3MidX = p3X + P3_W / 2;
+  const p3TopY = p3Y;
+
+  // X-Positionen der HF-Kästen (linke und rechte Kante)
+  const hfLeftBoxRight  = sfLeftX;          // rechte Kante HF-Box links = Ende der HF-Linie
+  const hfRightBoxLeft  = rightStart;       // linke Kante HF-Box rechts
+  // Unterkante der HF-Kästen
+  const hfBoxBottom = finY + BOX_H;
 
   // Linien von HF zu Finale (durchgezogen)
   let centerLines = '';
   centerLines += `<path d="M${sfLeftX},${sfY} H${finaleX}" fill="none" stroke="#2a3a58" stroke-width="1.5" stroke-linecap="round"/>`;
   centerLines += `<path d="M${finaleX + FIN_W},${sfY} H${rightStart}" fill="none" stroke="#2a3a58" stroke-width="1.5" stroke-linecap="round"/>`;
 
-  // Gestrichelte Linien von HF nach unten zum Platz-3-Kasten
-  // Linke HF: von sfLeftX nach unten → Mitte des P3-Kastens
-  const p3MidX = p3X + P3_W / 2;
-  const p3TopY = p3Y;
-  // Abzweigpunkt: etwas unterhalb der HF-Linie
-  const branchY = sfY + 18;
-  centerLines += `<path d="M${sfLeftX},${branchY} H${p3MidX} V${p3TopY}" fill="none" stroke="#445566" stroke-width="1" stroke-dasharray="5,3" stroke-linecap="round"/>`;
-  centerLines += `<path d="M${rightStart},${branchY} H${p3MidX}" fill="none" stroke="#445566" stroke-width="1" stroke-dasharray="5,3" stroke-linecap="round"/>`;
+  // Gestrichelte Linien: von Unterkante der HF-Kästen nach unten → Mitte Platz-3-Kasten
+  // Linke HF-Box: von ihrer Mitte-X unten nach p3MidX
+  const hfLeftMidX  = finaleX - COL_W + COL_W / 2;  // Mitte der linken HF-Box
+  const hfRightMidX = rightStart + BOX_W / 2;        // Mitte der rechten HF-Box
+
+  centerLines += `<path d="M${hfLeftMidX},${hfBoxBottom} V${p3TopY - 8} H${p3MidX} V${p3TopY}" fill="none" stroke="#445566" stroke-width="1.2" stroke-dasharray="5,3" stroke-linecap="round"/>`;
+  centerLines += `<path d="M${hfRightMidX},${hfBoxBottom} V${p3TopY - 8} H${p3MidX}" fill="none" stroke="#445566" stroke-width="1.2" stroke-dasharray="5,3" stroke-linecap="round"/>`;
 
   // Finale-Header (hervorgehoben)
   const finaleHeader = `<div class="b-round-title" style="position:absolute;left:${finaleX}px;top:0;width:${FIN_W}px;text-align:center;color:var(--accent);font-size:0.75rem;letter-spacing:2px;">
@@ -834,15 +841,11 @@ function renderBracket() {
     <div class="b-match-date">19.07 · New York</div>
   </div>`;
 
-  // Platz-3-Header + Box
-  const p3Header = `<div style="position:absolute;left:${p3X}px;top:${p3Y - 18}px;width:${P3_W}px;text-align:center;font-size:0.6rem;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;">
-    🥉 ${t(currentLang,'third_place') || 'Platz 3'} · 18.07
-  </div>`;
-
-  const p3Box = `<div class="b-match-box" style="left:${p3X}px;top:${p3Y}px;width:${P3_W}px;opacity:0.75;">
+  // Platz-3-Box (kein separater Header, Label im Datum-Feld)
+  const p3Box = `<div class="b-match-box" style="left:${p3X}px;top:${p3Y}px;width:${P3_W}px;opacity:0.8;">
     ${renderBracketTeamRow(p3m, true,  cc)}
     ${renderBracketTeamRow(p3m, false, cc)}
-    <div class="b-match-date">18.07 · Miami</div>
+    <div class="b-match-date">🥉 Platz 3 · 18.07 · Miami</div>
   </div>`;
 
   // Sieger-Box
@@ -858,19 +861,18 @@ function renderBracket() {
     </div>`;
   }
 
-  // Gesamthöhe mit Platz-3-Box
-  const svgH  = p3Y + BOX_H + 30;
-  const wrapH = p3Y + BOX_H + 50;
+  // Gesamthöhe: max aus normalem Bracket und Platz-3-Kasten
+  const fullH = Math.max(totalH, p3Y + BOX_H + 40);
 
   container.innerHTML = `
     <div class="bracket-outer">
-      <div class="bracket-svg-wrap" style="width:${totalW}px;height:${wrapH}px;">
-        <svg style="position:absolute;top:0;left:0;width:${totalW}px;height:${svgH}px;pointer-events:none;" xmlns="http://www.w3.org/2000/svg">
+      <div class="bracket-svg-wrap" style="width:${totalW}px;height:${fullH}px;">
+        <svg style="position:absolute;top:0;left:0;width:${totalW}px;height:${fullH}px;pointer-events:none;" xmlns="http://www.w3.org/2000/svg">
           ${left.svgLines}${right.svgLines}${centerLines}
         </svg>
         ${left.boxesHtml}${right.boxesHtml}
         ${finaleHeader}${finaleBox}${winnerBox}
-        ${p3Header}${p3Box}
+        ${p3Box}
       </div>
     </div>`;
 }
