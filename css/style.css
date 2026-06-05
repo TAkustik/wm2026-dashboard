@@ -591,7 +591,14 @@ body {
 .standings-table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
+
+/* Feste Spaltenbreiten — gleich für alle Gruppen */
+.standings-table col.col-team { width: auto; }
+.standings-table col.col-stat { width: 44px; }
+.standings-table col.col-goals{ width: 56px; }
+.standings-table col.col-pts  { width: 44px; }
 
 .standings-table th {
   font-size: 0.6rem;

@@ -458,6 +458,15 @@ function renderGroups() {
           ${t(currentLang, 'group')} ${letter}
         </div>
         <table class="standings-table">
+          <colgroup>
+            <col class="col-team">
+            <col class="col-stat">
+            <col class="col-stat">
+            <col class="col-stat">
+            <col class="col-stat">
+            <col class="col-goals">
+            <col class="col-pts">
+          </colgroup>
           <thead><tr>
             <th>Team</th>
             <th>${t(currentLang, 'played')}</th>
