@@ -17,7 +17,7 @@ export const countryConfig = {
   },
   AT: {
 	tzOffset: 2,
-    name: 'Österreich', flag: '🇦🇹', teamCode: null, group: null, lang: 'de',
+    name: 'Österreich', flag: '🇦🇹', teamCode: 'AT', group: 'J', lang: 'de',
     broadcasters: [
       { name: 'ORF 1',    color: '#e30613', free: true,  note: 'Ausgewählte Spiele' },
       { name: 'ServusTV', color: '#d4a017', free: true,  note: 'Ausgewählte Spiele' },
@@ -25,7 +25,7 @@ export const countryConfig = {
   },
   CH: {
 	tzOffset: 2,
-    name: 'Schweiz', flag: '🇨🇭', teamCode: 'CH', group: 'G', lang: 'de',
+    name: 'Schweiz', flag: '🇨🇭', teamCode: 'CH', group: 'B', lang: 'de',
     broadcasters: [
       { name: 'SRF', color: '#e30613', free: true, note: 'Ausgewählte Spiele' },
       { name: 'RTS', color: '#005eb8', free: true, note: 'Ausgewählte Spiele (FR)' },
@@ -34,7 +34,7 @@ export const countryConfig = {
   },
   FR: {
 	tzOffset: 2,
-    name: 'France', flag: '🇫🇷', teamCode: 'FR', group: 'C', lang: 'fr',
+    name: 'France', flag: '🇫🇷', teamCode: 'FR', group: 'I', lang: 'fr',
     broadcasters: [
       { name: 'TF1',  color: '#003087', free: true,  note: 'Matchs sélectionnés' },
       { name: 'M6',   color: '#ff6600', free: true,  note: 'Matchs sélectionnés' },
@@ -43,7 +43,7 @@ export const countryConfig = {
   },
   ES: {
 	tzOffset: 2,
-    name: 'España', flag: '🇪🇸', teamCode: 'ES', group: 'B', lang: 'es',
+    name: 'España', flag: '🇪🇸', teamCode: 'ES', group: 'H', lang: 'es',
     broadcasters: [
       { name: 'TVE',    color: '#c60b1e', free: true,  note: 'Partidos seleccionados' },
       { name: 'Cuatro', color: '#00a3e0', free: true,  note: 'Partidos seleccionados' },
@@ -52,7 +52,7 @@ export const countryConfig = {
   },
   GB: {
 	tzOffset: 1,
-    name: 'England', flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', teamCode: 'GB', group: 'H', lang: 'en',
+    name: 'England', flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', teamCode: 'GB', group: 'L', lang: 'en',
     broadcasters: [
       { name: 'BBC',       color: '#cc0000', free: true,  note: 'Selected matches' },
       { name: 'ITV',       color: '#005eb8', free: true,  note: 'Selected matches' },
@@ -69,7 +69,7 @@ export const countryConfig = {
   },
   PT: {
 	tzOffset: 1,
-    name: 'Portugal', flag: '🇵🇹', teamCode: 'PT', group: 'C', lang: 'pt',
+    name: 'Portugal', flag: '🇵🇹', teamCode: 'PT', group: 'K', lang: 'pt',
     broadcasters: [
       { name: 'RTP',      color: '#009246', free: true,  note: 'Jogos selecionados' },
       { name: 'Sport TV', color: '#003087', free: false, note: 'Todos os jogos' },
@@ -77,7 +77,7 @@ export const countryConfig = {
   },
   BE: {
 	tzOffset: 2,
-    name: 'België', flag: '🇧🇪', teamCode: 'BE', group: 'C', lang: 'nl',
+    name: 'België', flag: '🇧🇪', teamCode: 'BE', group: 'G', lang: 'nl',
     broadcasters: [
       { name: 'RTBF',    color: '#003087', free: true, note: 'Matchs sélectionnés (FR)' },
       { name: 'VRT',     color: '#e30613', free: true, note: 'Geselecteerde wedstrijden (NL)' },
@@ -86,21 +86,21 @@ export const countryConfig = {
   },
   HR: {
 	tzOffset: 2,
-    name: 'Hrvatska', flag: '🇭🇷', teamCode: 'HR', group: 'K', lang: 'en',
+    name: 'Hrvatska', flag: '🇭🇷', teamCode: 'HR', group: 'L', lang: 'en',
     broadcasters: [
       { name: 'HRT', color: '#003087', free: true, note: 'Odabrane utakmice' },
     ],
   },
   RS: {
 	tzOffset: 2,
-    name: 'Srbija', flag: '🇷🇸', teamCode: 'RS', group: 'D', lang: 'en',
+    name: 'Srbija', flag: '🇷🇸', teamCode: 'RS', group: null, lang: 'en',
     broadcasters: [
       { name: 'RTS', color: '#003087', free: true, note: 'Odabrane utakmice' },
     ],
   },
   RO: {
 	tzOffset: 3,
-    name: 'România', flag: '🇷🇴', teamCode: 'RO', group: 'J', lang: 'en',
+    name: 'România', flag: '🇷🇴', teamCode: 'RO', group: null, lang: 'en',
     broadcasters: [
       { name: 'TVR',   color: '#003087', free: true,  note: 'Meciuri selectate' },
       { name: 'Digi',  color: '#e30613', free: false, note: 'Toate meciurile' },
@@ -108,35 +108,35 @@ export const countryConfig = {
   },
   UA: {
 	tzOffset: 3,
-    name: 'Ukraina', flag: '🇺🇦', teamCode: 'UA', group: 'L', lang: 'en',
+    name: 'Ukraina', flag: '🇺🇦', teamCode: 'UA', group: null, lang: 'en',
     broadcasters: [
       { name: 'Suspilne', color: '#003087', free: true, note: 'Вибрані матчі' },
     ],
   },
   SK: {
 	tzOffset: 2,
-    name: 'Slovensko', flag: '🇸🇰', teamCode: 'SK', group: 'I', lang: 'en',
+    name: 'Slovensko', flag: '🇸🇰', teamCode: 'SK', group: null, lang: 'en',
     broadcasters: [
       { name: 'RTVS', color: '#003087', free: true, note: 'Vybrané zápasy' },
     ],
   },
   SI: {
 	tzOffset: 2,
-    name: 'Slovenija', flag: '🇸🇮', teamCode: 'SI', group: 'G', lang: 'en',
+    name: 'Slovenija', flag: '🇸🇮', teamCode: 'SI', group: null, lang: 'en',
     broadcasters: [
       { name: 'RTV SLO', color: '#003087', free: true, note: 'Izbrane tekme' },
     ],
   },
   AL: {
 	tzOffset: 2,
-    name: 'Shqipëri', flag: '🇦🇱', teamCode: 'AL', group: 'I', lang: 'en',
+    name: 'Shqipëri', flag: '🇦🇱', teamCode: 'AL', group: null, lang: 'en',
     broadcasters: [
       { name: 'RTSH', color: '#e30613', free: true, note: 'Ndeshje të zgjedhura' },
     ],
   },
   GE: {
 	tzOffset: 4,
-    name: 'Georgia', flag: '🇬🇪', teamCode: 'GE', group: 'F', lang: 'en',
+    name: 'Georgia', flag: '🇬🇪', teamCode: 'GE', group: null, lang: 'en',
     broadcasters: [
       { name: 'GPB', color: '#003087', free: true, note: 'Selected matches' },
     ],
@@ -154,7 +154,7 @@ export const countryConfig = {
   },
   BR: {
 	tzOffset: -3,
-    name: 'Brasil', flag: '🇧🇷', teamCode: 'BR', group: 'B', lang: 'pt',
+    name: 'Brasil', flag: '🇧🇷', teamCode: 'BR', group: 'C', lang: 'pt',
     broadcasters: [
       { name: 'Globo',  color: '#003087', free: true,  note: 'Jogos selecionados' },
       { name: 'SporTV', color: '#e30613', free: false, note: 'Todos os jogos' },
@@ -163,7 +163,7 @@ export const countryConfig = {
   },
   AR: {
 	tzOffset: -3,
-    name: 'Argentina', flag: '🇦🇷', teamCode: 'AR', group: 'C', lang: 'es',
+    name: 'Argentina', flag: '🇦🇷', teamCode: 'AR', group: 'J', lang: 'es',
     broadcasters: [
       { name: 'TyC Sports', color: '#003087', free: true, note: 'Partidos seleccionados' },
       { name: 'TV Pública', color: '#e30613', free: true, note: 'Partidos seleccionados' },
@@ -180,7 +180,7 @@ export const countryConfig = {
   },
   CA: {
 	tzOffset: -4,
-    name: 'Canada', flag: '🇨🇦', teamCode: 'CA', group: 'A', lang: 'en',
+    name: 'Canada', flag: '🇨🇦', teamCode: 'CA', group: 'B', lang: 'en',
     broadcasters: [
       { name: 'CTV',     color: '#003087', free: true,  note: 'Selected matches' },
       { name: 'TSN',     color: '#e30613', free: false, note: 'All matches' },
@@ -189,7 +189,7 @@ export const countryConfig = {
   },
   CO: {
 	tzOffset: -5,
-    name: 'Colombia', flag: '🇨🇴', teamCode: 'CO', group: 'H', lang: 'es',
+    name: 'Colombia', flag: '🇨🇴', teamCode: 'CO', group: 'K', lang: 'es',
     broadcasters: [
       { name: 'RCN',    color: '#e30613', free: true, note: 'Partidos seleccionados' },
       { name: 'Caracol',color: '#003087', free: true, note: 'Partidos seleccionados' },
@@ -197,7 +197,7 @@ export const countryConfig = {
   },
   UY: {
 	tzOffset: -3,
-    name: 'Uruguay', flag: '🇺🇾', teamCode: 'UY', group: 'J', lang: 'es',
+    name: 'Uruguay', flag: '🇺🇾', teamCode: 'UY', group: 'H', lang: 'es',
     broadcasters: [
       { name: 'TCC',    color: '#003087', free: true, note: 'Partidos seleccionados' },
       { name: 'VTV',    color: '#e30613', free: false,note: 'Todos los partidos' },
@@ -403,7 +403,7 @@ export const countryConfig = {
   },
   SA: {
 	tzOffset: 3,
-    name: 'Saudi Arabia', flag: '🇸🇦', teamCode: 'SA', group: 'D', lang: 'en',
+    name: 'Saudi Arabia', flag: '🇸🇦', teamCode: 'SA', group: 'H', lang: 'en',
     broadcasters: [
       { name: 'SSC',  color: '#003087', free: false, note: 'All matches' },
       { name: 'beIN', color: '#e10600', free: false, note: 'All matches' },
@@ -506,76 +506,76 @@ export const countryConfig = {
 
 export const groups = {
   A: { teams: [
-    { name: 'Mexiko',      flag: '🇲🇽', code: 'MX' },
-    { name: 'Kanada',      flag: '🇨🇦', code: 'CA' },
-    { name: 'Südafrika',   flag: '🇿🇦', code: 'ZA' },
-    { name: 'Südkorea',    flag: '🇰🇷', code: 'KR' },
+    { name: 'Mexiko',               flag: '🇲🇽', code: 'MX' },
+    { name: 'Südkorea',             flag: '🇰🇷', code: 'KR' },
+    { name: 'Südafrika',            flag: '🇿🇦', code: 'ZA' },
+    { name: 'Tschechien',           flag: '🇨🇿', code: 'CZ' },
   ]},
   B: { teams: [
-    { name: 'Spanien',     flag: '🇪🇸', code: 'ES' },
-    { name: 'Brasilien',   flag: '🇧🇷', code: 'BR' },
-    { name: 'Japan',       flag: '🇯🇵', code: 'JP' },
-    { name: 'Jamaika',     flag: '🇯🇲', code: 'JM' },
+    { name: 'Kanada',               flag: '🇨🇦', code: 'CA' },
+    { name: 'Bosnien',              flag: '🇧🇦', code: 'BA' },
+    { name: 'Katar',                flag: '🇶🇦', code: 'QA' },
+    { name: 'Schweiz',              flag: '🇨🇭', code: 'CH' },
   ]},
   C: { teams: [
-    { name: 'Frankreich',  flag: '🇫🇷', code: 'FR' },
-    { name: 'Argentinien', flag: '🇦🇷', code: 'AR' },
-    { name: 'Portugal',    flag: '🇵🇹', code: 'PT' },
-    { name: 'Irak',        flag: '🇮🇶', code: 'IQ' },
+    { name: 'Brasilien',            flag: '🇧🇷', code: 'BR' },
+    { name: 'Marokko',              flag: '🇲🇦', code: 'MA' },
+    { name: 'Haiti',                flag: '🇭🇹', code: 'HT' },
+    { name: 'Schottland',           flag: '🏴󠁧󠁢󠁳󠁣󠁴󠁿', code: 'SC' },
   ]},
   D: { teams: [
-    { name: 'USA',         flag: '🇺🇸', code: 'US' },
-    { name: 'Paraguay',    flag: '🇵🇾', code: 'PY' },
-    { name: 'Australien',  flag: '🇦🇺', code: 'AU' },
-    { name: 'Tansania',    flag: '🇹🇿', code: 'TZ' },
+    { name: 'USA',                  flag: '🇺🇸', code: 'US' },
+    { name: 'Paraguay',             flag: '🇵🇾', code: 'PY' },
+    { name: 'Australien',           flag: '🇦🇺', code: 'AU' },
+    { name: 'Türkei',               flag: '🇹🇷', code: 'TR' },
   ]},
   E: { teams: [
-    { name: 'Deutschland', flag: '🇩🇪', code: 'DE' },
-    { name: 'Elfenbeinküste', flag: '🇨🇮', code: 'CI' },
-    { name: 'Ecuador',     flag: '🇪🇨', code: 'EC' },
-    { name: 'Curaçao',     flag: '🇨🇼', code: 'CW' },
+    { name: 'Deutschland',          flag: '🇩🇪', code: 'DE' },
+    { name: 'Curaçao',              flag: '🇨🇼', code: 'CW' },
+    { name: 'Elfenbeinküste',       flag: '🇨🇮', code: 'CI' },
+    { name: 'Ecuador',              flag: '🇪🇨', code: 'EC' },
   ]},
   F: { teams: [
-    { name: 'Niederlande', flag: '🇳🇱', code: 'NL' },
-    { name: 'Marokko',     flag: '🇲🇦', code: 'MA' },
-    { name: 'Georgien',    flag: '🇬🇪', code: 'GE' },
-    { name: 'Tunesien',    flag: '🇹🇳', code: 'TN' },
-  ]},
-  G: { teams: [
-    { name: 'Schweiz',     flag: '🇨🇭', code: 'CH' },
-    { name: 'Senegal',     flag: '🇸🇳', code: 'SN' },
-    { name: 'Slowenien',   flag: '🇸🇮', code: 'SI' },
-    { name: 'Katar',       flag: '🇶🇦', code: 'QA' },
+    { name: 'Niederlande',          flag: '🇳🇱', code: 'NL' },
+    { name: 'Japan',                flag: '🇯🇵', code: 'JP' },
+    { name: 'Schweden',             flag: '🇸🇪', code: 'SE' },
+    { name: 'Tunesien',             flag: '🇹🇳', code: 'TN' },
   ]},
   H: { teams: [
-    { name: 'England',     flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', code: 'GB' },
-    { name: 'Kolumbien',   flag: '🇨🇴', code: 'CO' },
-    { name: 'Ägypten',     flag: '🇪🇬', code: 'EG' },
-    { name: 'Thailand',    flag: '🇹🇭', code: 'TH' },
+    { name: 'Spanien',              flag: '🇪🇸', code: 'ES' },
+    { name: 'Kap Verde',            flag: '🇨🇻', code: 'CV' },
+    { name: 'Saudi-Arabien',        flag: '🇸🇦', code: 'SA' },
+    { name: 'Uruguay',              flag: '🇺🇾', code: 'UY' },
+  ]},
+  G: { teams: [
+    { name: 'Belgien',              flag: '🇧🇪', code: 'BE' },
+    { name: 'Ägypten',              flag: '🇪🇬', code: 'EG' },
+    { name: 'Iran',                 flag: '🇮🇷', code: 'IR' },
+    { name: 'Neuseeland',           flag: '🇳🇿', code: 'NZ' },
   ]},
   I: { teams: [
-    { name: 'Slowakei',    flag: '🇸🇰', code: 'SK' },
-    { name: 'Albanien',    flag: '🇦🇱', code: 'AL' },
-    { name: 'Neuseeland',  flag: '🇳🇿', code: 'NZ' },
-    { name: 'Nigeria',     flag: '🇳🇬', code: 'NG' },
+    { name: 'Frankreich',           flag: '🇫🇷', code: 'FR' },
+    { name: 'Senegal',              flag: '🇸🇳', code: 'SN' },
+    { name: 'Irak',                 flag: '🇮🇶', code: 'IQ' },
+    { name: 'Norwegen',             flag: '🇳🇴', code: 'NO' },
   ]},
   J: { teams: [
-    { name: 'Rumänien',    flag: '🇷🇴', code: 'RO' },
-    { name: 'Uruguay',     flag: '🇺🇾', code: 'UY' },
-    { name: 'Iran',        flag: '🇮🇷', code: 'IR' },
-    { name: 'Burkina Faso',flag: '🇧🇫', code: 'BF' },
+    { name: 'Argentinien',          flag: '🇦🇷', code: 'AR' },
+    { name: 'Algerien',             flag: '🇩🇿', code: 'DZ' },
+    { name: 'Österreich',           flag: '🇦🇹', code: 'AT' },
+    { name: 'Jordanien',            flag: '🇯🇴', code: 'JO' },
   ]},
   K: { teams: [
-    { name: 'Kroatien',    flag: '🇭🇷', code: 'HR' },
-    { name: 'China',       flag: '🇨🇳', code: 'CN' },
-    { name: 'Costa Rica',  flag: '🇨🇷', code: 'CR' },
-    { name: 'Angola',      flag: '🇦🇴', code: 'AO' },
+    { name: 'Portugal',             flag: '🇵🇹', code: 'PT' },
+    { name: 'DR Kongo',             flag: '🇨🇩', code: 'CD' },
+    { name: 'Usbekistan',           flag: '🇺🇿', code: 'UZ' },
+    { name: 'Kolumbien',            flag: '🇨🇴', code: 'CO' },
   ]},
   L: { teams: [
-    { name: 'Ukraine',     flag: '🇺🇦', code: 'UA' },
-    { name: 'Usbekistan',  flag: '🇺🇿', code: 'UZ' },
-    { name: 'Ghana',       flag: '🇬🇭', code: 'GH' },
-    { name: 'Peru',        flag: '🇵🇪', code: 'PE' },
+    { name: 'England',              flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', code: 'GB' },
+    { name: 'Kroatien',             flag: '🇭🇷', code: 'HR' },
+    { name: 'Ghana',                flag: '🇬🇭', code: 'GH' },
+    { name: 'Panama',               flag: '🇵🇦', code: 'PA' },
   ]},
 };
 

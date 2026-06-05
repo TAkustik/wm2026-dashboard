@@ -104,6 +104,12 @@ export const i18n = {
       // Asien & Ozeanien
       JP:'Japan', KR:'Südkorea', SA:'Saudi-Arabien', IR:'Iran', AU:'Australien',
       NZ:'Neuseeland', UZ:'Usbekistan', QA:'Katar', CN:'China', TH:'Thailand', IQ:'Irak',
+      BA:'Bósnia e Herzegovina', CZ:'República Checa', HT:'Haiti', SC:'Escócia', CV:'Cabo Verde', CD:'RD Congo', DZ:'Argélia', JO:'Jordânia', NO:'Noruega', AT:'Áustria', TR:'Turquia', UY:'Uruguai', SA:'Arábia Saudita', QA:'Qatar', CH:'Suíça',
+      BA:'Bosnië-Herzegovina', CZ:'Tsjechië', HT:'Haïti', SC:'Schotland', CV:'Kaapverdië', CD:'DR Congo', DZ:'Algerije', JO:'Jordanië', NO:'Noorwegen', AT:'Oostenrijk', TR:'Turkije', UY:'Uruguay', SA:'Saudi-Arabië', QA:'Qatar', CH:'Zwitserland',
+      BA:'Bosnia y Herzegovina', CZ:'República Checa', HT:'Haití', SC:'Escocia', CV:'Cabo Verde', CD:'RD Congo', DZ:'Argelia', JO:'Jordania', NO:'Noruega', AT:'Austria', TR:'Turquía', UY:'Uruguay', SA:'Arabia Saudita', QA:'Catar', CH:'Suiza',
+      BA:'Bosnie-Herzégovine', CZ:'République Tchèque', HT:'Haïti', SC:'Écosse', CV:'Cap-Vert', CD:'RD Congo', DZ:'Algérie', JO:'Jordanie', NO:'Norvège', AT:'Autriche', TR:'Turquie', UY:'Uruguay', SA:'Arabie Saoudite', QA:'Qatar', CH:'Suisse',
+      BA:'Bosnia & Herzegovina', CZ:'Czech Republic', HT:'Haiti', SC:'Scotland', CV:'Cape Verde', CD:'DR Congo', DZ:'Algeria', JO:'Jordan', NO:'Norway', AT:'Austria', TR:'Turkey', UY:'Uruguay', SA:'Saudi Arabia', QA:'Qatar', CH:'Switzerland',
+      BA:'Bosnien', CZ:'Tschechien', HT:'Haiti', SC:'Schottland', CV:'Kap Verde', CD:'DR Kongo', DZ:'Algerien', JO:'Jordanien', NO:'Norwegen', AT:'Österreich', TR:'Türkei', UY:'Uruguay', SA:'Saudi-Arabien', QA:'Katar', CH:'Schweiz',
     },
   },
 
