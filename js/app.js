@@ -838,7 +838,7 @@ function renderBracket() {
   const finaleBox = `<div class="b-match-box b-finale" style="left:${finaleX}px;top:${finY}px;width:${FIN_W}px;">
     ${renderBracketTeamRow(fm, true,  cc)}
     ${renderBracketTeamRow(fm, false, cc)}
-    <div class="b-match-date">19.07 · New York</div>
+    <div class="b-match-date">🏆 Finale · 19.07 · New York</div>
   </div>`;
 
   // Platz-3-Box (kein separater Header, Label im Datum-Feld)
