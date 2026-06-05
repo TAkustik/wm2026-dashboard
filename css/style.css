@@ -697,6 +697,12 @@ body {
 .b-match-box:hover { border-color: #2a3a58; }
 .b-match-box.has-fav { border-color: rgba(232,200,74,0.5); }
 
+.b-match-box.b-finale {
+  border-color: rgba(232,200,74,0.7);
+  background: linear-gradient(135deg, var(--surface), #0f1e3a);
+  box-shadow: 0 0 16px rgba(232,200,74,0.15), 0 2px 8px rgba(0,0,0,0.4);
+}
+
 .b-team-row {
   display: flex;
   align-items: center;
