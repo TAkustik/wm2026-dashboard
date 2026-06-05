@@ -835,6 +835,7 @@ function populateBracketFromGroups() {
 
 function renderBracket() {
   populateBracketFromGroups();
+  const container = document.getElementById('bracket-container');
   if (!container) return;
 
   const cc     = countryConfig[currentCountry];
