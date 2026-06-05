@@ -568,24 +568,37 @@ body {
 .tv-rights-note strong { color: var(--text); }
 
 /* ═══════════════════════════════════════════════════════════════
-   GRUPPEN TABELLE
+   GRUPPEN TABELLE — 3×4 Grid
 ═══════════════════════════════════════════════════════════════ */
+.groups-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
 .group-block {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
-  margin-bottom: 12px;
+}
+
+.group-block.fav-group {
+  border-color: rgba(232, 200, 74, 0.5);
 }
 
 .group-header {
-  padding: 10px 14px;
+  padding: 7px 10px;
   background: var(--surface2);
   border-bottom: 1px solid var(--border);
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   letter-spacing: 2px;
   color: var(--accent);
+}
+
+.fav-group .group-header {
+  background: rgba(232, 200, 74, 0.08);
 }
 
 .standings-table {
@@ -594,32 +607,31 @@ body {
   table-layout: fixed;
 }
 
-/* Feste Spaltenbreiten — gleich für alle Gruppen */
-.standings-table col.col-team { width: auto; }
-.standings-table col.col-stat { width: 44px; }
-.standings-table col.col-goals{ width: 56px; }
-.standings-table col.col-pts  { width: 44px; }
+.standings-table col.col-team  { width: auto; }
+.standings-table col.col-stat  { width: 28px; }
+.standings-table col.col-goals { width: 42px; }
+.standings-table col.col-pts   { width: 28px; }
 
 .standings-table th {
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   color: var(--muted);
   letter-spacing: 1px;
   text-transform: uppercase;
   font-weight: 600;
-  padding: 6px 14px;
+  padding: 4px 6px;
   text-align: center;
 }
 
-.standings-table th:first-child { text-align: left; }
+.standings-table th:first-child { text-align: left; padding-left: 8px; }
 
 .standings-table td {
-  padding: 8px 14px;
-  font-size: 0.8rem;
+  padding: 5px 6px;
+  font-size: 0.72rem;
   text-align: center;
   border-top: 1px solid var(--border);
 }
 
-.standings-table td:first-child { text-align: left; }
+.standings-table td:first-child { text-align: left; padding-left: 8px; }
 
 .standings-table tr.fav-row td {
   background: rgba(232, 200, 74, 0.06);
@@ -629,13 +641,19 @@ body {
 .team-cell {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+}
+
+.team-cell-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .pos {
   font-size: 0.7rem;
   color: var(--muted);
-  width: 14px;
+  width: 12px;
   flex-shrink: 0;
 }
 

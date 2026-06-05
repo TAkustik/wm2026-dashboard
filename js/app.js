@@ -421,15 +421,16 @@ function renderGroups() {
   const container = document.getElementById('groups-container');
   if (!container) return;
 
-  // Favoriten-Gruppe zuerst, Rest alphabetisch
+  // Favoriten-Gruppe zuerst (wenn qualifiziert), Rest alphabetisch
   const sorted = Object.entries(groups).sort(([a], [b]) => {
-    if (a === cc.group) return -1;
-    if (b === cc.group) return  1;
+    if (cc.group && a === cc.group) return -1;
+    if (cc.group && b === cc.group) return  1;
     return a.localeCompare(b);
   });
 
-  container.innerHTML = sorted.map(([letter]) => {
+  const cards = sorted.map(([letter]) => {
     const standings = calcGroupStandings(letter);
+    const isFavGroup = letter === cc.group;
 
     const rows = standings.map((team, i) => {
       const isFav = team.code === cc.teamCode;
@@ -440,7 +441,7 @@ function renderGroups() {
             <div class="team-cell">
               <span class="pos">${i + 1}</span>
               <span class="flag">${team.flag}</span>
-              <span>${name}</span>
+              <span class="team-cell-name">${name}</span>
             </div>
           </td>
           <td>${team.played}</td>
@@ -453,7 +454,7 @@ function renderGroups() {
     }).join('');
 
     return `
-      <div class="group-block">
+      <div class="group-block${isFavGroup ? ' fav-group' : ''}">
         <div class="group-header">
           ${t(currentLang, 'group')} ${letter}
         </div>
@@ -480,6 +481,8 @@ function renderGroups() {
         </table>
       </div>`;
   }).join('');
+
+  container.innerHTML = `<div class="groups-grid">${cards}</div>`;
 }
 
 // ═══════════════════════════════════════════════════════════════
