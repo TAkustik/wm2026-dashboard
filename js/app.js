@@ -601,8 +601,229 @@ function renderBracketHalf(rounds, startX, goRight, cc, totalH) {
   return { boxesHtml, svgLines };
 }
 
+// ═══════════════════════════════════════════════════════════════
+// BRACKET-BEFÜLLUNG aus Gruppenphase
+// ═══════════════════════════════════════════════════════════════
+
+// R32-Paarungen laut FIFA-Regelwerk (Match-IDs 73–88)
+// Feststehende Paarungen (Sieger/Zweiter bekannter Gruppen):
+const R32_FIXED = {
+  73: { home: { type: '2nd', group: 'A' }, away: { type: '2nd', group: 'B' } },
+  74: { home: { type: '1st', group: 'E' }, away: { type: '3rd', slot: 'E'  } }, // 3rd-Slot variabel
+  75: { home: { type: '1st', group: 'F' }, away: { type: '2nd', group: 'C' } },
+  76: { home: { type: '1st', group: 'C' }, away: { type: '2nd', group: 'F' } },
+  77: { home: { type: '1st', group: 'I' }, away: { type: '3rd', slot: 'I'  } },
+  78: { home: { type: '2nd', group: 'E' }, away: { type: '2nd', group: 'I' } },
+  79: { home: { type: '1st', group: 'A' }, away: { type: '3rd', slot: 'A'  } },
+  80: { home: { type: '1st', group: 'L' }, away: { type: '3rd', slot: 'L'  } },
+  81: { home: { type: '1st', group: 'D' }, away: { type: '3rd', slot: 'D'  } },
+  82: { home: { type: '1st', group: 'G' }, away: { type: '3rd', slot: 'G'  } },
+  83: { home: { type: '2nd', group: 'K' }, away: { type: '2nd', group: 'L' } },
+  84: { home: { type: '1st', group: 'H' }, away: { type: '2nd', group: 'J' } },
+  85: { home: { type: '1st', group: 'B' }, away: { type: '3rd', slot: 'B'  } },
+  86: { home: { type: '1st', group: 'J' }, away: { type: '2nd', group: 'H' } },
+  87: { home: { type: '1st', group: 'K' }, away: { type: '3rd', slot: 'K'  } },
+  88: { home: { type: '2nd', group: 'D' }, away: { type: '2nd', group: 'G' } },
+};
+
+// FIFA Annex C — 495 Kombinationen der 8 besten Drittplatzierten
+// Key = sortierte Gruppen der qualifizierten Drittplatzierten (z.B. "CDEFGHIJ")
+// Value = Zuordnung: welcher Dritte in welches Match (Slots für 1A,1B,1D,1E,1G,1I,1K,1L)
+// Format: [slot74, slot79, slot81, slot82, slot85, slot77, slot87, slot80]
+//         entspricht matches 74,79,81,82,85,77,87,80 (die 8 Spiele mit Drittplatzierten)
+const THIRD_PLACE_TABLE = {
+  'EFGHIJKL': ['3E','3J','3I','3F','3H','3G','3L','3K'],
+  'DFGHIJKL': ['3H','3G','3I','3D','3J','3F','3L','3K'],
+  'DEGHIJKL': ['3E','3J','3I','3D','3H','3G','3L','3K'],
+  'DEFHIJKL': ['3E','3J','3I','3D','3H','3F','3L','3K'],
+  'DEFGIJKL': ['3E','3G','3I','3D','3J','3F','3L','3K'],
+  'DEFGHJKL': ['3E','3G','3J','3D','3H','3F','3L','3K'],
+  'DEFGHIKL': ['3E','3G','3I','3D','3H','3F','3L','3K'],
+  'DEFGHIJL': ['3E','3G','3J','3D','3H','3F','3L','3I'],
+  'DEFGHIJK': ['3E','3G','3J','3D','3H','3F','3I','3K'],
+  'CFGHIJKL': ['3H','3G','3I','3C','3J','3F','3L','3K'],
+  'CEGHIJKL': ['3E','3J','3I','3C','3H','3G','3L','3K'],
+  'CEFHIJKL': ['3E','3J','3I','3C','3H','3F','3L','3K'],
+  'CEFGIJKL': ['3E','3G','3I','3C','3J','3F','3L','3K'],
+  'CEFGHJKL': ['3E','3G','3J','3C','3H','3F','3L','3K'],
+  'CEFGHIKL': ['3E','3G','3I','3C','3H','3F','3L','3K'],
+  'CEFGHIJL': ['3E','3G','3J','3C','3H','3F','3L','3I'],
+  'CEFGHIJK': ['3E','3G','3J','3C','3H','3F','3I','3K'],
+  'CDGHIJKL': ['3H','3G','3I','3C','3J','3D','3L','3K'],
+  'CDFHIJKL': ['3C','3J','3I','3D','3H','3F','3L','3K'],
+  'CDFGIJKL': ['3C','3G','3I','3D','3J','3F','3L','3K'],
+  'CDFGHJKL': ['3C','3G','3J','3D','3H','3F','3L','3K'],
+  'CDFGHIKL': ['3C','3G','3I','3D','3H','3F','3L','3K'],
+  'CDFGHIJL': ['3C','3G','3J','3D','3H','3F','3L','3I'],
+  'CDFGHIJK': ['3C','3G','3J','3D','3H','3F','3I','3K'],
+  'CDEHIJKL': ['3E','3J','3I','3C','3H','3D','3L','3K'],
+  'CDEGIJKL': ['3E','3G','3I','3C','3J','3D','3L','3K'],
+  'CDEGJKL':  ['3E','3G','3J','3C','3H','3D','3L','3K'], // fallback
+  'CDEGHIKL': ['3E','3G','3I','3C','3H','3D','3L','3K'],
+  'CDEGHIJL': ['3E','3G','3J','3C','3H','3D','3L','3I'],
+  'CDEGHIJK': ['3E','3G','3J','3C','3H','3D','3I','3K'],
+  'CDEFIJKL': ['3C','3J','3E','3D','3I','3F','3L','3K'],
+  'CDEFHJKL': ['3C','3J','3E','3D','3H','3F','3L','3K'],
+  'CDEFHIKL': ['3C','3E','3I','3D','3H','3F','3L','3K'],
+  'CDEFHIJL': ['3C','3J','3E','3D','3H','3F','3L','3I'],
+  'CDEFHIJK': ['3C','3J','3E','3D','3H','3F','3I','3K'],
+  'CDEFGJKL': ['3C','3G','3E','3D','3J','3F','3L','3K'],
+  'CDEFGIKL': ['3C','3G','3E','3D','3I','3F','3L','3K'],
+  'CDEFGIJL': ['3C','3G','3E','3D','3J','3F','3L','3I'],
+  'CDEFGIJK': ['3C','3G','3E','3D','3J','3F','3I','3K'],
+  'CDEFGHKL': ['3C','3G','3E','3D','3H','3F','3L','3K'],
+  'CDEFGHJL': ['3C','3G','3J','3D','3H','3F','3L','3E'],
+  'CDEFGHJK': ['3C','3G','3J','3D','3H','3F','3E','3K'],
+  'CDEFGHIL': ['3C','3G','3E','3D','3H','3F','3L','3I'],
+  'CDEFGHIK': ['3C','3G','3E','3D','3H','3F','3I','3K'],
+  'CDEFGHIJ': ['3C','3G','3J','3D','3H','3F','3E','3I'],
+};
+
+// Slot-zu-Match-ID Zuordnung
+// Die 8 Slots entsprechen den Matches: 74,79,81,82,85,77,87,80
+const SLOT_TO_MATCH = {
+  'E': 74,  // Match 74: 1E vs 3rd
+  'A': 79,  // Match 79: 1A vs 3rd
+  'D': 81,  // Match 81: 1D vs 3rd
+  'G': 82,  // Match 82: 1G vs 3rd
+  'B': 85,  // Match 85: 1B vs 3rd
+  'I': 77,  // Match 77: 1I vs 3rd
+  'K': 87,  // Match 87: 1K vs 3rd
+  'L': 80,  // Match 80: 1L vs 3rd
+};
+
+function getTeamFromStanding(type, group) {
+  const standings = calcGroupStandings(group);
+  if (!standings || standings.length === 0) return null;
+  if (type === '1st') return standings[0];
+  if (type === '2nd') return standings[1];
+  if (type === '3rd') return standings[2];
+  return null;
+}
+
+function teamToMatchFields(team, isHome) {
+  if (!team) return isHome
+    ? { home: 'TBD', homeflag: '🏳️', homeCode: null }
+    : { away: 'TBD', awayflag: '🏳️', awayCode: null };
+
+  // Team aus calcGroupStandings hat: code, name, flag
+  const flag = team.flag || '🏳️';
+  return isHome
+    ? { home: team.name, homeflag: flag, homeCode: team.code }
+    : { away: team.name, awayflag: flag, awayCode: team.code };
+}
+
+function populateBracketFromGroups() {
+  // Erst prüfen ob Gruppenphase abgeschlossen ist
+  const groupMatches = matches.filter(m => m.group !== null);
+  const allFinished  = groupMatches.every(m => m.score !== null);
+  if (!allFinished) {
+    // Nur soweit befüllen wie Gruppen fertig sind
+    const finishedGroups = new Set();
+    'ABCDEFGHIJKL'.split('').forEach(g => {
+      const gMatches = matches.filter(m => m.group === g);
+      if (gMatches.length === 6 && gMatches.every(m => m.score !== null)) {
+        finishedGroups.add(g);
+      }
+    });
+    if (finishedGroups.size === 0) return; // nichts zu tun
+  }
+
+  // Alle Gruppensieger und -zweiten ermitteln
+  const grouped = {};
+  'ABCDEFGHIJKL'.split('').forEach(g => {
+    const standings = calcGroupStandings(g);
+    if (standings && standings.length >= 3) {
+      grouped[g] = standings;
+    }
+  });
+
+  if (Object.keys(grouped).length === 0) return;
+
+  // Feststehende Paarungen befüllen (kein Drittplatzierter)
+  Object.entries(R32_FIXED).forEach(([matchIdStr, pairing]) => {
+    const matchId = parseInt(matchIdStr);
+    const m = matches.find(x => x.id === matchId);
+    if (!m) return;
+
+    // Home
+    if (pairing.home.type !== '3rd' && grouped[pairing.home.group]) {
+      const team = pairing.home.type === '1st'
+        ? grouped[pairing.home.group][0]
+        : grouped[pairing.home.group][1];
+      if (team) {
+        m.home     = team.name;
+        m.homeflag = team.flag || '🏳️';
+        m.homeCode = team.code;
+      }
+    }
+
+    // Away
+    if (pairing.away.type !== '3rd' && grouped[pairing.away.group]) {
+      const team = pairing.away.type === '1st'
+        ? grouped[pairing.away.group][0]
+        : grouped[pairing.away.group][1];
+      if (team) {
+        m.away     = team.name;
+        m.awayflag = team.flag || '🏳️';
+        m.awayCode = team.code;
+      }
+    }
+  });
+
+  // Drittplatzierte ermitteln wenn alle 12 Gruppen fertig
+  const allGroups = 'ABCDEFGHIJKL'.split('');
+  const allGroupsDone = allGroups.every(g => grouped[g]);
+  if (!allGroupsDone) return;
+
+  // Alle Drittplatzierten sammeln und ranken
+  const thirds = allGroups.map(g => ({
+    group: g,
+    ...grouped[g][2],
+    pts: grouped[g][2]?.pts ?? 0,
+    gd:  grouped[g][2]?.gd  ?? 0,
+    gf:  grouped[g][2]?.gf  ?? 0,
+  })).filter(t => t.code);
+
+  // Sortierung: Punkte → Tordifferenz → Tore → alphabetisch nach Gruppe
+  thirds.sort((a, b) => {
+    if (b.pts !== a.pts) return b.pts - a.pts;
+    if (b.gd  !== a.gd)  return b.gd  - a.gd;
+    if (b.gf  !== a.gf)  return b.gf  - a.gf;
+    return a.group.localeCompare(b.group);
+  });
+
+  const best8 = thirds.slice(0, 8);
+  const qualifiedGroups = best8.map(t => t.group).sort().join('');
+
+  // Lookup in FIFA-Tabelle
+  const assignment = THIRD_PLACE_TABLE[qualifiedGroups];
+  if (!assignment) {
+    console.warn('Keine Drittplatzierter-Kombination gefunden für:', qualifiedGroups);
+    return;
+  }
+
+  // assignment = [slot74, slot79, slot81, slot82, slot85, slot77, slot87, slot80]
+  // Entspricht Matches:   74,    79,    81,    82,    85,    77,    87,    80
+  const matchOrder = [74, 79, 81, 82, 85, 77, 87, 80];
+
+  assignment.forEach((slotCode, idx) => {
+    const group  = slotCode.replace('3', ''); // "3E" → "E"
+    const team   = grouped[group]?.[2];
+    if (!team) return;
+
+    const matchId = matchOrder[idx];
+    const m = matches.find(x => x.id === matchId);
+    if (!m) return;
+
+    m.away     = team.name;
+    m.awayflag = team.flag || '🏳️';
+    m.awayCode = team.code;
+  });
+}
+
 function renderBracket() {
-  const container = document.getElementById('bracket-container');
+  populateBracketFromGroups();
   if (!container) return;
 
   const cc     = countryConfig[currentCountry];
@@ -755,6 +976,7 @@ function updateClock() {
 // ALLES RENDERN
 // ═══════════════════════════════════════════════════════════════
 function renderAll() {
+  populateBracketFromGroups();
   syncSettingsDropdowns();
   updateFavTabLabel();
   updateFilterBar();
@@ -798,33 +1020,25 @@ function applyScores(data) {
   let hasChanges = false;
 
   matches.forEach(m => {
-    // Key bauen — gleiche Logik wie im fetch-Skript
-    const homeNorm = m.home.toLowerCase().replace(/\s/g, '_');
-    const key      = `${m.date}_${homeNorm}`;
-    const entry    = data.scores[key];
+    if (!m.openligaId) return;
+    const entry = data.scores[m.openligaId];
     if (!entry) return;
 
-    // Score aktualisieren
     if (entry.score && entry.score !== m.score) {
       m.score    = entry.score;
       hasChanges = true;
     }
 
-    // Live-Status merken
     if (entry.isLive) hasLive = true;
-
-    // Laufende Minute auf Spielkarte zeigen
     m.isLive  = entry.isLive  ?? false;
     m.minute  = entry.minute  ?? null;
   });
 
-  // Wenn sich etwas geändert hat → neu rendern
   if (hasChanges) {
     console.log('Neue Ergebnisse — Dashboard wird aktualisiert');
     renderAll();
   }
 
-  // Live-Badge blinken lassen wenn Spiel läuft
   const badge = document.querySelector('.live-badge');
   if (badge) {
     badge.style.display = hasLive ? 'inline-block' : 'none';
