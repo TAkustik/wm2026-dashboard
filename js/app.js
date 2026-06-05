@@ -106,6 +106,8 @@ function renderTVBadge(m, mini = false) {
 
   // Für Deutschland: exakte Spieldaten nutzen
   if (currentCountry === 'DE') {
+    // Kein Badge wenn Sender noch unbekannt
+    if (!m.tv) return '<span class="'+cls+'" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.2);font-size:0.65rem">?</span>';
     const color = getTVColor(m.tv);
     return `<span class="${cls}" style="background:${color};color:#fff">${m.tv}</span>`;
   }
@@ -115,9 +117,7 @@ function renderTVBadge(m, mini = false) {
   const broadcasters = cc?.broadcasters ?? [];
   const preferred    = broadcasters.find(b => b.free === true) ?? broadcasters[0];
 
-  if (!preferred) {
-    return `<span class="${cls}" style="background:#444;color:#fff">TBD</span>`;
-  }
+  if (!preferred) return '';
 
   return `<span class="${cls}" style="background:${preferred.color};color:#fff">${preferred.name}</span>`;
 }
@@ -1046,6 +1046,17 @@ function applyScores(data) {
     if (entry.isLive) hasLive = true;
     m.isLive  = entry.isLive  ?? false;
     m.minute  = entry.minute  ?? null;
+
+    // TV-Sender aus tvData übernehmen (Free-TV hat Vorrang)
+    const tvEntry = data.tvData?.[m.openligaId];
+    if (tvEntry) {
+      // Nur aktualisieren wenn noch unbekannt ODER Free-TV neu entdeckt
+      if (m.tv === null || (tvEntry.freeTv && !m.freeTv)) {
+        m.tv     = tvEntry.tv;
+        m.freeTv = tvEntry.freeTv;
+        hasChanges = true;
+      }
+    }
   });
 
   if (hasChanges) {
