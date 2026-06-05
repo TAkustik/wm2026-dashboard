@@ -128,64 +128,50 @@ export const matches = [
   { id: 72, openligaId: 80167, date: '2026-06-27', time: '23:00', home: 'Kroatien',              homeflag: '🇭🇷', homeCode: 'HR', away: 'Ghana',                awayflag: '🇬🇭', awayCode: 'GH', group: 'L', tv: null, freeTv: null,  score: null },
 
   // ═══════════════════════════════════════════════════════════════
-  // K.O.-RUNDE
-  // Bracket-Logik: je 2 SZF-Sieger → 1 AF, je 2 AF → 1 VF usw.
-  //
-  // LINKE HÄLFTE:  SZF 1-8  (ids 73-80) → AF 1-4 (89-92) → VF 1-2 (97-98) → HF1 (101)
-  // RECHTE HÄLFTE: SZF 9-16 (ids 81-88) → AF 5-8 (93-96) → VF 3-4 (99-100) → HF2 (102)
-  // FINALE: id 104  |  PLATZ 3: id 103
-  //
-  // SZF-Paarungen laut FIFA (Poster):
-  // SZF1(73): 2.A vs 2.B        SZF9(81):  1.D vs 3rd
-  // SZF2(74): 1.E vs 3rd        SZF10(82): 1.G vs 3rd
-  // SZF3(75): 1.F vs 2.C        SZF11(83): 2.K vs 2.L
-  // SZF4(76): 1.C vs 2.F        SZF12(84): 1.H vs 2.J
-  // SZF5(77): 1.I vs 3rd        SZF13(85): 1.B vs 3rd
-  // SZF6(78): 2.E vs 2.I        SZF14(86): 1.J vs 2.H
-  // SZF7(79): 1.A vs 3rd        SZF15(87): 1.K vs 3rd
-  // SZF8(80): 1.L vs 3rd        SZF16(88): 2.D vs 2.G
+  // K.O.-RUNDE — Platzhalter (werden später befüllt)
+  // ═══════════════════════════════════════════════════════════════
 
-  // Sechzehntelfinale (SZF 1-16)
-  { id: 73,  szf: 1,  date: '2026-06-28', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 74,  szf: 2,  date: '2026-06-29', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 75,  szf: 3,  date: '2026-06-29', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 76,  szf: 4,  date: '2026-06-30', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 77,  szf: 5,  date: '2026-06-30', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 78,  szf: 6,  date: '2026-07-01', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 79,  szf: 7,  date: '2026-07-01', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 80,  szf: 8,  date: '2026-07-02', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 81,  szf: 9,  date: '2026-07-02', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 82,  szf: 10, date: '2026-07-03', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 83,  szf: 11, date: '2026-07-03', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 84,  szf: 12, date: '2026-07-04', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 85,  szf: 13, date: '2026-07-04', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 86,  szf: 14, date: '2026-07-05', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 87,  szf: 15, date: '2026-07-05', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 88,  szf: 16, date: '2026-07-06', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null, score: null },
+  // Runde der letzten 32 (16 Spiele)
+  { id: 73,  date: '2026-07-06', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null,  score: null },
+  { id: 74,  date: '2026-07-07', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null,  score: null },
+  { id: 75,  date: '2026-07-07', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null,  score: null },
+  { id: 76,  date: '2026-07-08', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null,  score: null },
+  { id: 77,  date: '2026-07-08', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null,  score: null },
+  { id: 78,  date: '2026-07-09', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null,  score: null },
+  { id: 79,  date: '2026-07-09', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null,  score: null },
+  { id: 80,  date: '2026-07-10', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null,  score: null },
+  { id: 81,  date: '2026-07-10', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null,  score: null },
+  { id: 82,  date: '2026-07-11', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null,  score: null },
+  { id: 83,  date: '2026-07-11', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null,  score: null },
+  { id: 84,  date: '2026-07-12', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null,  score: null },
+  { id: 85,  date: '2026-07-12', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null,  score: null },
+  { id: 86,  date: '2026-07-13', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null,  score: null },
+  { id: 87,  date: '2026-07-13', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null,  score: null },
+  { id: 88,  date: '2026-07-14', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R32', tv: null, freeTv: null,  score: null },
 
-  // Achtelfinale (AF 1-8) — AF(n) = Sieger SZF(2n-1) vs Sieger SZF(2n)
-  { id: 89,  af: 1, date: '2026-07-07', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null, score: null },
-  { id: 90,  af: 2, date: '2026-07-08', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null, score: null },
-  { id: 91,  af: 3, date: '2026-07-08', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null, score: null },
-  { id: 92,  af: 4, date: '2026-07-09', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null, score: null },
-  { id: 93,  af: 5, date: '2026-07-09', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null, score: null },
-  { id: 94,  af: 6, date: '2026-07-10', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null, score: null },
-  { id: 95,  af: 7, date: '2026-07-10', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null, score: null },
-  { id: 96,  af: 8, date: '2026-07-11', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null, score: null },
+  // Achtelfinale (8 Spiele)
+  { id: 89,  date: '2026-07-17', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null,  score: null },
+  { id: 90,  date: '2026-07-18', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null,  score: null },
+  { id: 91,  date: '2026-07-18', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null,  score: null },
+  { id: 92,  date: '2026-07-19', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null,  score: null },
+  { id: 93,  date: '2026-07-19', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null,  score: null },
+  { id: 94,  date: '2026-07-20', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null,  score: null },
+  { id: 95,  date: '2026-07-20', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null,  score: null },
+  { id: 96,  date: '2026-07-21', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null,  score: null },
 
-  // Viertelfinale (VF 1-4) — VF(n) = Sieger AF(2n-1) vs Sieger AF(2n)
-  { id: 97,  vf: 1, date: '2026-07-11', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'QF', tv: null, freeTv: null, score: null },
-  { id: 98,  vf: 2, date: '2026-07-12', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'QF', tv: null, freeTv: null, score: null },
-  { id: 99,  vf: 3, date: '2026-07-12', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'QF', tv: null, freeTv: null, score: null },
-  { id: 100, vf: 4, date: '2026-07-13', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'QF', tv: null, freeTv: null, score: null },
+  // Viertelfinale (4 Spiele)
+  { id: 97,  date: '2026-07-24', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'QF', tv: null, freeTv: null,  score: null },
+  { id: 98,  date: '2026-07-25', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'QF', tv: null, freeTv: null,  score: null },
+  { id: 99,  date: '2026-07-25', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'QF', tv: null, freeTv: null,  score: null },
+  { id: 100, date: '2026-07-26', time: '00:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'QF', tv: null, freeTv: null,  score: null },
 
-  // Halbfinale — HF1 = Sieger VF1 vs VF2 | HF2 = Sieger VF3 vs VF4
-  { id: 101, hf: 1, date: '2026-07-14', time: '02:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'SF', tv: 'ARD', freeTv: true,  score: null },
-  { id: 102, hf: 2, date: '2026-07-15', time: '02:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'SF', tv: 'ZDF', freeTv: true,  score: null },
+  // Halbfinale (2 Spiele)
+  { id: 101, date: '2026-07-29', time: '02:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'SF', tv: null, freeTv: null,  score: null },
+  { id: 102, date: '2026-07-30', time: '02:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'SF', tv: null, freeTv: null,  score: null },
 
   // Spiel um Platz 3
-  { id: 103,        date: '2026-07-18', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'P3', tv: 'ZDF', freeTv: true,  score: null },
+  { id: 103, date: '2026-08-01', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'P3', tv: null, freeTv: null,  score: null },
 
-  // Finale — Sieger HF1 vs Sieger HF2
-  { id: 104,        date: '2026-07-19', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'F',  tv: 'ZDF', freeTv: true,  score: null },
+  // Finale
+  { id: 104, date: '2026-07-19', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'F',  tv: null, freeTv: null,  score: null },
 ];
