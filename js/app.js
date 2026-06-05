@@ -488,41 +488,44 @@ function renderGroups() {
 // ═══════════════════════════════════════════════════════════════
 // BRACKET TAB — gespiegelt (links ↔ rechts, Finale in der Mitte)
 // ═══════════════════════════════════════════════════════════════
+// BRACKET — gespiegelt, logisch korrekt nach FIFA-Schema
+// Linke Hälfte:  SZF 1-8  → AF 1-4 → VF 1-2 → HF1 → FINALE
+// Rechte Hälfte: SZF 9-16 → AF 5-8 → VF 3-4 → HF2 → FINALE
+// Verbindungen: SZF(2n-1)+SZF(2n) → AF(n), AF(2n-1)+AF(2n) → VF(n)
+// ═══════════════════════════════════════════════════════════════
 
 // Layout-Konstanten
-const BOX_W    = 130;  // Match-Box Breite
-const BOX_H    = 72;   // Match-Box Höhe
-const COL_GAP  = 28;   // Abstand zwischen Spalten
+const BOX_W    = 130;
+const BOX_H    = 72;
+const COL_GAP  = 28;
 const COL_W    = BOX_W + COL_GAP;
 const HEADER_H = 34;
-const FIN_W    = 140;  // Finale-Box Breite (etwas breiter)
+const FIN_W    = 140;
 
-// Linke Seite: R32(8) → R16(4) → QF(2) → SF(1)
-// Rechte Seite: SF(1) → QF(2) → R16(4) → R32(8)  (gespiegelt)
-const LEFT_ROUNDS  = [
-  { key: 'r32', count: 8,  ids: [73,74,75,76,77,78,79,80] },
-  { key: 'r16', count: 4,  ids: [] },
-  { key: 'qf',  count: 2,  ids: [] },
-  { key: 'sf',  count: 1,  ids: [] },
+// Bracket-Struktur: linke und rechte Hälfte mit festen Paarungen
+// ids = Match-IDs aus matches.js, pairOf = welche zwei SZF/AF ergeben dieses Spiel
+const LEFT_ROUNDS = [
+  { key: 'r32', count: 8, ids: [73,74,75,76,77,78,79,80] },  // SZF 1-8
+  { key: 'r16', count: 4, ids: [89,90,91,92]             },  // AF  1-4
+  { key: 'qf',  count: 2, ids: [97,98]                   },  // VF  1-2
+  { key: 'sf',  count: 1, ids: [101]                     },  // HF  1
 ];
 const RIGHT_ROUNDS = [
-  { key: 'sf',  count: 1,  ids: [] },
-  { key: 'qf',  count: 2,  ids: [] },
-  { key: 'r16', count: 4,  ids: [] },
-  { key: 'r32', count: 8,  ids: [81,82,83,84,85,86,87,88] },
+  { key: 'sf',  count: 1, ids: [102]                     },  // HF  2
+  { key: 'qf',  count: 2, ids: [100,99]                  },  // VF  4-3 (gespiegelt)
+  { key: 'r16', count: 4, ids: [96,95,94,93]             },  // AF  8-5 (gespiegelt)
+  { key: 'r32', count: 8, ids: [88,87,86,85,84,83,82,81] },  // SZF 16-9 (gespiegelt)
 ];
 
-function bracketRoundLabel(key, side) {
+function bracketRoundLabel(key) {
   const labels = {
-    r32:   '1/16',
-    r16:   '1/8',
-    qf:    t(currentLang, 'quarter_final'),
-    sf:    t(currentLang, 'semi_final'),
+    r32: '1/16', r16: '1/8',
+    qf:  t(currentLang, 'quarter_final'),
+    sf:  t(currentLang, 'semi_final'),
   };
   return labels[key] || key;
 }
 
-// Y-Position: 8 Slots als Basis (pro Hälfte)
 function bracketMatchY(count, index) {
   const BASE   = 8;
   const totalH = BASE * (BOX_H + 14);
@@ -539,8 +542,8 @@ function renderBracketTeamRow(m, isHome, cc) {
   const flag  = isHome ? m.homeflag : m.awayflag;
   const name  = isHome ? m.home     : m.away;
   const score = m.score ? m.score.split(':')[isHome ? 0 : 1] : null;
-
   const isEmpty = !name || name === 'TBD';
+
   if (isEmpty) {
     return `<div class="b-team-row empty-team">
       <span class="b-team-name" style="color:var(--border)">─</span>
@@ -590,33 +593,21 @@ function renderBracketHalf(rounds, startX, goRight, cc, totalH) {
         <div class="b-match-date">${dateLabel}</div>
       </div>`;
 
-      if (goRight) {
-        // ── Linke Seite: Linie von rechter Kante → rechts zur nächsten Runde ──
-        if (rIdx < rounds.length - 1) {
-          const nextRound = rounds[rIdx + 1];
-          const nextI = Math.floor(i / 2);
-          const y1    = HEADER_H + bracketMatchY(round.count, i) + BOX_H / 2;
-          const y2    = HEADER_H + bracketMatchY(nextRound.count, nextI) + BOX_H / 2;
-          const x1    = x + BOX_W;
-          const x2    = startX + (rIdx + 1) * COL_W;
-          const midX  = x1 + COL_GAP / 2;
-          const lc    = hasFav ? '#e8c84a44' : '#2a3a58';
-          svgLines += `<path d="M${x1},${y1} H${midX} V${y2} H${x2}" fill="none" stroke="${lc}" stroke-width="1.5" stroke-linecap="round"/>`;
+      // Verbindungslinien
+      if (rIdx < rounds.length - 1) {
+        const nextRound = rounds[rIdx + 1];
+        const nextI = Math.floor(i / 2);
+        const y1    = HEADER_H + bracketMatchY(round.count, i) + BOX_H / 2;
+        const y2    = HEADER_H + bracketMatchY(nextRound.count, nextI) + BOX_H / 2;
+        const lc    = hasFav ? '#e8c84a44' : '#2a3a58';
+
+        let x1, x2, midX;
+        if (goRight) {
+          x1 = x + BOX_W; x2 = startX + (rIdx+1)*COL_W; midX = x1 + COL_GAP/2;
+        } else {
+          x1 = x; x2 = startX + (rIdx+1)*COL_W + BOX_W; midX = x1 - COL_GAP/2;
         }
-      } else {
-        // ── Rechte Seite: Linie von linker Kante ← links zur inneren Runde ──
-        // Linien nur von rIdx>0 zeichnen (von außen nach innen)
-        if (rIdx > 0) {
-          const prevRound = rounds[rIdx - 1];
-          const prevI = Math.floor(i / 2);
-          const y1    = HEADER_H + bracketMatchY(round.count, i) + BOX_H / 2;
-          const y2    = HEADER_H + bracketMatchY(prevRound.count, prevI) + BOX_H / 2;
-          const x1    = x;                              // linke Kante dieser (äußeren) Box
-          const x2    = startX + (rIdx - 1) * COL_W + BOX_W;  // rechte Kante der inneren Box
-          const midX  = x1 - COL_GAP / 2;
-          const lc    = hasFav ? '#e8c84a44' : '#2a3a58';
-          svgLines += `<path d="M${x1},${y1} H${midX} V${y2} H${x2}" fill="none" stroke="${lc}" stroke-width="1.5" stroke-linecap="round"/>`;
-        }
+        svgLines += `<path d="M${x1},${y1} H${midX} V${y2} H${x2}" fill="none" stroke="${lc}" stroke-width="1.5" stroke-linecap="round"/>`;
       }
     });
   });
@@ -624,15 +615,12 @@ function renderBracketHalf(rounds, startX, goRight, cc, totalH) {
   return { boxesHtml, svgLines };
 }
 
-// ═══════════════════════════════════════════════════════════════
-// BRACKET-BEFÜLLUNG aus Gruppenphase
-// ═══════════════════════════════════════════════════════════════
+// ── Bracket aus Gruppenphase befüllen ────────────────────────
 
-// R32-Paarungen laut FIFA-Regelwerk (Match-IDs 73–88)
-// Feststehende Paarungen (Sieger/Zweiter bekannter Gruppen):
-const R32_FIXED = {
+// Feste SZF-Paarungen laut FIFA (home/away = Gruppenplatz)
+const SZF_PAIRINGS = {
   73: { home: { type: '2nd', group: 'A' }, away: { type: '2nd', group: 'B' } },
-  74: { home: { type: '1st', group: 'E' }, away: { type: '3rd', slot: 'E'  } }, // 3rd-Slot variabel
+  74: { home: { type: '1st', group: 'E' }, away: { type: '3rd', slot: 'E'  } },
   75: { home: { type: '1st', group: 'F' }, away: { type: '2nd', group: 'C' } },
   76: { home: { type: '1st', group: 'C' }, away: { type: '2nd', group: 'F' } },
   77: { home: { type: '1st', group: 'I' }, away: { type: '3rd', slot: 'I'  } },
@@ -649,200 +637,168 @@ const R32_FIXED = {
   88: { home: { type: '2nd', group: 'D' }, away: { type: '2nd', group: 'G' } },
 };
 
-// FIFA Annex C — 495 Kombinationen der 8 besten Drittplatzierten
-// Key = sortierte Gruppen der qualifizierten Drittplatzierten (z.B. "CDEFGHIJ")
-// Value = Zuordnung: welcher Dritte in welches Match (Slots für 1A,1B,1D,1E,1G,1I,1K,1L)
-// Format: [slot74, slot79, slot81, slot82, slot85, slot77, slot87, slot80]
-//         entspricht matches 74,79,81,82,85,77,87,80 (die 8 Spiele mit Drittplatzierten)
+// FIFA Annex C — 8 beste Drittplatzierte → Slot-Zuweisung
+// [slot74, slot79, slot81, slot82, slot85, slot77, slot87, slot80]
 const THIRD_PLACE_TABLE = {
-  'EFGHIJKL': ['3E','3J','3I','3F','3H','3G','3L','3K'],
-  'DFGHIJKL': ['3H','3G','3I','3D','3J','3F','3L','3K'],
-  'DEGHIJKL': ['3E','3J','3I','3D','3H','3G','3L','3K'],
-  'DEFHIJKL': ['3E','3J','3I','3D','3H','3F','3L','3K'],
-  'DEFGIJKL': ['3E','3G','3I','3D','3J','3F','3L','3K'],
-  'DEFGHJKL': ['3E','3G','3J','3D','3H','3F','3L','3K'],
-  'DEFGHIKL': ['3E','3G','3I','3D','3H','3F','3L','3K'],
-  'DEFGHIJL': ['3E','3G','3J','3D','3H','3F','3L','3I'],
-  'DEFGHIJK': ['3E','3G','3J','3D','3H','3F','3I','3K'],
-  'CFGHIJKL': ['3H','3G','3I','3C','3J','3F','3L','3K'],
-  'CEGHIJKL': ['3E','3J','3I','3C','3H','3G','3L','3K'],
-  'CEFHIJKL': ['3E','3J','3I','3C','3H','3F','3L','3K'],
-  'CEFGIJKL': ['3E','3G','3I','3C','3J','3F','3L','3K'],
-  'CEFGHJKL': ['3E','3G','3J','3C','3H','3F','3L','3K'],
-  'CEFGHIKL': ['3E','3G','3I','3C','3H','3F','3L','3K'],
-  'CEFGHIJL': ['3E','3G','3J','3C','3H','3F','3L','3I'],
-  'CEFGHIJK': ['3E','3G','3J','3C','3H','3F','3I','3K'],
-  'CDGHIJKL': ['3H','3G','3I','3C','3J','3D','3L','3K'],
-  'CDFHIJKL': ['3C','3J','3I','3D','3H','3F','3L','3K'],
-  'CDFGIJKL': ['3C','3G','3I','3D','3J','3F','3L','3K'],
-  'CDFGHJKL': ['3C','3G','3J','3D','3H','3F','3L','3K'],
-  'CDFGHIKL': ['3C','3G','3I','3D','3H','3F','3L','3K'],
-  'CDFGHIJL': ['3C','3G','3J','3D','3H','3F','3L','3I'],
-  'CDFGHIJK': ['3C','3G','3J','3D','3H','3F','3I','3K'],
-  'CDEHIJKL': ['3E','3J','3I','3C','3H','3D','3L','3K'],
-  'CDEGIJKL': ['3E','3G','3I','3C','3J','3D','3L','3K'],
-  'CDEGJKL':  ['3E','3G','3J','3C','3H','3D','3L','3K'], // fallback
-  'CDEGHIKL': ['3E','3G','3I','3C','3H','3D','3L','3K'],
-  'CDEGHIJL': ['3E','3G','3J','3C','3H','3D','3L','3I'],
-  'CDEGHIJK': ['3E','3G','3J','3C','3H','3D','3I','3K'],
-  'CDEFIJKL': ['3C','3J','3E','3D','3I','3F','3L','3K'],
-  'CDEFHJKL': ['3C','3J','3E','3D','3H','3F','3L','3K'],
-  'CDEFHIKL': ['3C','3E','3I','3D','3H','3F','3L','3K'],
-  'CDEFHIJL': ['3C','3J','3E','3D','3H','3F','3L','3I'],
-  'CDEFHIJK': ['3C','3J','3E','3D','3H','3F','3I','3K'],
-  'CDEFGJKL': ['3C','3G','3E','3D','3J','3F','3L','3K'],
-  'CDEFGIKL': ['3C','3G','3E','3D','3I','3F','3L','3K'],
-  'CDEFGIJL': ['3C','3G','3E','3D','3J','3F','3L','3I'],
-  'CDEFGIJK': ['3C','3G','3E','3D','3J','3F','3I','3K'],
-  'CDEFGHKL': ['3C','3G','3E','3D','3H','3F','3L','3K'],
-  'CDEFGHJL': ['3C','3G','3J','3D','3H','3F','3L','3E'],
-  'CDEFGHJK': ['3C','3G','3J','3D','3H','3F','3E','3K'],
-  'CDEFGHIL': ['3C','3G','3E','3D','3H','3F','3L','3I'],
-  'CDEFGHIK': ['3C','3G','3E','3D','3H','3F','3I','3K'],
-  'CDEFGHIJ': ['3C','3G','3J','3D','3H','3F','3E','3I'],
+  'EFGHIJKL':['3E','3J','3I','3F','3H','3G','3L','3K'],
+  'DFGHIJKL':['3H','3G','3I','3D','3J','3F','3L','3K'],
+  'DEGHIJKL':['3E','3J','3I','3D','3H','3G','3L','3K'],
+  'DEFHIJKL':['3E','3J','3I','3D','3H','3F','3L','3K'],
+  'DEFGIJKL':['3E','3G','3I','3D','3J','3F','3L','3K'],
+  'DEFGHJKL':['3E','3G','3J','3D','3H','3F','3L','3K'],
+  'DEFGHIKL':['3E','3G','3I','3D','3H','3F','3L','3K'],
+  'DEFGHIJL':['3E','3G','3J','3D','3H','3F','3L','3I'],
+  'DEFGHIJK':['3E','3G','3J','3D','3H','3F','3I','3K'],
+  'CFGHIJKL':['3H','3G','3I','3C','3J','3F','3L','3K'],
+  'CEGHIJKL':['3E','3J','3I','3C','3H','3G','3L','3K'],
+  'CEFHIJKL':['3E','3J','3I','3C','3H','3F','3L','3K'],
+  'CEFGIJKL':['3E','3G','3I','3C','3J','3F','3L','3K'],
+  'CEFGHJKL':['3E','3G','3J','3C','3H','3F','3L','3K'],
+  'CEFGHIKL':['3E','3G','3I','3C','3H','3F','3L','3K'],
+  'CEFGHIJL':['3E','3G','3J','3C','3H','3F','3L','3I'],
+  'CEFGHIJK':['3E','3G','3J','3C','3H','3F','3I','3K'],
+  'CDGHIJKL':['3H','3G','3I','3C','3J','3D','3L','3K'],
+  'CDFHIJKL':['3C','3J','3I','3D','3H','3F','3L','3K'],
+  'CDFGIJKL':['3C','3G','3I','3D','3J','3F','3L','3K'],
+  'CDFGHJKL':['3C','3G','3J','3D','3H','3F','3L','3K'],
+  'CDFGHIKL':['3C','3G','3I','3D','3H','3F','3L','3K'],
+  'CDFGHIJL':['3C','3G','3J','3D','3H','3F','3L','3I'],
+  'CDFGHIJK':['3C','3G','3J','3D','3H','3F','3I','3K'],
+  'CDEHIJKL':['3E','3J','3I','3C','3H','3D','3L','3K'],
+  'CDEGIJKL':['3E','3G','3I','3C','3J','3D','3L','3K'],
+  'CDEGHIKL':['3E','3G','3I','3C','3H','3D','3L','3K'],
+  'CDEGHIJL':['3E','3G','3J','3C','3H','3D','3L','3I'],
+  'CDEGHIJK':['3E','3G','3J','3C','3H','3D','3I','3K'],
+  'CDEFIJKL':['3C','3J','3E','3D','3I','3F','3L','3K'],
+  'CDEFHJKL':['3C','3J','3E','3D','3H','3F','3L','3K'],
+  'CDEFHIKL':['3C','3E','3I','3D','3H','3F','3L','3K'],
+  'CDEFHIJL':['3C','3J','3E','3D','3H','3F','3L','3I'],
+  'CDEFHIJK':['3C','3J','3E','3D','3H','3F','3I','3K'],
+  'CDEFGJKL':['3C','3G','3E','3D','3J','3F','3L','3K'],
+  'CDEFGIKL':['3C','3G','3E','3D','3I','3F','3L','3K'],
+  'CDEFGIJL':['3C','3G','3E','3D','3J','3F','3L','3I'],
+  'CDEFGIJK':['3C','3G','3E','3D','3J','3F','3I','3K'],
+  'CDEFGHKL':['3C','3G','3E','3D','3H','3F','3L','3K'],
+  'CDEFGHJL':['3C','3G','3J','3D','3H','3F','3L','3E'],
+  'CDEFGHJK':['3C','3G','3J','3D','3H','3F','3E','3K'],
+  'CDEFGHIL':['3C','3G','3E','3D','3H','3F','3L','3I'],
+  'CDEFGHIK':['3C','3G','3E','3D','3H','3F','3I','3K'],
+  'CDEFGHIJ':['3C','3G','3J','3D','3H','3F','3E','3I'],
 };
 
-// Slot-zu-Match-ID Zuordnung
-// Die 8 Slots entsprechen den Matches: 74,79,81,82,85,77,87,80
-const SLOT_TO_MATCH = {
-  'E': 74,  // Match 74: 1E vs 3rd
-  'A': 79,  // Match 79: 1A vs 3rd
-  'D': 81,  // Match 81: 1D vs 3rd
-  'G': 82,  // Match 82: 1G vs 3rd
-  'B': 85,  // Match 85: 1B vs 3rd
-  'I': 77,  // Match 77: 1I vs 3rd
-  'K': 87,  // Match 87: 1K vs 3rd
-  'L': 80,  // Match 80: 1L vs 3rd
-};
-
-function getTeamFromStanding(type, group) {
-  const standings = calcGroupStandings(group);
-  if (!standings || standings.length === 0) return null;
-  if (type === '1st') return standings[0];
-  if (type === '2nd') return standings[1];
-  if (type === '3rd') return standings[2];
-  return null;
-}
-
-function teamToMatchFields(team, isHome) {
-  if (!team) return isHome
-    ? { home: 'TBD', homeflag: '🏳️', homeCode: null }
-    : { away: 'TBD', awayflag: '🏳️', awayCode: null };
-
-  // Team aus calcGroupStandings hat: code, name, flag
-  const flag = team.flag || '🏳️';
-  return isHome
-    ? { home: team.name, homeflag: flag, homeCode: team.code }
-    : { away: team.name, awayflag: flag, awayCode: team.code };
-}
+// Slot → Match-ID Zuordnung (Drittplatzierte)
+const THIRD_SLOT_TO_ID = { E:74, A:79, D:81, G:82, B:85, I:77, K:87, L:80 };
 
 function populateBracketFromGroups() {
-  // Erst prüfen ob Gruppenphase abgeschlossen ist
-  const groupMatches = matches.filter(m => m.group !== null);
-  const allFinished  = groupMatches.every(m => m.score !== null);
-  if (!allFinished) {
-    // Nur soweit befüllen wie Gruppen fertig sind
-    const finishedGroups = new Set();
-    'ABCDEFGHIJKL'.split('').forEach(g => {
-      const gMatches = matches.filter(m => m.group === g);
-      if (gMatches.length === 6 && gMatches.every(m => m.score !== null)) {
-        finishedGroups.add(g);
-      }
-    });
-    if (finishedGroups.size === 0) return; // nichts zu tun
+  // Hilfsfunktion: ist eine Gruppe komplett abgeschlossen?
+  function isGroupComplete(g) {
+    const gm = matches.filter(m => m.group === g);
+    return gm.length === 6 && gm.every(m => m.score !== null);
   }
 
-  // Alle Gruppensieger und -zweiten ermitteln
+  // Nur abgeschlossene Gruppen berücksichtigen
   const grouped = {};
   'ABCDEFGHIJKL'.split('').forEach(g => {
-    const standings = calcGroupStandings(g);
-    if (standings && standings.length >= 3) {
-      grouped[g] = standings;
-    }
+    if (!isGroupComplete(g)) return;
+    const s = calcGroupStandings(g);
+    if (s && s.length >= 3) grouped[g] = s;
   });
-
   if (Object.keys(grouped).length === 0) return;
 
-  // Feststehende Paarungen befüllen (kein Drittplatzierter)
-  Object.entries(R32_FIXED).forEach(([matchIdStr, pairing]) => {
-    const matchId = parseInt(matchIdStr);
-    const m = matches.find(x => x.id === matchId);
+  // SZF-Matches befüllen (nur feststehende Paarungen ohne Drittplatzierte)
+  Object.entries(SZF_PAIRINGS).forEach(([idStr, pairing]) => {
+    const m = matches.find(x => x.id === parseInt(idStr));
     if (!m) return;
 
-    // Home
-    if (pairing.home.type !== '3rd' && grouped[pairing.home.group]) {
-      const team = pairing.home.type === '1st'
-        ? grouped[pairing.home.group][0]
-        : grouped[pairing.home.group][1];
-      if (team) {
-        m.home     = team.name;
-        m.homeflag = team.flag || '🏳️';
-        m.homeCode = team.code;
-      }
-    }
-
-    // Away
-    if (pairing.away.type !== '3rd' && grouped[pairing.away.group]) {
-      const team = pairing.away.type === '1st'
-        ? grouped[pairing.away.group][0]
-        : grouped[pairing.away.group][1];
-      if (team) {
-        m.away     = team.name;
-        m.awayflag = team.flag || '🏳️';
-        m.awayCode = team.code;
-      }
-    }
+    ['home','away'].forEach(side => {
+      const p = pairing[side];
+      if (p.type === '3rd') return; // später
+      const g = grouped[p.group];
+      if (!g) return;
+      const team = p.type === '1st' ? g[0] : g[1];
+      if (!team) return;
+      if (side === 'home') { m.home = team.name; m.homeflag = team.flag || '🏳️'; m.homeCode = team.code; }
+      else                 { m.away = team.name; m.awayflag = team.flag || '🏳️'; m.awayCode = team.code; }
+    });
   });
 
-  // Drittplatzierte ermitteln wenn alle 12 Gruppen fertig
-  const allGroups = 'ABCDEFGHIJKL'.split('');
-  const allGroupsDone = allGroups.every(g => grouped[g]);
-  if (!allGroupsDone) return;
+  // Drittplatzierte nur wenn alle 12 Gruppen fertig
+  if (Object.keys(grouped).length < 12) return;
 
-  // Alle Drittplatzierten sammeln und ranken
-  const thirds = allGroups.map(g => ({
-    group: g,
-    ...grouped[g][2],
+  const thirds = 'ABCDEFGHIJKL'.split('').map(g => ({
+    group: g, ...grouped[g][2],
     pts: grouped[g][2]?.pts ?? 0,
     gd:  grouped[g][2]?.gd  ?? 0,
     gf:  grouped[g][2]?.gf  ?? 0,
   })).filter(t => t.code);
 
-  // Sortierung: Punkte → Tordifferenz → Tore → alphabetisch nach Gruppe
-  thirds.sort((a, b) => {
-    if (b.pts !== a.pts) return b.pts - a.pts;
-    if (b.gd  !== a.gd)  return b.gd  - a.gd;
-    if (b.gf  !== a.gf)  return b.gf  - a.gf;
-    return a.group.localeCompare(b.group);
-  });
+  thirds.sort((a,b) => b.pts-a.pts || b.gd-a.gd || b.gf-a.gf || a.group.localeCompare(b.group));
+  const best8 = thirds.slice(0,8);
+  const key   = best8.map(t=>t.group).sort().join('');
+  const assignment = THIRD_PLACE_TABLE[key];
+  if (!assignment) return;
 
-  const best8 = thirds.slice(0, 8);
-  const qualifiedGroups = best8.map(t => t.group).sort().join('');
-
-  // Lookup in FIFA-Tabelle
-  const assignment = THIRD_PLACE_TABLE[qualifiedGroups];
-  if (!assignment) {
-    console.warn('Keine Drittplatzierter-Kombination gefunden für:', qualifiedGroups);
-    return;
-  }
-
-  // assignment = [slot74, slot79, slot81, slot82, slot85, slot77, slot87, slot80]
-  // Entspricht Matches:   74,    79,    81,    82,    85,    77,    87,    80
-  const matchOrder = [74, 79, 81, 82, 85, 77, 87, 80];
-
+  // assignment = [slot74,slot79,slot81,slot82,slot85,slot77,slot87,slot80]
+  const slotOrder = [74,79,81,82,85,77,87,80];
   assignment.forEach((slotCode, idx) => {
-    const group  = slotCode.replace('3', ''); // "3E" → "E"
-    const team   = grouped[group]?.[2];
+    const group = slotCode.replace('3','');
+    const team  = grouped[group]?.[2];
     if (!team) return;
-
-    const matchId = matchOrder[idx];
+    const matchId = slotOrder[idx];
     const m = matches.find(x => x.id === matchId);
     if (!m) return;
-
-    m.away     = team.name;
-    m.awayflag = team.flag || '🏳️';
-    m.awayCode = team.code;
+    m.away = team.name; m.awayflag = team.flag || '🏳️'; m.awayCode = team.code;
   });
+
+  // AF-Matches aus SZF-Siegern befüllen (wenn Scores vorhanden)
+  // AF(n) = Sieger SZF(2n-1) vs Sieger SZF(2n)
+  for (let af = 1; af <= 8; af++) {
+    const afMatch = matches.find(m => m.af === af);
+    if (!afMatch) continue;
+    const szf1 = matches.find(m => m.szf === (2*af-1));
+    const szf2 = matches.find(m => m.szf === (2*af));
+    if (szf1?.score) { const w = getWinner(szf1); if(w) { afMatch.home = w.name; afMatch.homeflag = w.flag; afMatch.homeCode = w.code; } }
+    if (szf2?.score) { const w = getWinner(szf2); if(w) { afMatch.away = w.name; afMatch.awayflag = w.flag; afMatch.awayCode = w.code; } }
+  }
+
+  // VF-Matches aus AF-Siegern
+  for (let vf = 1; vf <= 4; vf++) {
+    const vfMatch = matches.find(m => m.vf === vf);
+    if (!vfMatch) continue;
+    const af1 = matches.find(m => m.af === (2*vf-1));
+    const af2 = matches.find(m => m.af === (2*vf));
+    if (af1?.score) { const w = getWinner(af1); if(w) { vfMatch.home = w.name; vfMatch.homeflag = w.flag; vfMatch.homeCode = w.code; } }
+    if (af2?.score) { const w = getWinner(af2); if(w) { vfMatch.away = w.name; vfMatch.awayflag = w.flag; vfMatch.awayCode = w.code; } }
+  }
+
+  // HF aus VF-Siegern
+  const hf1 = matches.find(m => m.hf === 1);
+  const hf2 = matches.find(m => m.hf === 2);
+  const vf1 = matches.find(m => m.vf === 1); const vf2 = matches.find(m => m.vf === 2);
+  const vf3 = matches.find(m => m.vf === 3); const vf4 = matches.find(m => m.vf === 4);
+  if (hf1) {
+    if (vf1?.score) { const w=getWinner(vf1); if(w){hf1.home=w.name;hf1.homeflag=w.flag;hf1.homeCode=w.code;} }
+    if (vf2?.score) { const w=getWinner(vf2); if(w){hf1.away=w.name;hf1.awayflag=w.flag;hf1.awayCode=w.code;} }
+  }
+  if (hf2) {
+    if (vf3?.score) { const w=getWinner(vf3); if(w){hf2.home=w.name;hf2.homeflag=w.flag;hf2.homeCode=w.code;} }
+    if (vf4?.score) { const w=getWinner(vf4); if(w){hf2.away=w.name;hf2.awayflag=w.flag;hf2.awayCode=w.code;} }
+  }
+
+  // Finale aus HF-Siegern
+  const finale = matches.find(m => m.id === 104);
+  if (finale) {
+    if (hf1?.score) { const w=getWinner(hf1); if(w){finale.home=w.name;finale.homeflag=w.flag;finale.homeCode=w.code;} }
+    if (hf2?.score) { const w=getWinner(hf2); if(w){finale.away=w.name;finale.awayflag=w.flag;finale.awayCode=w.code;} }
+  }
+}
+
+function getWinner(m) {
+  if (!m?.score) return null;
+  const [h,a] = m.score.split(':').map(Number);
+  if (h > a) return { name: m.home, flag: m.homeflag, code: m.homeCode };
+  if (a > h) return { name: m.away, flag: m.awayflag, code: m.awayCode };
+  return null; // Unentschieden → Verlängerung/Elfmeter noch nicht abgebildet
 }
 
 function renderBracket() {
@@ -852,63 +808,48 @@ function renderBracket() {
 
   const cc     = countryConfig[currentCountry];
   const totalH = bracketTotalH();
+  const totalW = LEFT_ROUNDS.length * COL_W + FIN_W + RIGHT_ROUNDS.length * COL_W + 20;
 
-  // Gesamtbreite: 4 Spalten links + Finale + 4 Spalten rechts
-  const totalW = LEFT_ROUNDS.length * COL_W
-               + FIN_W
-               + RIGHT_ROUNDS.length * COL_W
-               + 20;
-
-  // X-Startpositionen
   const leftStart  = 10;
-  // Linke Seite endet bei: leftStart + 4*COL_W - COL_GAP (letzte Box)
   const finaleX    = leftStart + LEFT_ROUNDS.length * COL_W;
   const rightStart = finaleX + FIN_W + COL_GAP;
 
   const left  = renderBracketHalf(LEFT_ROUNDS,  leftStart,  true,  cc, totalH);
-  // Rechte Seite: SF direkt neben Finale, R32 außen rechts → Linien zeigen nach links
   const right = renderBracketHalf(RIGHT_ROUNDS, rightStart, false, cc, totalH);
 
-  // Finale in der Mitte
-  const finalMatch = matches.find(m => m.id === 96);
-  const fm = finalMatch ?? {
+  // Finale
+  const fm = matches.find(m => m.id === 104) ?? {
     homeCode: null, homeflag: '🏳️', home: 'TBD',
     awayCode: null, awayflag: '🏳️', away: 'TBD',
     date: '19.07', score: null,
   };
   const finY = HEADER_H + bracketMatchY(1, 0);
-
-  // Verbindungslinien SF links → Finale
-  const sfLeftX  = leftStart + (LEFT_ROUNDS.length - 1) * COL_W + BOX_W;
-  const sfY      = HEADER_H + bracketMatchY(1, 0) + BOX_H / 2;
-  const sfRightX = rightStart + BOX_W;  // rechte Kante der SF-Box rechts
+  const sfY  = HEADER_H + bracketMatchY(1, 0) + BOX_H / 2;
+  const sfLeftX  = leftStart + (LEFT_ROUNDS.length-1)*COL_W + BOX_W;
 
   let centerLines = '';
   centerLines += `<path d="M${sfLeftX},${sfY} H${finaleX}" fill="none" stroke="#2a3a58" stroke-width="1.5" stroke-linecap="round"/>`;
-  centerLines += `<path d="M${finaleX + FIN_W},${sfY} H${rightStart}" fill="none" stroke="#2a3a58" stroke-width="1.5" stroke-linecap="round"/>`;
+  centerLines += `<path d="M${finaleX+FIN_W},${sfY} H${rightStart}" fill="none" stroke="#2a3a58" stroke-width="1.5" stroke-linecap="round"/>`;
 
-  // Finale-Header
   const finaleHeader = `<div class="b-round-title" style="position:absolute;left:${finaleX}px;top:0;width:${FIN_W}px;text-align:center;color:var(--accent);">
-    🏆 ${t(currentLang, 'final')} · 19.07
+    🏆 ${t(currentLang,'final')} · 19.07
   </div>`;
 
-  // Finale-Box
   const finaleBox = `<div class="b-match-box" style="left:${finaleX}px;top:${finY}px;width:${FIN_W}px;border-color:rgba(232,200,74,0.4);">
     ${renderBracketTeamRow(fm, true,  cc)}
     ${renderBracketTeamRow(fm, false, cc)}
     <div class="b-match-date">19.07 · New York</div>
   </div>`;
 
-  // Sieger-Box
   let winnerBox = '';
-  if (finalMatch?.score) {
-    const [h, a] = finalMatch.score.split(':').map(Number);
-    const winnerFlag = h > a ? finalMatch.homeflag : finalMatch.awayflag;
-    const winnerName = h > a ? finalMatch.home     : finalMatch.away;
-    const winY = finY + BOX_H + 16;
-    winnerBox = `<div class="b-winner-box" style="left:${finaleX + (FIN_W - 148) / 2}px;top:${winY}px;">
-      <div class="b-winner-flag">${winnerFlag}</div>
-      <div class="b-winner-label">🏆 ${winnerName}</div>
+  if (fm.score) {
+    const [h,a] = fm.score.split(':').map(Number);
+    const wFlag = h>a ? fm.homeflag : fm.awayflag;
+    const wName = h>a ? fm.home     : fm.away;
+    const winY  = finY + BOX_H + 16;
+    winnerBox = `<div class="b-winner-box" style="left:${finaleX+(FIN_W-148)/2}px;top:${winY}px;">
+      <div class="b-winner-flag">${wFlag}</div>
+      <div class="b-winner-label">🏆 ${wName}</div>
     </div>`;
   }
 
@@ -916,15 +857,10 @@ function renderBracket() {
     <div class="bracket-outer">
       <div class="bracket-svg-wrap" style="width:${totalW}px;height:${totalH}px;">
         <svg style="position:absolute;top:0;left:0;width:${totalW}px;height:${totalH}px;pointer-events:none;" xmlns="http://www.w3.org/2000/svg">
-          ${left.svgLines}
-          ${right.svgLines}
-          ${centerLines}
+          ${left.svgLines}${right.svgLines}${centerLines}
         </svg>
-        ${left.boxesHtml}
-        ${right.boxesHtml}
-        ${finaleHeader}
-        ${finaleBox}
-        ${winnerBox}
+        ${left.boxesHtml}${right.boxesHtml}
+        ${finaleHeader}${finaleBox}${winnerBox}
       </div>
     </div>`;
 }
