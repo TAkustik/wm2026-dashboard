@@ -806,19 +806,21 @@ function renderBracket() {
   // Platz-3-Box: direkt unter Finale, etwas schmaler
   const P3_W  = FIN_W - 10;
   const p3X   = finaleX + (FIN_W - P3_W) / 2;
-  const p3Y   = finY + BOX_H + 32;
+  const p3Y   = finY + BOX_H + 52;
 
-  // Linien von HF zu Finale
+  // Linien von HF zu Finale (durchgezogen)
   let centerLines = '';
   centerLines += `<path d="M${sfLeftX},${sfY} H${finaleX}" fill="none" stroke="#2a3a58" stroke-width="1.5" stroke-linecap="round"/>`;
   centerLines += `<path d="M${finaleX + FIN_W},${sfY} H${rightStart}" fill="none" stroke="#2a3a58" stroke-width="1.5" stroke-linecap="round"/>`;
 
-  // Linien von HF zum Platz-3-Kasten (gestrichelt, nach unten)
-  const p3MidX  = finaleX + FIN_W / 2;
-  const p3TopY  = p3Y;
-  const hfDropY = sfY + 20;  // etwas unterhalb der HF-Linie abzweigen
-  centerLines += `<path d="M${sfLeftX},${hfDropY} H${p3MidX} V${p3TopY}" fill="none" stroke="#2a3a58" stroke-width="1" stroke-dasharray="4,3" stroke-linecap="round"/>`;
-  centerLines += `<path d="M${rightStart},${hfDropY} H${p3MidX}" fill="none" stroke="#2a3a58" stroke-width="1" stroke-dasharray="4,3" stroke-linecap="round"/>`;
+  // Gestrichelte Linien von HF nach unten zum Platz-3-Kasten
+  // Linke HF: von sfLeftX nach unten → Mitte des P3-Kastens
+  const p3MidX = p3X + P3_W / 2;
+  const p3TopY = p3Y;
+  // Abzweigpunkt: etwas unterhalb der HF-Linie
+  const branchY = sfY + 18;
+  centerLines += `<path d="M${sfLeftX},${branchY} H${p3MidX} V${p3TopY}" fill="none" stroke="#445566" stroke-width="1" stroke-dasharray="5,3" stroke-linecap="round"/>`;
+  centerLines += `<path d="M${rightStart},${branchY} H${p3MidX}" fill="none" stroke="#445566" stroke-width="1" stroke-dasharray="5,3" stroke-linecap="round"/>`;
 
   // Finale-Header (hervorgehoben)
   const finaleHeader = `<div class="b-round-title" style="position:absolute;left:${finaleX}px;top:0;width:${FIN_W}px;text-align:center;color:var(--accent);font-size:0.75rem;letter-spacing:2px;">
@@ -857,8 +859,8 @@ function renderBracket() {
   }
 
   // Gesamthöhe mit Platz-3-Box
-  const svgH  = p3Y + BOX_H + 20;
-  const wrapH = p3Y + BOX_H + 30;
+  const svgH  = p3Y + BOX_H + 30;
+  const wrapH = p3Y + BOX_H + 50;
 
   container.innerHTML = `
     <div class="bracket-outer">

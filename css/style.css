@@ -261,6 +261,8 @@ body {
 .view         { display: none; }
 .view.active  { display: block; }
 
+#bracket-container { padding-bottom: 32px; }
+
 /* ═══════════════════════════════════════════════════════════════
    FILTER BAR
 ═══════════════════════════════════════════════════════════════ */
@@ -663,8 +665,8 @@ body {
 /* ── BRACKET (SVG-basiert, absolut positioniert) ── */
 .bracket-outer {
   overflow-x: auto;
-  overflow-y: hidden;
-  padding-bottom: 16px;
+  overflow-y: visible;
+  padding-bottom: 24px;
   width: 100%;
 }
 
