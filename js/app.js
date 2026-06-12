@@ -935,6 +935,51 @@ function updateFavTabLabel() {
 }
 
 // ═══════════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════════════
+// LIVE SPIEL ERKENNUNG (zeitbasiert, unabhängig vom Workflow)
+// ═══════════════════════════════════════════════════════════════
+function updateLiveGameIndicator() {
+  const indicator = document.getElementById('live-game-indicator');
+  const text      = document.getElementById('live-game-text');
+  if (!indicator || !text) return;
+
+  const now = new Date();
+
+  // Alle Gruppenspiele prüfen
+  const liveMatch = matches.find(m => {
+    if (!m.date || !m.time || !m.group) return false;
+    const start = new Date(`${m.date}T${m.time}:00+02:00`); // MESZ
+    const end   = new Date(start.getTime() + 110 * 60000);   // +110 min
+    return now >= start && now <= end;
+  });
+
+  if (liveMatch) {
+    const cc   = countryConfig[currentCountry];
+    const home = teamName(liveMatch.homeCode, liveMatch.home);
+    const away = teamName(liveMatch.awayCode, liveMatch.away);
+    text.textContent = `${liveMatch.homeflag} ${home} – ${away} ${liveMatch.awayflag}`;
+    indicator.style.display = 'inline-flex';
+  } else {
+    indicator.style.display = 'none';
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// MANUELLER REFRESH
+// ═══════════════════════════════════════════════════════════════
+async function manualRefresh() {
+  const btn = document.getElementById('refresh-btn');
+  if (!btn) return;
+  btn.classList.add('spinning');
+  btn.disabled = true;
+  try {
+    const data = await fetchScores();
+    applyScores(data);
+  } catch {}
+  btn.classList.remove('spinning');
+  btn.disabled = false;
+}
+
 // UHR
 // ═══════════════════════════════════════════════════════════════
 function updateClock() {
@@ -944,6 +989,7 @@ function updateClock() {
     i18n[currentLang]?.clock_locale ?? 'de-DE',
     { hour: '2-digit', minute: '2-digit', second: '2-digit' }
   );
+  updateLiveGameIndicator();
 }
 
 // ═══════════════════════════════════════════════════════════════

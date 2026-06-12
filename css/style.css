@@ -796,3 +796,54 @@ body {
   .hero-name      { font-size: 0.95rem; }
   .countdown-time { font-size: 1.1rem; }
 }
+/* ── Live Game Indicator ─────────────────────────────────────── */
+.live-game-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(231,76,60,0.15);
+  border: 1px solid rgba(231,76,60,0.4);
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #e74c3c;
+  white-space: nowrap;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e74c3c;
+  flex-shrink: 0;
+  animation: pulse-dot 1.5s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* ── Refresh Button ──────────────────────────────────────────── */
+.refresh-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 1rem;
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.refresh-btn:hover { border-color: var(--accent); color: var(--accent); }
+.refresh-btn.spinning { animation: spin 1s linear infinite; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
