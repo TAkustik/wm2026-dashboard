@@ -1025,7 +1025,10 @@ let liveRefreshTimer = null;
 async function fetchScores() {
   try {
     // Cache umgehen mit Timestamp
-    const res  = await fetch(`./scores.json?t=${Date.now()}`);
+    const res  = await fetch(`./scores.json?t=${Date.now()}`, {
+      cache: 'no-store',
+      headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate', 'Pragma': 'no-cache' }
+    });
     if (!res.ok) return null;
     return await res.json();
   } catch {
