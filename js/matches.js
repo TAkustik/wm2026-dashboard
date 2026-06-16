@@ -41,9 +41,9 @@ export const matches = [
   // GRUPPE D — USA, Paraguay, Australien, Türkei
   // ═══════════════════════════════════════════════════════════════
   { id: 19, openligaId: 80102, date: '2026-06-13', time: '03:00', home: 'USA',                  homeflag: '🇺🇸', homeCode: 'US', away: 'Paraguay',               awayflag: '🇵🇾', awayCode: 'PY', group: 'D', tv: 'Magenta', freeTv: false, score: null },
-  { id: 20, openligaId: 80103, date: '2026-06-13', time: '06:00', home: 'Australien',            homeflag: '🇦🇺', homeCode: 'AU', away: 'Türkei',                awayflag: '🇹🇷', awayCode: 'TR', group: 'D', tv: 'Magenta', freeTv: false, score: null },
+  { id: 20, openligaId: 80103, date: '2026-06-14', time: '06:00', home: 'Australien',            homeflag: '🇦🇺', homeCode: 'AU', away: 'Türkei',                awayflag: '🇹🇷', awayCode: 'TR', group: 'D', tv: 'Magenta', freeTv: false, score: null },
   { id: 21, openligaId: 80129, date: '2026-06-19', time: '21:00', home: 'USA',                  homeflag: '🇺🇸', homeCode: 'US', away: 'Australien',              awayflag: '🇦🇺', awayCode: 'AU', group: 'D', tv: 'ARD', freeTv: true,  score: null },
-  { id: 22, openligaId: 80128, date: '2026-06-20', time: '06:00', home: 'Türkei',               homeflag: '🇹🇷', homeCode: 'TR', away: 'Paraguay',               awayflag: '🇵🇾', awayCode: 'PY', group: 'D', tv: 'Magenta', freeTv: false, score: null },
+  { id: 22, openligaId: 80128, date: '2026-06-19', time: '06:00', home: 'Türkei',               homeflag: '🇹🇷', homeCode: 'TR', away: 'Paraguay',               awayflag: '🇵🇾', awayCode: 'PY', group: 'D', tv: 'Magenta', freeTv: false, score: null },
   { id: 23, openligaId: 80158, date: '2026-06-26', time: '04:00', home: 'Türkei',               homeflag: '🇹🇷', homeCode: 'TR', away: 'USA',                  awayflag: '🇺🇸', awayCode: 'US', group: 'D', tv: 'Magenta', freeTv: false,  score: null },
   { id: 24, openligaId: 80159, date: '2026-06-26', time: '04:00', home: 'Paraguay',              homeflag: '🇵🇾', homeCode: 'PY', away: 'Australien',             awayflag: '🇦🇺', awayCode: 'AU', group: 'D', tv: 'Magenta', freeTv: false, score: null },
 
@@ -63,7 +63,7 @@ export const matches = [
   { id: 31, openligaId: 80108, date: '2026-06-14', time: '22:00', home: 'Niederlande',           homeflag: '🇳🇱', homeCode: 'NL', away: 'Japan',                awayflag: '🇯🇵', awayCode: 'JP', group: 'F', tv: 'Magenta', freeTv: false,  score: null },
   { id: 32, openligaId: 80110, date: '2026-06-15', time: '04:00', home: 'Schweden',              homeflag: '🇸🇪', homeCode: 'SE', away: 'Tunesien',               awayflag: '🇹🇳', awayCode: 'TN', group: 'F', tv: 'Magenta', freeTv: false, score: null },
   { id: 33, openligaId: 80133, date: '2026-06-20', time: '19:00', home: 'Niederlande',           homeflag: '🇳🇱', homeCode: 'NL', away: 'Schweden',               awayflag: '🇸🇪', awayCode: 'SE', group: 'F', tv: 'ZDF', freeTv: true,  score: null },
-  { id: 34, openligaId: 80132, date: '2026-06-21', time: '06:00', home: 'Tunesien',              homeflag: '🇹🇳', homeCode: 'TN', away: 'Japan',                awayflag: '🇯🇵', awayCode: 'JP', group: 'F', tv: 'Magenta', freeTv: false, score: null },
+  { id: 34, openligaId: 80132, date: '2026-06-20', time: '06:00', home: 'Tunesien',              homeflag: '🇹🇳', homeCode: 'TN', away: 'Japan',                awayflag: '🇯🇵', awayCode: 'JP', group: 'F', tv: 'Magenta', freeTv: false, score: null },
   { id: 35, openligaId: 80156, date: '2026-06-26', time: '01:00', home: 'Tunesien',              homeflag: '🇹🇳', homeCode: 'TN', away: 'Niederlande',            awayflag: '🇳🇱', awayCode: 'NL', group: 'F', tv: 'Magenta', freeTv: false, score: null },
   { id: 36, openligaId: 80157, date: '2026-06-26', time: '01:00', home: 'Japan',                homeflag: '🇯🇵', homeCode: 'JP', away: 'Schweden',               awayflag: '🇸🇪', awayCode: 'SE', group: 'F', tv: 'Magenta', freeTv: false,  score: null },
 
@@ -82,7 +82,7 @@ export const matches = [
   // ═══════════════════════════════════════════════════════════════
   { id: 43, openligaId: 80112, date: '2026-06-15', time: '21:00', home: 'Belgien',               homeflag: '🇧🇪', homeCode: 'BE', away: 'Ägypten',               awayflag: '🇪🇬', awayCode: 'EG', group: 'G', tv: 'ZDF', freeTv: true,  score: null },
   { id: 44, openligaId: 80114, date: '2026-06-16', time: '03:00', home: 'Iran',                  homeflag: '🇮🇷', homeCode: 'IR', away: 'Neuseeland',             awayflag: '🇳🇿', awayCode: 'NZ', group: 'G', tv: 'ZDF', freeTv: true, score: null },
-  { id: 45, openligaId: 80137, date: '2026-06-22', time: '00:00', home: 'Belgien',               homeflag: '🇧🇪', homeCode: 'BE', away: 'Iran',                  awayflag: '🇮🇷', awayCode: 'IR', group: 'G', tv: 'ARD', freeTv: true,  score: null },
+  { id: 45, openligaId: 80137, date: '2026-06-21', time: '21:00', home: 'Belgien',               homeflag: '🇧🇪', homeCode: 'BE', away: 'Iran',                  awayflag: '🇮🇷', awayCode: 'IR', group: 'G', tv: 'ARD', freeTv: true,  score: null },
   { id: 46, openligaId: 80139, date: '2026-06-22', time: '03:00', home: 'Neuseeland',             homeflag: '🇳🇿', homeCode: 'NZ', away: 'Ägypten',               awayflag: '🇪🇬', awayCode: 'EG', group: 'G', tv: 'Magenta', freeTv: false, score: null },
   { id: 47, openligaId: 80164, date: '2026-06-27', time: '05:00', home: 'Neuseeland',             homeflag: '🇳🇿', homeCode: 'NZ', away: 'Belgien',               awayflag: '🇧🇪', awayCode: 'BE', group: 'G', tv: 'Magenta', freeTv: false, score: null },
   { id: 48, openligaId: 80165, date: '2026-06-27', time: '05:00', home: 'Ägypten',               homeflag: '🇪🇬', homeCode: 'EG', away: 'Iran',                  awayflag: '🇮🇷', awayCode: 'IR', group: 'G', tv: 'Magenta', freeTv: false,  score: null },
@@ -101,7 +101,7 @@ export const matches = [
   // GRUPPE J — Argentinien, Algerien, Österreich, Jordanien
   // ═══════════════════════════════════════════════════════════════
   { id: 55, openligaId: 80118, date: '2026-06-17', time: '03:00', home: 'Argentinien',            homeflag: '🇦🇷', homeCode: 'AR', away: 'Algerien',               awayflag: '🇩🇿', awayCode: 'DZ', group: 'J', tv: 'ZDF', freeTv: true, score: null },
-  { id: 56, openligaId: 80115, date: '2026-06-16', time: '06:00', home: 'Österreich',             homeflag: '🇦🇹', homeCode: 'AT', away: 'Jordanien',              awayflag: '🇯🇴', awayCode: 'JO', group: 'J', tv: 'ARD', freeTv: true, score: null },
+  { id: 56, openligaId: 80115, date: '2026-06-17', time: '06:00', home: 'Österreich',             homeflag: '🇦🇹', homeCode: 'AT', away: 'Jordanien',              awayflag: '🇯🇴', awayCode: 'JO', group: 'J', tv: 'ARD', freeTv: true, score: null },
   { id: 57, openligaId: 80140, date: '2026-06-22', time: '19:00', home: 'Argentinien',            homeflag: '🇦🇷', homeCode: 'AR', away: 'Österreich',             awayflag: '🇦🇹', awayCode: 'AT', group: 'J', tv: 'ARD', freeTv: true,  score: null },
   { id: 58, openligaId: 80143, date: '2026-06-23', time: '05:00', home: 'Jordanien',              homeflag: '🇯🇴', homeCode: 'JO', away: 'Algerien',               awayflag: '🇩🇿', awayCode: 'DZ', group: 'J', tv: 'Magenta', freeTv: false, score: null },
   { id: 59, openligaId: 80170, date: '2026-06-28', time: '04:00', home: 'Algerien',               homeflag: '🇩🇿', homeCode: 'DZ', away: 'Österreich',             awayflag: '🇦🇹', awayCode: 'AT', group: 'J', tv: 'Magenta', freeTv: false, score: null },
