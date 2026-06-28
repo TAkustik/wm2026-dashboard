@@ -900,23 +900,9 @@ function renderBracket() {
   // Gesamthöhe: max aus normalem Bracket und Platz-3-Kasten
   const fullH = Math.max(totalH, p3Y + BOX_H + 40);
 
-  const isMobile = window.innerWidth <= 900;
-  const padding  = 20; // entspricht Container-Innenabstand
-  const availW   = window.innerWidth - padding;
-  const scale    = isMobile ? Math.max(Math.min(availW / totalW, 1), 0.28) : 1;
-  const scaledH  = fullH * scale;
-
-  const wrapStyle = scale < 1
-    ? `width:${totalW}px;height:${fullH}px;transform:scale(${scale});transform-origin:top left;`
-    : `width:${totalW}px;height:${fullH}px;`;
-
-  const outerStyle = scale < 1
-    ? `overflow-x:hidden;height:${scaledH}px;`
-    : `overflow-x:auto;`;
-
   container.innerHTML = `
-    <div class="bracket-outer" style="${outerStyle}">
-      <div class="bracket-svg-wrap" id="bracket-svg-wrap" style="${wrapStyle}">
+    <div class="bracket-outer">
+      <div class="bracket-svg-wrap" style="width:${totalW}px;height:${fullH}px;">
         <svg style="position:absolute;top:0;left:0;width:${totalW}px;height:${fullH}px;pointer-events:none;" xmlns="http://www.w3.org/2000/svg">
           ${left.svgLines}${right.svgLines}${centerLines}
         </svg>
@@ -1153,13 +1139,4 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(updateClock, 1000);
   updateClock();
   checkForUpdates();
-});
-
-// Bei Größenänderung (z.B. Geräte-Drehung) Bracket-Skalierung neu berechnen
-let resizeTimer;
-window.addEventListener('resize', () => {
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(() => {
-    if (currentTab === 'bracket') renderBracket();
-  }, 200);
 });
