@@ -1202,6 +1202,10 @@ function applyScores(data) {
 
   if (hasChanges) {
     console.log('Neue Ergebnisse — Dashboard wird aktualisiert');
+
+    // Sieger sofort in die nächsten K.-o.-Runden übernehmen
+    populateBracketFromGroups();
+
     renderAll();
   }
 
