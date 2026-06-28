@@ -655,6 +655,16 @@ function getBracketMatchState(m) {
 
   if (now >= start && now <= end) return 'live';
 
+  // Prüfen ob irgendein anderes Spiel gerade live läuft —
+  // solange ein Live-Spiel existiert, wird kein "nächstes Spiel" markiert
+  const anyLive = matches.some(x => {
+    if (!x.date || !x.time || x.date === '–' || x.home === 'TBD' || x.away === 'TBD' || x.score) return false;
+    const xStart = new Date(`${x.date}T${x.time}:00+02:00`);
+    const xEnd   = new Date(xStart.getTime() + 110 * 60000);
+    return now >= xStart && now <= xEnd;
+  });
+  if (anyLive) return null;
+
   // Nächstes anstehendes Spiel: frühester Kickoff in der Zukunft über alle Matches
   if (start > now) {
     const upcoming = matches
