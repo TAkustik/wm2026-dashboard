@@ -902,7 +902,7 @@ function renderBracket() {
 
   container.innerHTML = `
     <div class="bracket-outer">
-      <div class="bracket-svg-wrap" style="width:${totalW}px;height:${fullH}px;">
+      <div class="bracket-svg-wrap" id="bracket-svg-wrap" style="width:${totalW}px;height:${fullH}px;">
         <svg style="position:absolute;top:0;left:0;width:${totalW}px;height:${fullH}px;pointer-events:none;" xmlns="http://www.w3.org/2000/svg">
           ${left.svgLines}${right.svgLines}${centerLines}
         </svg>
@@ -911,6 +911,30 @@ function renderBracket() {
         ${p3Box}
       </div>
     </div>`;
+
+  // Auf schmalen Bildschirmen (Smartphone) den kompletten Bracket
+  // automatisch herunterskalieren, damit er auf einen Blick passt.
+  // Pinch-to-Zoom bleibt zusätzlich möglich um Details zu lesen.
+  requestAnimationFrame(() => {
+    const outer = container.querySelector('.bracket-outer');
+    const wrap  = document.getElementById('bracket-svg-wrap');
+    if (!outer || !wrap) return;
+
+    const availableW = outer.clientWidth || window.innerWidth;
+    const isMobile = window.innerWidth <= 900;
+
+    if (isMobile && totalW > availableW) {
+      const scale = Math.max(availableW / totalW, 0.32); // nicht kleiner als 32%
+      wrap.style.transform = `scale(${scale})`;
+      wrap.style.transformOrigin = 'top left';
+      outer.style.height = `${fullH * scale}px`;
+      outer.style.overflowX = 'hidden';
+    } else {
+      wrap.style.transform = '';
+      outer.style.height = '';
+      outer.style.overflowX = 'auto';
+    }
+  });
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -1139,4 +1163,13 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(updateClock, 1000);
   updateClock();
   checkForUpdates();
+});
+
+// Bei Größenänderung (z.B. Geräte-Drehung) Bracket-Skalierung neu berechnen
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    if (currentTab === 'bracket') renderBracket();
+  }, 200);
 });
