@@ -758,7 +758,11 @@ function populateBracketFromGroups() {
     const s = calcGroupStandings(g);
     if (s && s.length >= 3) grouped[g] = s;
   });
-  if (Object.keys(grouped).length === 0) return;
+
+  if (Object.keys(grouped).length === 0) {
+    propagateKnockoutWinners();
+    return;
+  }
 
   // SZF befüllen
   Object.entries(SZF_PAIRINGS).forEach(([idStr, pairing]) => {
@@ -777,7 +781,10 @@ function populateBracketFromGroups() {
   });
 
   // Drittplatzierte nur wenn alle 12 Gruppen fertig
-  if (Object.keys(grouped).length < 12) return;
+  if (Object.keys(grouped).length < 12) {
+    propagateKnockoutWinners();
+    return;
+  }
 
   const thirds = 'ABCDEFGHIJKL'.split('').map(g => ({
     group: g, ...grouped[g][2],
@@ -798,6 +805,75 @@ function populateBracketFromGroups() {
     if (!m) return;
     m.away = team.name; m.awayflag = team.flag||'🏳️'; m.awayCode = team.code;
   });
+
+  propagateKnockoutWinners();
+}
+
+// Übernimmt Sieger von SZF→AF→VF→HF→Finale automatisch in die jeweils
+// nächste Runde, sobald ein Ergebnis eingetragen ist.
+function propagateKnockoutWinners() {
+  // SZF(2n-1) + SZF(2n) → AF(n)
+  for (let n = 1; n <= 8; n++) {
+    const s1 = matches.find(x => x.szf === (2 * n - 1));
+    const s2 = matches.find(x => x.szf === (2 * n));
+    const af = matches.find(x => x.af === n);
+    if (!af) continue;
+    const w1 = getWinner(s1);
+    const w2 = getWinner(s2);
+    if (w1 && af.homeCode !== w1.code) { af.home = w1.name; af.homeflag = w1.flag; af.homeCode = w1.code; }
+    if (w2 && af.awayCode !== w2.code) { af.away = w2.name; af.awayflag = w2.flag; af.awayCode = w2.code; }
+  }
+
+  // AF(2n-1) + AF(2n) → VF(n)
+  for (let n = 1; n <= 4; n++) {
+    const a1 = matches.find(x => x.af === (2 * n - 1));
+    const a2 = matches.find(x => x.af === (2 * n));
+    const vf = matches.find(x => x.vf === n);
+    if (!vf) continue;
+    const w1 = getWinner(a1);
+    const w2 = getWinner(a2);
+    if (w1 && vf.homeCode !== w1.code) { vf.home = w1.name; vf.homeflag = w1.flag; vf.homeCode = w1.code; }
+    if (w2 && vf.awayCode !== w2.code) { vf.away = w2.name; vf.awayflag = w2.flag; vf.awayCode = w2.code; }
+  }
+
+  // VF(2n-1) + VF(2n) → HF(n)
+  for (let n = 1; n <= 2; n++) {
+    const v1 = matches.find(x => x.vf === (2 * n - 1));
+    const v2 = matches.find(x => x.vf === (2 * n));
+    const hf = matches.find(x => x.hf === n);
+    if (!hf) continue;
+    const w1 = getWinner(v1);
+    const w2 = getWinner(v2);
+    if (w1 && hf.homeCode !== w1.code) { hf.home = w1.name; hf.homeflag = w1.flag; hf.homeCode = w1.code; }
+    if (w2 && hf.awayCode !== w2.code) { hf.away = w2.name; hf.awayflag = w2.flag; hf.awayCode = w2.code; }
+  }
+
+  // HF1 + HF2 → Finale, Verlierer → Platz 3
+  const hf1 = matches.find(x => x.hf === 1);
+  const hf2 = matches.find(x => x.hf === 2);
+  const finale = matches.find(x => x.round === 'F');
+  const platz3  = matches.find(x => x.round === 'P3');
+
+  const w1 = getWinner(hf1);
+  const w2 = getWinner(hf2);
+  if (finale) {
+    if (w1 && finale.homeCode !== w1.code) { finale.home = w1.name; finale.homeflag = w1.flag; finale.homeCode = w1.code; }
+    if (w2 && finale.awayCode !== w2.code) { finale.away = w2.name; finale.awayflag = w2.flag; finale.awayCode = w2.code; }
+  }
+
+  function getLoser(m) {
+    if (!m?.score) return null;
+    const [h, a] = m.score.split(':').map(Number);
+    if (h > a) return { name: m.away, flag: m.awayflag, code: m.awayCode };
+    if (a > h) return { name: m.home, flag: m.homeflag, code: m.homeCode };
+    return null;
+  }
+  const l1 = getLoser(hf1);
+  const l2 = getLoser(hf2);
+  if (platz3) {
+    if (l1 && platz3.homeCode !== l1.code) { platz3.home = l1.name; platz3.homeflag = l1.flag; platz3.homeCode = l1.code; }
+    if (l2 && platz3.awayCode !== l2.code) { platz3.away = l2.name; platz3.awayflag = l2.flag; platz3.awayCode = l2.code; }
+  }
 }
 
 function getWinner(m) {
