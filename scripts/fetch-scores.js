@@ -100,6 +100,15 @@ function matchTV(matchDateUTC, mediathekEntries) {
   return null;
 }
 
+// Normalisiert Teamnamen für robustes Matching (Umlaute, Sonderzeichen, Großschreibung)
+function normalizeTeam(name) {
+  return (name || '')
+    .toLowerCase()
+    .replace(/[äáàâ]/g, 'a').replace(/[öóò]/g, 'o').replace(/[üúù]/g, 'u')
+    .replace(/[éèê]/g, 'e').replace(/ß/g, 'ss').replace(/ç/g, 'c')
+    .replace(/[^a-z0-9]/g, '');
+}
+
 // ── Main ─────────────────────────────────────────────────────
 async function main() {
   const now = new Date();
@@ -120,12 +129,23 @@ async function main() {
     const live  = now >= start && now <= end && !m.matchIsFinished;
     const res   = m.matchResults?.find(r => r.resultTypeID === 2)
                ?? m.matchResults?.find(r => r.resultTypeID === 1);
-    scores[m.matchID] = {
+    const entry = {
       score:      res ? `${res.pointsTeam1}:${res.pointsTeam2}` : null,
       isLive:     live,
       isFinished: m.matchIsFinished,
       minute:     live ? (m.matchMinute ?? null) : null,
     };
+    // Primärschlüssel: echte OpenLigaDB matchID
+    scores[m.matchID] = entry;
+    // Zusätzlicher Fallback-Schlüssel: Teamnamen-Kombination (beide Richtungen)
+    // Damit Matches in matches.js OHNE openligaId (z.B. K.o.-Runde mit
+    // manuell eingetragenen Paarungen) trotzdem automatisch gematched werden.
+    if (m.team1?.teamName && m.team2?.teamName) {
+      const t1 = normalizeTeam(m.team1.teamName);
+      const t2 = normalizeTeam(m.team2.teamName);
+      scores[`team_${t1}_${t2}`] = entry;
+      scores[`team_${t2}_${t1}`] = entry;
+    }
   });
 
   // TV aus Mediathek

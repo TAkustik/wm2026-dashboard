@@ -1073,6 +1073,14 @@ async function fetchScores() {
   }
 }
 
+function normalizeTeam(name) {
+  return (name || '')
+    .toLowerCase()
+    .replace(/[äáàâ]/g, 'a').replace(/[öóò]/g, 'o').replace(/[üúù]/g, 'u')
+    .replace(/[éèê]/g, 'e').replace(/ß/g, 'ss').replace(/ç/g, 'c')
+    .replace(/[^a-z0-9]/g, '');
+}
+
 function applyScores(data) {
   if (!data?.scores) return;
 
@@ -1080,8 +1088,19 @@ function applyScores(data) {
   let hasChanges = false;
 
   matches.forEach(m => {
-    if (!m.openligaId) return;
-    const entry = data.scores[m.openligaId];
+    let entry = null;
+    let tvKey = null;
+
+    if (m.openligaId) {
+      entry = data.scores[m.openligaId];
+      tvKey = m.openligaId;
+    } else if (m.home && m.away && m.home !== 'TBD' && m.away !== 'TBD') {
+      // Fallback: Team-Namen-basiertes Matching (z.B. K.o.-Runde ohne openligaId)
+      const key = `team_${normalizeTeam(m.home)}_${normalizeTeam(m.away)}`;
+      entry = data.scores[key];
+      tvKey = key;
+    }
+
     if (!entry) return;
 
     if (entry.score && entry.score !== m.score) {
@@ -1094,7 +1113,7 @@ function applyScores(data) {
     m.minute  = entry.minute  ?? null;
 
     // TV-Sender aus tvData übernehmen (Free-TV hat Vorrang)
-    const tvEntry = data.tvData?.[m.openligaId];
+    const tvEntry = data.tvData?.[tvKey];
     if (tvEntry) {
       // Nur aktualisieren wenn noch unbekannt ODER Free-TV neu entdeckt
       if (m.tv === null || (tvEntry.freeTv && !m.freeTv)) {
