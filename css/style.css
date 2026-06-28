@@ -697,7 +697,22 @@ body {
 }
 
 .b-match-box:hover { border-color: #2a3a58; }
-.b-match-box.has-fav { border-color: rgba(232,200,74,0.5); }
+
+.b-match-box.is-live {
+  border-color: #e74c3c;
+  box-shadow: 0 0 14px rgba(231,76,60,0.35), 0 2px 8px rgba(0,0,0,0.3);
+  animation: bracket-live-pulse 2s infinite;
+}
+
+@keyframes bracket-live-pulse {
+  0%, 100% { border-color: #e74c3c; }
+  50%       { border-color: rgba(231,76,60,0.45); }
+}
+
+.b-match-box.is-next {
+  border-color: #b8c4d4;
+  box-shadow: 0 0 10px rgba(184,196,212,0.25), 0 2px 8px rgba(0,0,0,0.3);
+}
 
 .b-match-box.b-finale {
   border-color: rgba(232,200,74,0.7);

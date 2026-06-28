@@ -9,7 +9,7 @@ import { i18n, t, formatDate } from './i18n.js';
 let currentCountry  = 'DE';
 let currentLang     = 'de';
 let currentFilter   = 'all';
-let currentTab      = 'spielplan';
+let currentTab      = 'bracket';
 let countdownTimer  = null;
 
 // ═══════════════════════════════════════════════════════════════
@@ -598,13 +598,14 @@ function renderBracketHalf(rounds, startX, goRight, cc, totalH) {
 
     roundMatches.forEach((m, i) => {
       const y        = HEADER_H + bracketMatchY(round.count, i);
-      const hasFav   = (m.homeCode === cc.teamCode || m.awayCode === cc.teamCode);
+      const matchState = getBracketMatchState(m);
+      const stateClass = matchState === 'live' ? ' is-live' : matchState === 'next' ? ' is-next' : '';
       const dateLabel = m.date && m.date !== '–'
         ? (m.date.startsWith('2026') ? m.date.slice(8,10) + '.' + m.date.slice(5,7) : m.date)
         : '–';
       const timeLabel = m.time && m.time !== '–' ? ` · ${m.time} Uhr` : '';
 
-      boxesHtml += `<div class="b-match-box${hasFav ? ' has-fav' : ''}" style="left:${x}px;top:${y}px;">
+      boxesHtml += `<div class="b-match-box${stateClass}" style="left:${x}px;top:${y}px;">
         ${renderBracketTeamRow(m, true,  cc)}
         ${renderBracketTeamRow(m, false, cc)}
         <div class="b-match-date">${dateLabel}${timeLabel}</div>
@@ -620,7 +621,7 @@ function renderBracketHalf(rounds, startX, goRight, cc, totalH) {
           const x1    = x + BOX_W;
           const x2    = startX + (rIdx + 1) * COL_W;
           const midX  = x1 + COL_GAP / 2;
-          const lc    = hasFav ? '#e8c84a44' : '#2a3a58';
+          const lc    = '#2a3a58';
           svgLines += `<path d="M${x1},${y1} H${midX} V${y2} H${x2}" fill="none" stroke="${lc}" stroke-width="1.5" stroke-linecap="round"/>`;
         }
       } else {
@@ -633,7 +634,7 @@ function renderBracketHalf(rounds, startX, goRight, cc, totalH) {
           const x1    = x;
           const x2    = startX + (rIdx - 1) * COL_W + BOX_W;
           const midX  = x1 - COL_GAP / 2;
-          const lc    = hasFav ? '#e8c84a44' : '#2a3a58';
+          const lc    = '#2a3a58';
           svgLines += `<path d="M${x1},${y1} H${midX} V${y2} H${x2}" fill="none" stroke="${lc}" stroke-width="1.5" stroke-linecap="round"/>`;
         }
       }
@@ -642,6 +643,30 @@ function renderBracketHalf(rounds, startX, goRight, cc, totalH) {
 
   return { boxesHtml, svgLines };
 }
+
+// Bestimmt ob ein Bracket-Match gerade live läuft oder das nächste anstehende ist
+function getBracketMatchState(m) {
+  if (!m.date || !m.time || m.date === '–' || m.home === 'TBD' || m.away === 'TBD') return null;
+  if (m.score) return null; // bereits gespielt
+
+  const now   = new Date();
+  const start = new Date(`${m.date}T${m.time}:00+02:00`);
+  const end   = new Date(start.getTime() + 110 * 60000);
+
+  if (now >= start && now <= end) return 'live';
+
+  // Nächstes anstehendes Spiel: frühester Kickoff in der Zukunft über alle Matches
+  if (start > now) {
+    const upcoming = matches
+      .filter(x => x.date && x.time && x.date !== '–' && x.home !== 'TBD' && x.away !== 'TBD' && !x.score)
+      .map(x => new Date(`${x.date}T${x.time}:00+02:00`))
+      .filter(d => d > now)
+      .sort((a, b) => a - b);
+    if (upcoming.length > 0 && start.getTime() === upcoming[0].getTime()) return 'next';
+  }
+  return null;
+}
+
 
 // ── Bracket aus Gruppenphase befüllen ────────────────────────
 
@@ -946,9 +971,10 @@ function updateLiveGameIndicator() {
 
   const now = new Date();
 
-  // Alle Gruppenspiele prüfen
+  // Alle Spiele prüfen (Gruppenphase UND K.o.-Runde)
   const liveMatch = matches.find(m => {
-    if (!m.date || !m.time || !m.group) return false;
+    if (!m.date || !m.time) return false;
+    if (m.home === 'TBD' || m.away === 'TBD') return false;
     const start = new Date(`${m.date}T${m.time}:00+02:00`); // MESZ
     const end   = new Date(start.getTime() + 110 * 60000);   // +110 min
     return now >= start && now <= end;

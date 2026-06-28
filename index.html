@@ -159,7 +159,7 @@
        TABS
   ═══════════════════════════════════════════════════════════════ -->
   <div class="tabs">
-    <button class="tab active"
+    <button class="tab"
             id="tab-btn-spielplan"
             onclick="switchTab('spielplan', this)">
       🗓 <span data-i18n="schedule">Spielplan</span>
@@ -174,7 +174,7 @@
             onclick="switchTab('gruppen', this)">
       📊 <span data-i18n="groups">Gruppen</span>
     </button>
-    <button class="tab"
+    <button class="tab active"
             id="tab-btn-bracket"
             onclick="switchTab('bracket', this)">
       🏆 <span data-i18n="bracket">Bracket</span>
@@ -184,7 +184,7 @@
   <!-- ═══════════════════════════════════════════════════════════
        TAB: SPIELPLAN
   ═══════════════════════════════════════════════════════════════ -->
-  <div id="tab-spielplan" class="view active">
+  <div id="tab-spielplan" class="view">
     <div class="filter-bar">
       <button class="filter-btn active"
               onclick="setFilter('all', this)"
@@ -253,7 +253,7 @@
   <!-- ═══════════════════════════════════════════════════════════
        TAB: BRACKET
   ═══════════════════════════════════════════════════════════════ -->
-  <div id="tab-bracket" class="view">
+  <div id="tab-bracket" class="view active">
     <div id="bracket-container">
       <!-- wird von app.js befüllt -->
     </div>
