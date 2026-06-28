@@ -699,19 +699,21 @@ body {
 .b-match-box:hover { border-color: #2a3a58; }
 
 .b-match-box.is-live {
-  border-color: #e74c3c;
-  box-shadow: 0 0 14px rgba(231,76,60,0.35), 0 2px 8px rgba(0,0,0,0.3);
-  animation: bracket-live-pulse 2s infinite;
+  border-width: 2.5px;
+  border-color: #ff4d3d;
+  box-shadow: 0 0 0 1px rgba(255,77,61,0.4), 0 0 14px rgba(231,76,60,0.5), 0 2px 8px rgba(0,0,0,0.3);
+  animation: bracket-live-pulse 1.6s infinite;
 }
 
 @keyframes bracket-live-pulse {
-  0%, 100% { border-color: #e74c3c; }
-  50%       { border-color: rgba(231,76,60,0.45); }
+  0%, 100% { border-color: #ff4d3d; box-shadow: 0 0 0 1px rgba(255,77,61,0.4), 0 0 14px rgba(231,76,60,0.5), 0 2px 8px rgba(0,0,0,0.3); }
+  50%       { border-color: #ff8a7a; box-shadow: 0 0 0 2px rgba(255,138,122,0.5), 0 0 20px rgba(231,76,60,0.7), 0 2px 8px rgba(0,0,0,0.3); }
 }
 
 .b-match-box.is-next {
-  border-color: #b8c4d4;
-  box-shadow: 0 0 10px rgba(184,196,212,0.25), 0 2px 8px rgba(0,0,0,0.3);
+  border-width: 2.5px;
+  border-color: #e8edf4;
+  box-shadow: 0 0 0 1px rgba(232,237,244,0.5), 0 0 10px rgba(232,237,244,0.4), 0 2px 8px rgba(0,0,0,0.3);
 }
 
 .b-match-box.b-finale {
