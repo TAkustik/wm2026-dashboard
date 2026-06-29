@@ -794,7 +794,11 @@ function populateBracketFromGroups() {
   const best8 = thirds.slice(0,8);
   const key   = best8.map(t=>t.group).sort().join('');
   const assignment = THIRD_PLACE_TABLE[key];
-  if (!assignment) return;
+  if (!assignment) {
+    console.warn('Keine Drittplatzierten-Kombination gefunden für:', key);
+    propagateKnockoutWinners();
+    return;
+  }
 
   const slotOrder = [74,79,81,82,85,77,87,80];
   assignment.forEach((slotCode, idx) => {
