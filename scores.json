@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-29T23:50:26.468Z",
+  "updatedAt": "2026-06-29T23:52:17.446Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -1645,13 +1645,13 @@
       "isFinished": false,
       "minute": null
     },
-    "team_deupar_fraswe": {
+    "team_paraguay_fraswe": {
       "score": null,
       "isLive": false,
       "isFinished": false,
       "minute": null
     },
-    "team_fraswe_deupar": {
+    "team_fraswe_paraguay": {
       "score": null,
       "isLive": false,
       "isFinished": false,
