@@ -106,7 +106,7 @@ export const matches = [
   { id: 96,  af: 8, date: '2026-07-07', time: '22:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null, score: null },
 
   { id: 97,  vf: 1, date: '2026-07-09', time: '22:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'QF', tv: null, freeTv: null, score: null },
-  { id: 98,  vf: 2, date: '2026-07-12', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'QF', tv: null, freeTv: null, score: null },
+  { id: 98,  vf: 2, date: '2026-07-10', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'QF', tv: null, freeTv: null, score: null },
   { id: 99,  vf: 3, date: '2026-07-11', time: '23:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'QF', tv: null, freeTv: null, score: null },
   { id: 100, vf: 4, date: '2026-07-12', time: '02:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'QF', tv: null, freeTv: null, score: null },
 
