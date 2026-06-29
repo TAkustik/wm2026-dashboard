@@ -816,11 +816,17 @@ function populateBracketFromGroups() {
 // Übernimmt Sieger von SZF→AF→VF→HF→Finale automatisch in die jeweils
 // nächste Runde, sobald ein Ergebnis eingetragen ist.
 function propagateKnockoutWinners() {
-  // SZF(2n-1) + SZF(2n) → AF(n)
-  for (let n = 1; n <= 8; n++) {
-    const s1 = matches.find(x => x.szf === (2 * n - 1));
-    const s2 = matches.find(x => x.szf === (2 * n));
-    const af = matches.find(x => x.af === n);
+  // SZF → AF gemäß offiziellem FIFA-Spielplan (NICHT sequentiell 2n-1/2n!)
+  // af1=szf2+szf5, af2=szf1+szf3, af3=szf4+szf6, af4=szf7+szf8,
+  // af5=szf11+szf12, af6=szf9+szf10, af7=szf14+szf16, af8=szf13+szf15
+  const AF_PAIRINGS = {
+    1: [2, 5],   2: [1, 3],   3: [4, 6],   4: [7, 8],
+    5: [11, 12], 6: [9, 10],  7: [14, 16], 8: [13, 15],
+  };
+  for (const [afNum, [szfA, szfB]] of Object.entries(AF_PAIRINGS)) {
+    const s1 = matches.find(x => x.szf === szfA);
+    const s2 = matches.find(x => x.szf === szfB);
+    const af = matches.find(x => x.af === parseInt(afNum));
     if (!af) continue;
     const w1 = getWinner(s1);
     const w2 = getWinner(s2);
