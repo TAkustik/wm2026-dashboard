@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-29T18:58:17.351Z",
+  "updatedAt": "2026-06-29T19:00:44.668Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -440,8 +440,8 @@
       "minute": null
     },
     "82100": {
-      "score": "1:1",
-      "isLive": true,
+      "score": "2:1",
+      "isLive": false,
       "isFinished": false,
       "minute": null
     },
@@ -1454,14 +1454,14 @@
       "minute": null
     },
     "team_brasilien_japan": {
-      "score": "1:1",
-      "isLive": true,
+      "score": "2:1",
+      "isLive": false,
       "isFinished": false,
       "minute": null
     },
     "team_japan_brasilien": {
-      "score": "1:1",
-      "isLive": true,
+      "score": "2:1",
+      "isLive": false,
       "isFinished": false,
       "minute": null
     },
@@ -1657,13 +1657,13 @@
       "isFinished": false,
       "minute": null
     },
-    "team_brajpn_civnor": {
+    "team_brasilien_civnor": {
       "score": null,
       "isLive": false,
       "isFinished": false,
       "minute": null
     },
-    "team_civnor_brajpn": {
+    "team_civnor_brasilien": {
       "score": null,
       "isLive": false,
       "isFinished": false,
