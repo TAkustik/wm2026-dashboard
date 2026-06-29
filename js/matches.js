@@ -79,22 +79,22 @@ export const matches = [
   // Bracket-Logik: je 2 SZF-Sieger → 1 AF, je 2 AF → 1 VF usw.
   // ═══════════════════════════════════════════════════════════════
 
-  { id: 73,  szf: 1,  date: '2026-06-28', time: '21:00', home: 'Südafrika',      homeflag: '🇿🇦', homeCode: 'ZA', away: 'Kanada',         awayflag: '🇨🇦', awayCode: 'CA', group: null, round: 'R32', tv: null, freeTv: null, score: null },
+  { id: 73,  szf: 1,  date: '2026-06-28', time: '21:00', home: 'Südafrika',      homeflag: '🇿🇦', homeCode: 'ZA', away: 'Kanada',         awayflag: '🇨🇦', awayCode: 'CA', group: null, round: 'R32', tv: 'Magenta', freeTv: false, score: null },
   { id: 74,  szf: 2,  date: '2026-06-29', time: '22:30', home: 'Deutschland',    homeflag: '🇩🇪', homeCode: 'DE', away: 'Paraguay',       awayflag: '🇵🇾', awayCode: 'PY', group: null, round: 'R32', tv: 'ZDF', freeTv: true, score: null },
   { id: 75,  szf: 3,  date: '2026-06-30', time: '03:00', home: 'Niederlande',    homeflag: '🇳🇱', homeCode: 'NL', away: 'Marokko',        awayflag: '🇲🇦', awayCode: 'MA', group: null, round: 'R32', tv: 'Magenta', freeTv: false, score: null },
-  { id: 76,  szf: 4,  date: '2026-06-29', time: '19:00', home: 'Brasilien',      homeflag: '🇧🇷', homeCode: 'BR', away: 'Japan',          awayflag: '🇯🇵', awayCode: 'JP', group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 77,  szf: 5,  date: '2026-06-30', time: '23:00', home: 'Frankreich',     homeflag: '🇫🇷', homeCode: 'FR', away: 'Schweden',       awayflag: '🇸🇪', awayCode: 'SE', group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 78,  szf: 6,  date: '2026-06-30', time: '19:00', home: 'Elfenbeinküste', homeflag: '🇨🇮', homeCode: 'CI', away: 'Norwegen',       awayflag: '🇳🇴', awayCode: 'NO', group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 79,  szf: 7,  date: '2026-07-01', time: '03:00', home: 'Mexiko',         homeflag: '🇲🇽', homeCode: 'MX', away: 'Ecuador',        awayflag: '🇪🇨', awayCode: 'EC', group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 80,  szf: 8,  date: '2026-07-01', time: '18:00', home: 'England',        homeflag: '🏴', homeCode: 'GB', away: 'DR Kongo',       awayflag: '🇨🇩', awayCode: 'CD', group: null, round: 'R32', tv: null, freeTv: null, score: null },
+  { id: 76,  szf: 4,  date: '2026-06-29', time: '19:00', home: 'Brasilien',      homeflag: '🇧🇷', homeCode: 'BR', away: 'Japan',          awayflag: '🇯🇵', awayCode: 'JP', group: null, round: 'R32', tv: 'ZDF', freeTv: true, score: null },
+  { id: 77,  szf: 5,  date: '2026-06-30', time: '23:00', home: 'Frankreich',     homeflag: '🇫🇷', homeCode: 'FR', away: 'Schweden',       awayflag: '🇸🇪', awayCode: 'SE', group: null, round: 'R32', tv: 'Magenta', freeTv: false, score: null },
+  { id: 78,  szf: 6,  date: '2026-06-30', time: '19:00', home: 'Elfenbeinküste', homeflag: '🇨🇮', homeCode: 'CI', away: 'Norwegen',       awayflag: '🇳🇴', awayCode: 'NO', group: null, round: 'R32', tv: 'ARD', freeTv: true, score: null },
+  { id: 79,  szf: 7,  date: '2026-07-01', time: '03:00', home: 'Mexiko',         homeflag: '🇲🇽', homeCode: 'MX', away: 'Ecuador',        awayflag: '🇪🇨', awayCode: 'EC', group: null, round: 'R32', tv: 'Magenta', freeTv: false, score: null },
+  { id: 80,  szf: 8,  date: '2026-07-01', time: '18:00', home: 'England',        homeflag: '🏴', homeCode: 'GB', away: 'DR Kongo',       awayflag: '🇨🇩', awayCode: 'CD', group: null, round: 'R32', tv: 'ARD', freeTv: true, score: null },
   { id: 81,  szf: 9,  date: '2026-07-02', time: '02:00', home: 'USA',            homeflag: '🇺🇸', homeCode: 'US', away: 'Bosnien',        awayflag: '🇧🇦', awayCode: 'BA', group: null, round: 'R32', tv: 'Magenta', freeTv: false, score: null },
-  { id: 82,  szf: 10, date: '2026-07-01', time: '22:00', home: 'Belgien',        homeflag: '🇧🇪', homeCode: 'BE', away: 'Senegal',        awayflag: '🇸🇳', awayCode: 'SN', group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 83,  szf: 11, date: '2026-07-03', time: '01:00', home: 'Portugal',       homeflag: '🇵🇹', homeCode: 'PT', away: 'Kroatien',       awayflag: '🇭🇷', awayCode: 'HR', group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 84,  szf: 12, date: '2026-07-02', time: '21:00', home: 'Spanien',        homeflag: '🇪🇸', homeCode: 'ES', away: 'Österreich',     awayflag: '🇦🇹', awayCode: 'AT', group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 85,  szf: 13, date: '2026-07-03', time: '05:00', home: 'Schweiz',        homeflag: '🇨🇭', homeCode: 'CH', away: 'Algerien',       awayflag: '🇩🇿', awayCode: 'DZ', group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 86,  szf: 14, date: '2026-07-04', time: '00:00', home: 'Argentinien',    homeflag: '🇦🇷', homeCode: 'AR', away: 'Kap Verde',      awayflag: '🇨🇻', awayCode: 'CV', group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 87,  szf: 15, date: '2026-07-04', time: '03:30', home: 'Kolumbien',      homeflag: '🇨🇴', homeCode: 'CO', away: 'Ghana',          awayflag: '🇬🇭', awayCode: 'GH', group: null, round: 'R32', tv: null, freeTv: null, score: null },
-  { id: 88,  szf: 16, date: '2026-07-03', time: '20:00', home: 'Australien',     homeflag: '🇦🇺', homeCode: 'AU', away: 'Ägypten',        awayflag: '🇪🇬', awayCode: 'EG', group: null, round: 'R32', tv: null, freeTv: null, score: null },
+  { id: 82,  szf: 10, date: '2026-07-01', time: '22:00', home: 'Belgien',        homeflag: '🇧🇪', homeCode: 'BE', away: 'Senegal',        awayflag: '🇸🇳', awayCode: 'SN', group: null, round: 'R32', tv: 'ARD', freeTv: true, score: null },
+  { id: 83,  szf: 11, date: '2026-07-03', time: '01:00', home: 'Portugal',       homeflag: '🇵🇹', homeCode: 'PT', away: 'Kroatien',       awayflag: '🇭🇷', awayCode: 'HR', group: null, round: 'R32', tv: 'Magenta', freeTv: false, score: null },
+  { id: 84,  szf: 12, date: '2026-07-02', time: '21:00', home: 'Spanien',        homeflag: '🇪🇸', homeCode: 'ES', away: 'Österreich',     awayflag: '🇦🇹', awayCode: 'AT', group: null, round: 'R32', tv: 'ARD', freeTv: true, score: null },
+  { id: 85,  szf: 13, date: '2026-07-03', time: '05:00', home: 'Schweiz',        homeflag: '🇨🇭', homeCode: 'CH', away: 'Algerien',       awayflag: '🇩🇿', awayCode: 'DZ', group: null, round: 'R32', tv: 'ZDF', freeTv: true, score: null },
+  { id: 86,  szf: 14, date: '2026-07-04', time: '00:00', home: 'Argentinien',    homeflag: '🇦🇷', homeCode: 'AR', away: 'Kap Verde',      awayflag: '🇨🇻', awayCode: 'CV', group: null, round: 'R32', tv: 'Magenta', freeTv: false, score: null },
+  { id: 87,  szf: 15, date: '2026-07-04', time: '03:30', home: 'Kolumbien',      homeflag: '🇨🇴', homeCode: 'CO', away: 'Ghana',          awayflag: '🇬🇭', awayCode: 'GH', group: null, round: 'R32', tv: 'ZDF', freeTv: true, score: null },
+  { id: 88,  szf: 16, date: '2026-07-03', time: '20:00', home: 'Australien',     homeflag: '🇦🇺', homeCode: 'AU', away: 'Ägypten',        awayflag: '🇪🇬', awayCode: 'EG', group: null, round: 'R32', tv: 'ZDF', freeTv: true, score: null },
 
   { id: 89,  af: 1, date: '2026-07-04', time: '23:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null, score: null },
   { id: 90,  af: 2, date: '2026-07-04', time: '19:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null, score: null },
@@ -113,7 +113,7 @@ export const matches = [
   { id: 101, hf: 1, date: '2026-07-14', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'SF', tv: 'ARD', freeTv: true,  score: null },
   { id: 102, hf: 2, date: '2026-07-15', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'SF', tv: 'ZDF', freeTv: true,  score: null },
 
-  { id: 103,        date: '2026-07-18', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'P3', tv: 'ZDF', freeTv: true,  score: null },
+  { id: 103,        date: '2026-07-18', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'P3', tv: 'Magenta', freeTv: false,  score: null },
 
   { id: 104,        date: '2026-07-19', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'F',  tv: 'ZDF', freeTv: true,  score: null },
 ];

@@ -608,11 +608,14 @@ function renderBracketHalf(rounds, startX, goRight, cc, totalH) {
         ? (m.date.startsWith('2026') ? m.date.slice(8,10) + '.' + m.date.slice(5,7) : m.date)
         : '–';
       const timeLabel = m.time && m.time !== '–' ? ` · ${m.time} Uhr` : '';
+      const tvBadge = m.tv
+        ? `<span class="b-tv-badge" style="background:${getTVColor(m.tv)}">${m.tv}</span>`
+        : '';
 
       boxesHtml += `<div class="b-match-box${stateClass}" style="left:${x}px;top:${y}px;">
         ${renderBracketTeamRow(m, true,  cc)}
         ${renderBracketTeamRow(m, false, cc)}
-        <div class="b-match-date">${dateLabel}${timeLabel}</div>
+        <div class="b-match-date">${dateLabel}${timeLabel}${tvBadge}</div>
       </div>`;
 
       if (goRight) {
@@ -961,17 +964,19 @@ function renderBracket() {
   </div>`;
 
   // Finale-Box (hervorgehoben: goldener Rahmen + Glow)
+  const finaleTv = fm.tv ? `<span class="b-tv-badge" style="background:${getTVColor(fm.tv)}">${fm.tv}</span>` : '';
   const finaleBox = `<div class="b-match-box b-finale" style="left:${finaleX}px;top:${finY}px;width:${FIN_W}px;">
     ${renderBracketTeamRow(fm, true,  cc)}
     ${renderBracketTeamRow(fm, false, cc)}
-    <div class="b-match-date">🏆 Finale · 19.07 · 21:00 Uhr · New York</div>
+    <div class="b-match-date">🏆 Finale · 19.07 · 21:00 Uhr · New York${finaleTv}</div>
   </div>`;
 
   // Platz-3-Box (kein separater Header, Label im Datum-Feld)
+  const p3Tv = p3m.tv ? `<span class="b-tv-badge" style="background:${getTVColor(p3m.tv)}">${p3m.tv}</span>` : '';
   const p3Box = `<div class="b-match-box" style="left:${p3X}px;top:${p3Y}px;width:${P3_W}px;opacity:0.8;">
     ${renderBracketTeamRow(p3m, true,  cc)}
     ${renderBracketTeamRow(p3m, false, cc)}
-    <div class="b-match-date">🥉 Platz 3 · 18.07 · 21:00 Uhr · Miami</div>
+    <div class="b-match-date">🥉 Platz 3 · 18.07 · 21:00 Uhr · Miami${p3Tv}</div>
   </div>`;
 
   // Sieger-Box
