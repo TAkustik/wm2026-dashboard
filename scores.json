@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-29T23:40:24.842Z",
+  "updatedAt": "2026-06-29T23:42:15.138Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -446,9 +446,9 @@
       "minute": null
     },
     "82101": {
-      "score": "1:1",
+      "score": "4:5",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null
     },
     "82102": {
@@ -1466,15 +1466,15 @@
       "minute": null
     },
     "team_deutschland_paraguay": {
-      "score": "1:1",
+      "score": "4:5",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null
     },
     "team_paraguay_deutschland": {
-      "score": "1:1",
+      "score": "4:5",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null
     },
     "team_niederlande_marokko": {
