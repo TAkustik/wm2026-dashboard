@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-29T22:28:16.602Z",
+  "updatedAt": "2026-06-29T22:30:34.740Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -447,7 +447,7 @@
     },
     "82101": {
       "score": "1:1",
-      "isLive": true,
+      "isLive": false,
       "isFinished": false,
       "minute": null
     },
@@ -1467,13 +1467,13 @@
     },
     "team_deutschland_paraguay": {
       "score": "1:1",
-      "isLive": true,
+      "isLive": false,
       "isFinished": false,
       "minute": null
     },
     "team_paraguay_deutschland": {
       "score": "1:1",
-      "isLive": true,
+      "isLive": false,
       "isFinished": false,
       "minute": null
     },
