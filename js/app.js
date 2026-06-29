@@ -501,8 +501,12 @@ const FIN_W    = 140;
 
 // ids: [] = TBD-Platzhalter mit korrektem count
 // ids: [...] = echte Match-IDs aus matches.js
+// WICHTIG: Die Reihenfolge der SZF/AF-IDs muss der ECHTEN FIFA-Paarung folgen,
+// damit benachbarte Boxen (Position 0+1, 2+3, ...) auch wirklich im nächsten
+// Spiel gegeneinander antreten — sonst stimmen Linien und Inhalt nicht zusammen!
+// af1=szf2+szf5, af2=szf1+szf3, af3=szf4+szf6, af4=szf7+szf8
 const LEFT_ROUNDS = [
-  { key: 'r32', count: 8, ids: [73,74,75,76,77,78,79,80] },
+  { key: 'r32', count: 8, ids: [74,77,73,75,76,78,79,80] },
   { key: 'r16', count: 4, ids: [89,90,91,92] },
   { key: 'qf',  count: 2, ids: [97,98] },
   { key: 'sf',  count: 1, ids: [101] },
@@ -511,7 +515,7 @@ const RIGHT_ROUNDS = [
   { key: 'sf',  count: 1, ids: [102] },
   { key: 'qf',  count: 2, ids: [100,99] },
   { key: 'r16', count: 4, ids: [96,95,94,93] },
-  { key: 'r32', count: 8, ids: [81,82,83,84,85,86,87,88] },
+  { key: 'r32', count: 8, ids: [85,87,86,88,81,82,83,84] },
 ];
 
 // Korrekte Daten für TBD-Platzhalter je Runde (laut Poster)
