@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-29T18:30:34.929Z",
+  "updatedAt": "2026-06-29T18:32:15.653Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -440,7 +440,7 @@
       "minute": null
     },
     "82100": {
-      "score": "0:1",
+      "score": "1:1",
       "isLive": true,
       "isFinished": false,
       "minute": null
@@ -1454,13 +1454,13 @@
       "minute": null
     },
     "team_brasilien_japan": {
-      "score": "0:1",
+      "score": "1:1",
       "isLive": true,
       "isFinished": false,
       "minute": null
     },
     "team_japan_brasilien": {
-      "score": "0:1",
+      "score": "1:1",
       "isLive": true,
       "isFinished": false,
       "minute": null
