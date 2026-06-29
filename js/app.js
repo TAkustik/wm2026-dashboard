@@ -503,14 +503,14 @@ const FIN_W    = 140;
 // ids: [...] = echte Match-IDs aus matches.js
 const LEFT_ROUNDS = [
   { key: 'r32', count: 8, ids: [73,74,75,76,77,78,79,80] },
-  { key: 'r16', count: 4, ids: [] },
-  { key: 'qf',  count: 2, ids: [] },
-  { key: 'sf',  count: 1, ids: [] },
+  { key: 'r16', count: 4, ids: [89,90,91,92] },
+  { key: 'qf',  count: 2, ids: [97,98] },
+  { key: 'sf',  count: 1, ids: [101] },
 ];
 const RIGHT_ROUNDS = [
-  { key: 'sf',  count: 1, ids: [] },
-  { key: 'qf',  count: 2, ids: [] },
-  { key: 'r16', count: 4, ids: [] },
+  { key: 'sf',  count: 1, ids: [102] },
+  { key: 'qf',  count: 2, ids: [100,99] },
+  { key: 'r16', count: 4, ids: [96,95,94,93] },
   { key: 'r32', count: 8, ids: [81,82,83,84,85,86,87,88] },
 ];
 
@@ -1202,10 +1202,6 @@ function applyScores(data) {
 
   if (hasChanges) {
     console.log('Neue Ergebnisse — Dashboard wird aktualisiert');
-
-    // Sieger sofort in die nächsten K.-o.-Runden übernehmen
-    populateBracketFromGroups();
-
     renderAll();
   }
 
