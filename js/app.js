@@ -612,7 +612,7 @@ function renderBracketHalf(rounds, startX, goRight, cc, totalH) {
         ? `<span class="b-tv-badge" style="background:${getTVColor(m.tv)}">${m.tv}</span>`
         : '';
 
-      boxesHtml += `<div class="b-match-box${stateClass}" style="left:${x}px;top:${y}px;">
+      boxesHtml += `<div class="b-match-box${stateClass}" style="left:${x}px;top:${y}px;"${m.id ? ` data-match-id="${m.id}"` : ''}>
         ${renderBracketTeamRow(m, true,  cc)}
         ${renderBracketTeamRow(m, false, cc)}
         <div class="b-match-date">${dateLabel}${timeLabel}${tvBadge}</div>
@@ -1122,6 +1122,26 @@ function updateClock() {
     { hour: '2-digit', minute: '2-digit', second: '2-digit' }
   );
   updateLiveGameIndicator();
+  // Bracket-Live/Next-Status ist zeitbasiert und muss unabhängig von
+  // Score-Änderungen regelmäßig neu geprüft werden (sonst bleibt eine
+  // einmal verpasste Aktualisierung dauerhaft veraltet, z.B. während
+  // ein Spiel läuft aber noch kein neuer Score eingetroffen ist).
+  if (currentTab === 'bracket') refreshBracketMatchStates();
+}
+
+// Aktualisiert nur die is-live/is-next Klassen der vorhandenen Bracket-Boxen,
+// ohne das komplette Bracket neu zu rendern (performant, kein Flackern).
+function refreshBracketMatchStates() {
+  const boxes = document.querySelectorAll('.b-match-box[data-match-id]');
+  boxes.forEach(box => {
+    const id = parseInt(box.dataset.matchId);
+    const m  = matches.find(x => x.id === id);
+    if (!m) return;
+    const state = getBracketMatchState(m);
+    box.classList.remove('is-live', 'is-next');
+    if (state === 'live') box.classList.add('is-live');
+    if (state === 'next') box.classList.add('is-next');
+  });
 }
 
 // ═══════════════════════════════════════════════════════════════
