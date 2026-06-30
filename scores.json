@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T04:14:17.575Z",
+  "updatedAt": "2026-06-30T04:16:14.732Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -454,7 +454,7 @@
     "82102": {
       "score": "1:1",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null
     },
     "82103": {
@@ -1480,13 +1480,13 @@
     "team_niederlande_marokko": {
       "score": "1:1",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null
     },
     "team_marokko_niederlande": {
       "score": "1:1",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null
     },
     "team_elfenbeinkuste_norwegen": {
