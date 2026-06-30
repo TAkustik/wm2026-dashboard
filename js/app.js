@@ -578,8 +578,11 @@ function renderBracketTeamRow(m, isHome, cc) {
   if (h !== null && h === a && m.penaltyWinner) {
     isWinner = isHome ? m.penaltyWinner === 1 : m.penaltyWinner === 2;
   }
-  const penaltyNote = (h !== null && h === a && m.penaltyWinner && m.penaltyScore)
-    ? `<span class="b-pso-note">(${m.penaltyScore})</span>` : '';
+  const penaltyOwnScore = (h !== null && h === a && m.penaltyWinner && m.penaltyScore)
+    ? m.penaltyScore.split(':')[isHome ? 0 : 1]
+    : null;
+  const penaltyNote = penaltyOwnScore !== null
+    ? `<span class="b-pso-note">(${penaltyOwnScore})</span>` : '';
 
   return `<div class="b-team-row${isWinner ? ' winner' : ''}${isFav ? ' fav-team' : ''}">
     <span style="font-size:0.95rem;flex-shrink:0">${flag}</span>
