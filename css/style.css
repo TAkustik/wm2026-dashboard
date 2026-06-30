@@ -763,6 +763,16 @@ body {
   text-align: right;
 }
 
+.b-pso-note {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.95rem;
+  color: var(--accent);
+  letter-spacing: 1px;
+  margin-left: auto;
+  min-width: 16px;
+  text-align: right;
+}
+
 .b-match-date {
   font-size: 0.58rem;
   color: var(--muted);
