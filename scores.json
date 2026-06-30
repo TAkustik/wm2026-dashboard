@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T18:44:16.237Z",
+  "updatedAt": "2026-06-30T18:46:15.510Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -602,7 +602,7 @@
       "penaltyScore": "2:3"
     },
     "82103": {
-      "score": "1:1",
+      "score": "1:2",
       "isLive": true,
       "isFinished": false,
       "minute": null,
@@ -929,7 +929,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_ctedivoire_ecuador": {
+    "team_elfenbeinkuste_ecuador": {
       "score": "1:0",
       "isLive": false,
       "isFinished": true,
@@ -937,7 +937,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_ecuador_ctedivoire": {
+    "team_ecuador_elfenbeinkuste": {
       "score": "1:0",
       "isLive": false,
       "isFinished": true,
@@ -1297,7 +1297,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_deutschland_ctedivoire": {
+    "team_deutschland_elfenbeinkuste": {
       "score": "2:1",
       "isLive": false,
       "isFinished": true,
@@ -1305,7 +1305,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_ctedivoire_deutschland": {
+    "team_elfenbeinkuste_deutschland": {
       "score": "2:1",
       "isLive": false,
       "isFinished": true,
@@ -1633,7 +1633,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_curacao_ctedivoire": {
+    "team_curacao_elfenbeinkuste": {
       "score": "0:2",
       "isLive": false,
       "isFinished": true,
@@ -1641,7 +1641,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_ctedivoire_curacao": {
+    "team_elfenbeinkuste_curacao": {
       "score": "0:2",
       "isLive": false,
       "isFinished": true,
@@ -1985,16 +1985,16 @@
       "penaltyWinner": 2,
       "penaltyScore": "2:3"
     },
-    "team_ctedivoire_norwegen": {
-      "score": "1:1",
+    "team_elfenbeinkuste_norwegen": {
+      "score": "1:2",
       "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_norwegen_ctedivoire": {
-      "score": "1:1",
+    "team_norwegen_elfenbeinkuste": {
+      "score": "1:2",
       "isLive": true,
       "isFinished": false,
       "minute": null,
