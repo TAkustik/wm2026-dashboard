@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T17:38:15.955Z",
+  "updatedAt": "2026-06-30T17:40:27.579Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -602,7 +602,7 @@
       "penaltyScore": "2:3"
     },
     "82103": {
-      "score": "0:0",
+      "score": "0:1",
       "isLive": true,
       "isFinished": false,
       "minute": null,
@@ -1986,7 +1986,7 @@
       "penaltyScore": "2:3"
     },
     "team_ctedivoire_norwegen": {
-      "score": "0:0",
+      "score": "0:1",
       "isLive": true,
       "isFinished": false,
       "minute": null,
@@ -1994,7 +1994,7 @@
       "penaltyScore": null
     },
     "team_norwegen_ctedivoire": {
-      "score": "0:0",
+      "score": "0:1",
       "isLive": true,
       "isFinished": false,
       "minute": null,
