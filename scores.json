@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T10:36:16.968Z",
+  "updatedAt": "2026-06-30T10:38:17.337Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -512,13 +512,6 @@
       "minute": null,
       "psoWinner": null
     },
-    "82100": {
-      "score": "2:1",
-      "isLive": false,
-      "isFinished": true,
-      "minute": null,
-      "psoWinner": null
-    },
     "82101": {
       "score": "1:1",
       "isLive": false,
@@ -668,6 +661,13 @@
     },
     "82134": {
       "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "psoWinner": null
+    },
+    "83124": {
+      "score": "0:0",
       "isLive": false,
       "isFinished": false,
       "minute": null,
@@ -1696,16 +1696,16 @@
       "psoWinner": null
     },
     "team_brasilien_japan": {
-      "score": "2:1",
+      "score": "0:0",
       "isLive": false,
-      "isFinished": true,
+      "isFinished": false,
       "minute": null,
       "psoWinner": null
     },
     "team_japan_brasilien": {
-      "score": "2:1",
+      "score": "0:0",
       "isLive": false,
-      "isFinished": true,
+      "isFinished": false,
       "minute": null,
       "psoWinner": null
     },
@@ -2272,6 +2272,10 @@
       "freeTv": true
     },
     "82102": {
+      "tv": "ZDF",
+      "freeTv": true
+    },
+    "83124": {
       "tv": "ZDF",
       "freeTv": true
     }
