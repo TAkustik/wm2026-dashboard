@@ -584,10 +584,10 @@ function renderBracketTeamRow(m, isHome, cc) {
   const penaltyNote = penaltyOwnScore !== null
     ? `<span class="b-pso-note">(${penaltyOwnScore})</span>` : '';
 
-  return `<div class="b-team-row${isWinner ? ' winner' : ''}${isFav ? ' fav-team' : ''}">
+  return `<div class="b-team-row${isFav ? ' fav-team' : ''}">
     <span style="font-size:0.95rem;flex-shrink:0">${flag}</span>
     <span class="b-team-name">${name}</span>
-    ${score !== null ? `<span class="b-team-score">${score}</span>` : ''}${penaltyNote}
+    ${penaltyOwnScore !== null ? '' : (score !== null ? `<span class="b-team-score">${score}</span>` : '')}${penaltyNote}
   </div>`;
 }
 
@@ -892,6 +892,7 @@ function propagateKnockoutWinners() {
 
   function getLoser(m) {
     if (!m?.score) return null;
+    if (!m.isFinished) return null;
     const [h, a] = m.score.split(':').map(Number);
     if (h > a) return { name: m.away, flag: m.awayflag, code: m.awayCode };
     if (a > h) return { name: m.home, flag: m.homeflag, code: m.homeCode };
@@ -907,6 +908,7 @@ function propagateKnockoutWinners() {
 
 function getWinner(m) {
   if (!m?.score) return null;
+  if (!m.isFinished) return null; // Zwischenstand während des Spiels zählt nicht
   const [h,a] = m.score.split(':').map(Number);
   if (h > a) return { name: m.home, flag: m.homeflag, code: m.homeCode };
   if (a > h) return { name: m.away, flag: m.awayflag, code: m.awayCode };
