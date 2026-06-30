@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T22:18:17.256Z",
+  "updatedAt": "2026-06-30T22:20:29.655Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -765,6 +765,14 @@
       "score": "2:1",
       "isLive": false,
       "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "83125": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2298,6 +2306,22 @@
       "penaltyScore": null
     },
     "team_colgha_suialg": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_parfra_canmar": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_canmar_parfra": {
       "score": null,
       "isLive": false,
       "isFinished": false,
