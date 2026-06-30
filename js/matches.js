@@ -79,7 +79,7 @@ export const matches = [
   // Bracket-Logik: je 2 SZF-Sieger → 1 AF, je 2 AF → 1 VF usw.
   // ═══════════════════════════════════════════════════════════════
 
-  { id: 73,  szf: 1,  date: '2026-06-28', time: '21:00', home: 'Südafrika',      homeflag: '🇿🇦', homeCode: 'ZA', away: 'Kanada',         awayflag: '🇨🇦', awayCode: 'CA', group: null, round: 'R32', tv: 'Magenta', freeTv: false, score: null },
+  { id: 73,  szf: 1,  date: '2026-06-28', time: '21:00', home: 'Südafrika',      homeflag: '🇿🇦', homeCode: 'ZA', away: 'Kanada',         awayflag: '🇨🇦', awayCode: 'CA', group: null, round: 'R32', tv: 'ARD', freeTv: true, score: null },
   { id: 74,  szf: 2,  date: '2026-06-29', time: '22:30', home: 'Deutschland',    homeflag: '🇩🇪', homeCode: 'DE', away: 'Paraguay',       awayflag: '🇵🇾', awayCode: 'PY', group: null, round: 'R32', tv: 'ZDF', freeTv: true, score: null },
   { id: 75,  szf: 3,  date: '2026-06-30', time: '03:00', home: 'Niederlande',    homeflag: '🇳🇱', homeCode: 'NL', away: 'Marokko',        awayflag: '🇲🇦', awayCode: 'MA', group: null, round: 'R32', tv: 'Magenta', freeTv: false, score: null },
   { id: 76,  szf: 4,  date: '2026-06-29', time: '19:00', home: 'Brasilien',      homeflag: '🇧🇷', homeCode: 'BR', away: 'Japan',          awayflag: '🇯🇵', awayCode: 'JP', group: null, round: 'R32', tv: 'ZDF', freeTv: true, score: null },
