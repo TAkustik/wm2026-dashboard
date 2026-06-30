@@ -338,7 +338,7 @@ body {
 .match-card:hover   { border-color: #2a3a58; }
 
 .match-card.fav {
-  border-left: 2px solid var(--accent);
+  border: 2px solid var(--accent);
   background: linear-gradient(90deg, #1a2235 0%, var(--surface) 100%);
 }
 
@@ -378,6 +378,14 @@ body {
   letter-spacing: 3px;
   color: var(--text);
   white-space: nowrap;
+}
+
+.score-pso {
+  font-family: sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0;
+  color: var(--muted);
+  vertical-align: middle;
 }
 
 .match-time {

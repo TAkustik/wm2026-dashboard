@@ -129,11 +129,19 @@ async function main() {
     const live  = now >= start && now <= end && !m.matchIsFinished;
     const res   = m.matchResults?.find(r => r.resultTypeID === 2)
                ?? m.matchResults?.find(r => r.resultTypeID === 1);
+    // resultTypeID 3 = Elfmeterschießen (OpenLigaDB)
+    const psoRes = m.matchResults?.find(r => r.resultTypeID === 3);
+    let psoWinner = null;
+    if (psoRes) {
+      if (psoRes.pointsTeam1 > psoRes.pointsTeam2) psoWinner = 'home';
+      else if (psoRes.pointsTeam2 > psoRes.pointsTeam1) psoWinner = 'away';
+    }
     const entry = {
       score:      res ? `${res.pointsTeam1}:${res.pointsTeam2}` : null,
       isLive:     live,
       isFinished: m.matchIsFinished,
       minute:     live ? (m.matchMinute ?? null) : null,
+      psoWinner,  // 'home' | 'away' | null
     };
     // Primärschlüssel: echte OpenLigaDB matchID
     scores[m.matchID] = entry;

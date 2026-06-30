@@ -127,7 +127,11 @@ function renderTVBadge(m, mini = false) {
 // ═══════════════════════════════════════════════════════════════
 function renderMatchCard(m, showDate = false) {
   const fav      = isFavMatch(m);
-  const score    = m.score ?? '– : –';
+  // Bei Elfmeterschießen "n.E." anhängen
+  const [h, a]   = (m.score ?? '').split(':').map(Number);
+  const isDraw    = m.score && !isNaN(h) && !isNaN(a) && h === a;
+  const scoreRaw  = m.score ?? '– : –';
+  const score     = isDraw && m.psoWinner ? `${scoreRaw} <span class="score-pso">n.E.</span>` : scoreRaw;
   const local    = localMatchDateTime(m);
   const dateStr  = showDate
     ? `<span class="match-date-label">${formatDate(local.date, currentLang)}</span>`
@@ -897,6 +901,9 @@ function getWinner(m) {
   const [h,a] = m.score.split(':').map(Number);
   if (h > a) return { name: m.home, flag: m.homeflag, code: m.homeCode };
   if (a > h) return { name: m.away, flag: m.awayflag, code: m.awayCode };
+  // Unentschieden nach 90/120 Min → Elfmeterschießen entscheidet
+  if (m.psoWinner === 'home') return { name: m.home, flag: m.homeflag, code: m.homeCode };
+  if (m.psoWinner === 'away') return { name: m.away, flag: m.awayflag, code: m.awayCode };
   return null;
 }
 
@@ -1220,6 +1227,11 @@ function applyScores(data) {
     if (entry.score && entry.score !== m.score) {
       m.score    = entry.score;
       hasChanges = true;
+    }
+
+    if (entry.psoWinner && entry.psoWinner !== m.psoWinner) {
+      m.psoWinner = entry.psoWinner; // 'home' | 'away'
+      hasChanges  = true;
     }
 
     if (entry.isLive) hasLive = true;
