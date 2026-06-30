@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T07:08:17.809Z",
+  "updatedAt": "2026-06-30T07:10:29.355Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -1905,14 +1905,14 @@
       "minute": null,
       "psoWinner": null
     },
-    "team_kanada_nedmar": {
+    "team_kanada_marokko": {
       "score": null,
       "isLive": false,
       "isFinished": false,
       "minute": null,
       "psoWinner": null
     },
-    "team_nedmar_kanada": {
+    "team_marokko_kanada": {
       "score": null,
       "isLive": false,
       "isFinished": false,
