@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T18:56:18.893Z",
+  "updatedAt": "2026-06-30T18:58:16.379Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -603,8 +603,8 @@
     },
     "82103": {
       "score": "1:2",
-      "isLive": true,
-      "isFinished": false,
+      "isLive": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -1987,16 +1987,16 @@
     },
     "team_elfenbeinkuste_norwegen": {
       "score": "1:2",
-      "isLive": true,
-      "isFinished": false,
+      "isLive": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
     },
     "team_norwegen_elfenbeinkuste": {
       "score": "1:2",
-      "isLive": true,
-      "isFinished": false,
+      "isLive": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
