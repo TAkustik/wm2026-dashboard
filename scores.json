@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T06:46:19.210Z",
+  "updatedAt": "2026-06-30T06:48:15.377Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -520,7 +520,7 @@
       "psoWinner": null
     },
     "82101": {
-      "score": "4:5",
+      "score": "1:1",
       "isLive": false,
       "isFinished": true,
       "minute": null,
@@ -1710,14 +1710,14 @@
       "psoWinner": null
     },
     "team_deutschland_paraguay": {
-      "score": "4:5",
+      "score": "1:1",
       "isLive": false,
       "isFinished": true,
       "minute": null,
       "psoWinner": null
     },
     "team_paraguay_deutschland": {
-      "score": "4:5",
+      "score": "1:1",
       "isLive": false,
       "isFinished": true,
       "minute": null,
