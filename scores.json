@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T20:34:17.369Z",
+  "updatedAt": "2026-06-30T20:36:16.056Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -2209,7 +2209,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_brasilien_civnor": {
+    "team_brasilien_norwegen": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2217,7 +2217,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_civnor_brasilien": {
+    "team_norwegen_brasilien": {
       "score": null,
       "isLive": false,
       "isFinished": false,
