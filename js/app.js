@@ -496,7 +496,7 @@ function renderGroups() {
 // ═══════════════════════════════════════════════════════════════
 
 // Layout-Konstanten
-const BOX_W    = 130;
+const BOX_W    = 148;
 const BOX_H    = 72;
 const COL_GAP  = 28;
 const COL_W    = BOX_W + COL_GAP;
