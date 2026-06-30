@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T22:54:15.660Z",
+  "updatedAt": "2026-06-30T22:56:18.173Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -2201,7 +2201,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_paraguay_fraswe": {
+    "team_paraguay_frankreich": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2209,7 +2209,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_fraswe_paraguay": {
+    "team_frankreich_paraguay": {
       "score": null,
       "isLive": false,
       "isFinished": false,
