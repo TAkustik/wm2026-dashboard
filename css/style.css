@@ -700,6 +700,7 @@ body {
   overflow: hidden;
   position: absolute;
   width: 130px;
+  height: 82px;
   transition: border-color 0.2s;
   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }

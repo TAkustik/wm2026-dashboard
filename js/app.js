@@ -497,7 +497,7 @@ function renderGroups() {
 
 // Layout-Konstanten
 const BOX_W    = 130;
-const BOX_H    = 72;
+const BOX_H    = 82;
 const COL_GAP  = 28;
 const COL_W    = BOX_W + COL_GAP;
 const HEADER_H = 34;
@@ -1185,6 +1185,7 @@ window.switchTab      = switchTab;
 window.toggleSettings = toggleSettings;
 window.applySettings  = applySettings;
 window.setFilter      = setFilter;
+window.manualRefresh  = manualRefresh;
 
 // ═══════════════════════════════════════════════════════════════
 // LIVE REFRESH
