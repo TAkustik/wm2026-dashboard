@@ -700,7 +700,7 @@ body {
   overflow: hidden;
   position: absolute;
   width: 130px;
-  height: 82px;
+  height: 92px;
   transition: border-color 0.2s;
   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
@@ -775,12 +775,26 @@ body {
 }
 
 .b-match-date {
-  font-size: 0.58rem;
+  font-size: 0.55rem;
   color: var(--muted);
   text-align: center;
-  padding: 3px 4px;
+  padding: 2px 4px;
   background: var(--surface2);
   border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  line-height: 1.2;
+}
+
+.b-date-text { white-space: nowrap; }
+
+.b-tv-badge {
+  font-size: 0.5rem !important;
+  padding: 1px 4px !important;
+  letter-spacing: 0 !important;
 }
 
 .b-winner-box {
