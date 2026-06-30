@@ -127,11 +127,7 @@ function renderTVBadge(m, mini = false) {
 // ═══════════════════════════════════════════════════════════════
 function renderMatchCard(m, showDate = false) {
   const fav      = isFavMatch(m);
-  // Bei Elfmeterschießen "n.E." anhängen
-  const [h, a]   = (m.score ?? '').split(':').map(Number);
-  const isDraw    = m.score && !isNaN(h) && !isNaN(a) && h === a;
-  const scoreRaw  = m.score ?? '– : –';
-  const score     = isDraw && m.psoWinner ? `${scoreRaw} <span class="score-pso">n.E.</span>` : scoreRaw;
+  const score    = m.score ?? '– : –';
   const local    = localMatchDateTime(m);
   const dateStr  = showDate
     ? `<span class="match-date-label">${formatDate(local.date, currentLang)}</span>`
@@ -573,12 +569,18 @@ function renderBracketTeamRow(m, isHome, cc) {
 
   const isFav    = code && code === cc.teamCode;
   const [h, a]   = m.score ? m.score.split(':').map(Number) : [null, null];
-  const isWinner = h !== null && (isHome ? h > a : a > h);
+  let isWinner = h !== null && (isHome ? h > a : a > h);
+  // Bei Unentschieden nach 90 Min: Elfmeterschießen-Sieger berücksichtigen
+  if (h !== null && h === a && m.penaltyWinner) {
+    isWinner = isHome ? m.penaltyWinner === 1 : m.penaltyWinner === 2;
+  }
+  const penaltyNote = (h !== null && h === a && m.penaltyWinner)
+    ? '<span class="b-pso-note">i.E.</span>' : '';
 
   return `<div class="b-team-row${isWinner ? ' winner' : ''}${isFav ? ' fav-team' : ''}">
     <span style="font-size:0.95rem;flex-shrink:0">${flag}</span>
     <span class="b-team-name">${name}</span>
-    ${score !== null ? `<span class="b-team-score">${score}</span>` : ''}
+    ${score !== null ? `<span class="b-team-score">${score}</span>` : ''}${penaltyNote}
   </div>`;
 }
 
@@ -657,20 +659,20 @@ function renderBracketHalf(rounds, startX, goRight, cc, totalH) {
 // Bestimmt ob ein Bracket-Match gerade live läuft oder das nächste anstehende ist
 function getBracketMatchState(m) {
   if (!m.date || !m.time || m.date === '–' || m.home === 'TBD' || m.away === 'TBD') return null;
-  if (m.score) return null; // bereits gespielt
+  if (m.isFinished) return null; // Spiel ist wirklich beendet (inkl. ggf. Elfmeterschießen)
 
   const now   = new Date();
   const start = new Date(`${m.date}T${m.time}:00+02:00`);
-  const end   = new Date(start.getTime() + 110 * 60000);
+  const end   = new Date(start.getTime() + 130 * 60000); // +130min: Verlängerung/Elfmeter mit einrechnen
 
   if (now >= start && now <= end) return 'live';
 
   // Prüfen ob irgendein anderes Spiel gerade live läuft —
   // solange ein Live-Spiel existiert, wird kein "nächstes Spiel" markiert
   const anyLive = matches.some(x => {
-    if (!x.date || !x.time || x.date === '–' || x.home === 'TBD' || x.away === 'TBD' || x.score) return false;
+    if (!x.date || !x.time || x.date === '–' || x.home === 'TBD' || x.away === 'TBD' || x.isFinished) return false;
     const xStart = new Date(`${x.date}T${x.time}:00+02:00`);
-    const xEnd   = new Date(xStart.getTime() + 110 * 60000);
+    const xEnd   = new Date(xStart.getTime() + 130 * 60000);
     return now >= xStart && now <= xEnd;
   });
   if (anyLive) return null;
@@ -901,9 +903,10 @@ function getWinner(m) {
   const [h,a] = m.score.split(':').map(Number);
   if (h > a) return { name: m.home, flag: m.homeflag, code: m.homeCode };
   if (a > h) return { name: m.away, flag: m.awayflag, code: m.awayCode };
-  // Unentschieden nach 90/120 Min → Elfmeterschießen entscheidet
-  if (m.psoWinner === 'home') return { name: m.home, flag: m.homeflag, code: m.homeCode };
-  if (m.psoWinner === 'away') return { name: m.away, flag: m.awayflag, code: m.awayCode };
+  // Unentschieden nach 90 Min — bei K.o.-Spielen entscheidet das
+  // Elfmeterschießen (penaltyWinner: 1=home, 2=away)
+  if (m.penaltyWinner === 1) return { name: m.home, flag: m.homeflag, code: m.homeCode };
+  if (m.penaltyWinner === 2) return { name: m.away, flag: m.awayflag, code: m.awayCode };
   return null;
 }
 
@@ -1228,15 +1231,15 @@ function applyScores(data) {
       m.score    = entry.score;
       hasChanges = true;
     }
-
-    if (entry.psoWinner && entry.psoWinner !== m.psoWinner) {
-      m.psoWinner = entry.psoWinner; // 'home' | 'away'
-      hasChanges  = true;
+    if (entry.penaltyWinner !== undefined && entry.penaltyWinner !== m.penaltyWinner) {
+      m.penaltyWinner = entry.penaltyWinner;
+      hasChanges = true;
     }
 
     if (entry.isLive) hasLive = true;
-    m.isLive  = entry.isLive  ?? false;
-    m.minute  = entry.minute  ?? null;
+    m.isLive     = entry.isLive     ?? false;
+    m.isFinished = entry.isFinished ?? false;
+    m.minute     = entry.minute     ?? null;
 
     // TV-Sender aus tvData übernehmen (Free-TV hat Vorrang)
     const tvEntry = data.tvData?.[tvKey];

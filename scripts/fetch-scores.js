@@ -127,21 +127,34 @@ async function main() {
     const start = new Date(m.matchDateTimeUTC);
     const end   = new Date(start.getTime() + 120 * 60000);
     const live  = now >= start && now <= end && !m.matchIsFinished;
-    const res   = m.matchResults?.find(r => r.resultTypeID === 2)
-               ?? m.matchResults?.find(r => r.resultTypeID === 1);
-    // resultTypeID 3 = Elfmeterschießen (OpenLigaDB)
-    const psoRes = m.matchResults?.find(r => r.resultTypeID === 3);
-    let psoWinner = null;
-    if (psoRes) {
-      if (psoRes.pointsTeam1 > psoRes.pointsTeam2) psoWinner = 'home';
-      else if (psoRes.pointsTeam2 > psoRes.pointsTeam1) psoWinner = 'away';
+    // Höchsten verfügbaren resultTypeID nehmen — bei K.o.-Spielen mit
+    // Verlängerung/Elfmeterschießen liefert OpenLigaDB zusätzliche Einträge
+    // mit höherer resultTypeID (z.B. 3 = n.V., 4 = n.E.), die den finalen
+    // Sieger zeigen. resultTypeID 2 = reguläres 90-Minuten-Ergebnis.
+    const results = m.matchResults ?? [];
+    const res = results.length > 0
+      ? results.reduce((a, b) => (b.resultTypeID > a.resultTypeID ? b : a))
+      : null;
+
+    // Reguläres 90-Minuten-Ergebnis separat merken (für die Anzeige "1:1")
+    const regularRes = results.find(r => r.resultTypeID === 2);
+    // Falls das finale Ergebnis (höchste resultTypeID) vom regulären abweicht
+    // UND beide Teams im regulären Ergebnis gleichauf waren -> Elfmeterschießen
+    let penaltyWinner = null;
+    if (regularRes && res && res.resultTypeID > 2 &&
+        regularRes.pointsTeam1 === regularRes.pointsTeam2) {
+      penaltyWinner = res.pointsTeam1 > res.pointsTeam2 ? 1 : (res.pointsTeam2 > res.pointsTeam1 ? 2 : null);
     }
+    // Für die Anzeige immer das reguläre 90-Min-Ergebnis nutzen (z.B. "1:1"),
+    // nicht das Elfmeter-Resultat — der Sieger wird separat über
+    // penaltyWinner mitgeteilt.
+    const displayRes = regularRes ?? res;
     const entry = {
-      score:      res ? `${res.pointsTeam1}:${res.pointsTeam2}` : null,
-      isLive:     live,
-      isFinished: m.matchIsFinished,
-      minute:     live ? (m.matchMinute ?? null) : null,
-      psoWinner,  // 'home' | 'away' | null
+      score:         displayRes ? `${displayRes.pointsTeam1}:${displayRes.pointsTeam2}` : null,
+      isLive:        live,
+      isFinished:    m.matchIsFinished,
+      minute:        live ? (m.matchMinute ?? null) : null,
+      penaltyWinner: penaltyWinner, // 1=home, 2=away, null=kein Elfmeterschießen nötig
     };
     // Primärschlüssel: echte OpenLigaDB matchID
     scores[m.matchID] = entry;
