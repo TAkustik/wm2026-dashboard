@@ -138,7 +138,7 @@ function renderMatchCard(m, showDate = false) {
   // Bei Elfmeterschießen: genauen Elfmeter-Endstand zusätzlich anzeigen
   const [hs, as] = m.score ? m.score.split(':').map(Number) : [null, null];
   const psoLabel = (hs !== null && hs === as && m.penaltyWinner && m.penaltyScore)
-    ? `<span class="score-pso">(${m.penaltyScore} i.E.)</span>` : '';
+    ? `<span class="score-pso">(${m.penaltyScore})</span>` : '';
 
   return `
     <div class="match-card${fav ? ' fav' : ''}">
@@ -579,7 +579,7 @@ function renderBracketTeamRow(m, isHome, cc) {
     isWinner = isHome ? m.penaltyWinner === 1 : m.penaltyWinner === 2;
   }
   const penaltyNote = (h !== null && h === a && m.penaltyWinner && m.penaltyScore)
-    ? `<span class="b-pso-note">${m.penaltyScore} i.E.</span>` : '';
+    ? `<span class="b-pso-note">(${m.penaltyScore})</span>` : '';
 
   return `<div class="b-team-row${isWinner ? ' winner' : ''}${isFav ? ' fav-team' : ''}">
     <span style="font-size:0.95rem;flex-shrink:0">${flag}</span>
