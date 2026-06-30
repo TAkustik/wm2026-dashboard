@@ -135,6 +135,10 @@ function renderMatchCard(m, showDate = false) {
   const roundLabel = m.round && !m.group
     ? `<span class="match-round-label">${t(currentLang, m.round) || m.round}</span>`
     : '';
+  // Bei Elfmeterschießen: genauen Elfmeter-Endstand zusätzlich anzeigen
+  const [hs, as] = m.score ? m.score.split(':').map(Number) : [null, null];
+  const psoLabel = (hs !== null && hs === as && m.penaltyWinner && m.penaltyScore)
+    ? `<span class="score-pso">(${m.penaltyScore} i.E.)</span>` : '';
 
   return `
     <div class="match-card${fav ? ' fav' : ''}">
@@ -143,7 +147,7 @@ function renderMatchCard(m, showDate = false) {
         <span class="team-name">${teamName(m.homeCode, m.home)}</span>
       </div>
       <div class="match-center">
-        <div class="score">${score}</div>
+        <div class="score">${score}${psoLabel}</div>
         <div class="match-time">${dateStr}${local.time}</div>
         ${roundLabel}
       </div>
@@ -574,8 +578,8 @@ function renderBracketTeamRow(m, isHome, cc) {
   if (h !== null && h === a && m.penaltyWinner) {
     isWinner = isHome ? m.penaltyWinner === 1 : m.penaltyWinner === 2;
   }
-  const penaltyNote = (h !== null && h === a && m.penaltyWinner)
-    ? '<span class="b-pso-note">i.E.</span>' : '';
+  const penaltyNote = (h !== null && h === a && m.penaltyWinner && m.penaltyScore)
+    ? `<span class="b-pso-note">${m.penaltyScore} i.E.</span>` : '';
 
   return `<div class="b-team-row${isWinner ? ' winner' : ''}${isFav ? ' fav-team' : ''}">
     <span style="font-size:0.95rem;flex-shrink:0">${flag}</span>
@@ -1233,6 +1237,10 @@ function applyScores(data) {
     }
     if (entry.penaltyWinner !== undefined && entry.penaltyWinner !== m.penaltyWinner) {
       m.penaltyWinner = entry.penaltyWinner;
+      hasChanges = true;
+    }
+    if (entry.penaltyScore !== undefined && entry.penaltyScore !== m.penaltyScore) {
+      m.penaltyScore = entry.penaltyScore;
       hasChanges = true;
     }
 

@@ -141,13 +141,15 @@ async function main() {
     // Falls das finale Ergebnis (höchste resultTypeID) vom regulären abweicht
     // UND beide Teams im regulären Ergebnis gleichauf waren -> Elfmeterschießen
     let penaltyWinner = null;
+    let penaltyScore  = null;
     if (regularRes && res && res.resultTypeID > 2 &&
         regularRes.pointsTeam1 === regularRes.pointsTeam2) {
       penaltyWinner = res.pointsTeam1 > res.pointsTeam2 ? 1 : (res.pointsTeam2 > res.pointsTeam1 ? 2 : null);
+      penaltyScore  = `${res.pointsTeam1}:${res.pointsTeam2}`;
     }
     // Für die Anzeige immer das reguläre 90-Min-Ergebnis nutzen (z.B. "1:1"),
-    // nicht das Elfmeter-Resultat — der Sieger wird separat über
-    // penaltyWinner mitgeteilt.
+    // nicht das Elfmeter-Resultat — der Sieger und der genaue Elfmeter-Endstand
+    // werden separat über penaltyWinner/penaltyScore mitgeteilt.
     const displayRes = regularRes ?? res;
     const entry = {
       score:         displayRes ? `${displayRes.pointsTeam1}:${displayRes.pointsTeam2}` : null,
@@ -155,6 +157,7 @@ async function main() {
       isFinished:    m.matchIsFinished,
       minute:        live ? (m.matchMinute ?? null) : null,
       penaltyWinner: penaltyWinner, // 1=home, 2=away, null=kein Elfmeterschießen nötig
+      penaltyScore:  penaltyScore,  // z.B. "4:5", null wenn kein Elfmeterschießen
     };
     // Primärschlüssel: echte OpenLigaDB matchID
     scores[m.matchID] = entry;
