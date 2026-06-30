@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T15:14:21.290Z",
+  "updatedAt": "2026-06-30T15:16:20.026Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -591,7 +591,7 @@
       "isFinished": true,
       "minute": null,
       "penaltyWinner": 2,
-      "penaltyScore": "4:5"
+      "penaltyScore": "3:4"
     },
     "82102": {
       "score": "1:1",
@@ -599,7 +599,7 @@
       "isFinished": true,
       "minute": null,
       "penaltyWinner": 2,
-      "penaltyScore": "3:4"
+      "penaltyScore": "2:3"
     },
     "82103": {
       "score": null,
@@ -1959,7 +1959,7 @@
       "isFinished": true,
       "minute": null,
       "penaltyWinner": 2,
-      "penaltyScore": "4:5"
+      "penaltyScore": "3:4"
     },
     "team_paraguay_deutschland": {
       "score": "1:1",
@@ -1967,7 +1967,7 @@
       "isFinished": true,
       "minute": null,
       "penaltyWinner": 2,
-      "penaltyScore": "4:5"
+      "penaltyScore": "3:4"
     },
     "team_niederlande_marokko": {
       "score": "1:1",
@@ -1975,7 +1975,7 @@
       "isFinished": true,
       "minute": null,
       "penaltyWinner": 2,
-      "penaltyScore": "3:4"
+      "penaltyScore": "2:3"
     },
     "team_marokko_niederlande": {
       "score": "1:1",
@@ -1983,7 +1983,7 @@
       "isFinished": true,
       "minute": null,
       "penaltyWinner": 2,
-      "penaltyScore": "3:4"
+      "penaltyScore": "2:3"
     },
     "team_elfenbeinkuste_norwegen": {
       "score": null,
