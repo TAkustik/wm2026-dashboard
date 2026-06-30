@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T05:10:28.465Z",
+  "updatedAt": "2026-06-30T05:12:15.240Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -520,14 +520,14 @@
       "psoWinner": null
     },
     "82101": {
-      "score": "4:5",
+      "score": "1:1",
       "isLive": false,
       "isFinished": true,
       "minute": null,
       "psoWinner": null
     },
     "82102": {
-      "score": "3:4",
+      "score": "1:1",
       "isLive": false,
       "isFinished": true,
       "minute": null,
@@ -1710,28 +1710,28 @@
       "psoWinner": null
     },
     "team_deutschland_paraguay": {
-      "score": "4:5",
+      "score": "1:1",
       "isLive": false,
       "isFinished": true,
       "minute": null,
       "psoWinner": null
     },
     "team_paraguay_deutschland": {
-      "score": "4:5",
+      "score": "1:1",
       "isLive": false,
       "isFinished": true,
       "minute": null,
       "psoWinner": null
     },
     "team_niederlande_marokko": {
-      "score": "3:4",
+      "score": "1:1",
       "isLive": false,
       "isFinished": true,
       "minute": null,
       "psoWinner": null
     },
     "team_marokko_niederlande": {
-      "score": "3:4",
+      "score": "1:1",
       "isLive": false,
       "isFinished": true,
       "minute": null,
