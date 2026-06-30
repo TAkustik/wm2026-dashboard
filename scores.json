@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T06:34:16.544Z",
+  "updatedAt": "2026-06-30T06:36:15.767Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -529,7 +529,7 @@
     "82102": {
       "score": "1:1",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "psoWinner": null
     },
@@ -1726,14 +1726,14 @@
     "team_niederlande_marokko": {
       "score": "1:1",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "psoWinner": null
     },
     "team_marokko_niederlande": {
       "score": "1:1",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "psoWinner": null
     },
