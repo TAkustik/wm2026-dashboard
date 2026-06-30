@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T21:12:16.803Z",
+  "updatedAt": "2026-06-30T21:14:19.939Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -610,7 +610,7 @@
       "penaltyScore": null
     },
     "82104": {
-      "score": null,
+      "score": "0:0",
       "isLive": true,
       "isFinished": false,
       "minute": null,
@@ -2002,7 +2002,7 @@
       "penaltyScore": null
     },
     "team_frankreich_schweden": {
-      "score": null,
+      "score": "0:0",
       "isLive": true,
       "isFinished": false,
       "minute": null,
@@ -2010,7 +2010,7 @@
       "penaltyScore": null
     },
     "team_schweden_frankreich": {
-      "score": null,
+      "score": "0:0",
       "isLive": true,
       "isFinished": false,
       "minute": null,
