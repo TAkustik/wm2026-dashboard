@@ -97,7 +97,7 @@ export const matches = [
   { id: 88,  szf: 16, date: '2026-07-03', time: '20:00', home: 'Australien',     homeflag: '🇦🇺', homeCode: 'AU', away: 'Ägypten',        awayflag: '🇪🇬', awayCode: 'EG', group: null, round: 'R32', tv: 'ZDF', freeTv: true, score: null },
 
   { id: 89,  af: 1, date: '2026-07-04', time: '23:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null, score: null },
-  { id: 90,  af: 2, date: '2026-07-04', time: '19:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null, score: null },
+  { id: 90,  af: 2, date: '2026-07-04', time: '19:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: 'ZDF', freeTv: true, score: null },
   { id: 91,  af: 3, date: '2026-07-05', time: '22:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null, score: null },
   { id: 92,  af: 4, date: '2026-07-06', time: '02:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null, score: null },
   { id: 93,  af: 5, date: '2026-07-06', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'R16', tv: null, freeTv: null, score: null },
