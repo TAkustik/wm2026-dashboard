@@ -145,7 +145,10 @@ async function main() {
     if (regularRes && res && res.resultTypeID > 2 &&
         regularRes.pointsTeam1 === regularRes.pointsTeam2) {
       penaltyWinner = res.pointsTeam1 > res.pointsTeam2 ? 1 : (res.pointsTeam2 > res.pointsTeam1 ? 2 : null);
-      penaltyScore  = `${res.pointsTeam1}:${res.pointsTeam2}`;
+      // OpenLigaDB zählt beim Elfmeterschießen-Ergebnis KUMULATIV
+      // (reguläres Ergebnis + Elfmetertore), z.B. 4:5 bei 1:1 reguär.
+      // Üblich ist aber der REINE Elfmeter-Score (3:4) — also Differenz bilden.
+      penaltyScore  = `${res.pointsTeam1 - regularRes.pointsTeam1}:${res.pointsTeam2 - regularRes.pointsTeam2}`;
     }
     // Für die Anzeige immer das reguläre 90-Min-Ergebnis nutzen (z.B. "1:1"),
     // nicht das Elfmeter-Resultat — der Sieger und der genaue Elfmeter-Endstand
