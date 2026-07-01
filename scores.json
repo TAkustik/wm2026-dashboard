@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T17:58:16.294Z",
+  "updatedAt": "2026-07-01T18:00:45.036Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -627,8 +627,8 @@
     },
     "82106": {
       "score": "2:1",
-      "isLive": true,
-      "isFinished": false,
+      "isLive": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2043,16 +2043,16 @@
     },
     "team_england_drkongo": {
       "score": "2:1",
-      "isLive": true,
-      "isFinished": false,
+      "isLive": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
     },
     "team_drkongo_england": {
       "score": "2:1",
-      "isLive": true,
-      "isFinished": false,
+      "isLive": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
