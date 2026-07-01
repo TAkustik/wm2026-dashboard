@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T02:58:16.031Z",
+  "updatedAt": "2026-07-01T03:00:46.661Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -619,7 +619,7 @@
     },
     "82105": {
       "score": "2:0",
-      "isLive": true,
+      "isLive": false,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2027,7 +2027,7 @@
     },
     "team_mexiko_ecuador": {
       "score": "2:0",
-      "isLive": true,
+      "isLive": false,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2035,7 +2035,7 @@
     },
     "team_ecuador_mexiko": {
       "score": "2:0",
-      "isLive": true,
+      "isLive": false,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
