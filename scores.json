@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T07:28:18.496Z",
+  "updatedAt": "2026-07-01T07:30:39.393Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -2233,7 +2233,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_mexecu_engcod": {
+    "team_mexiko_engcod": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2241,7 +2241,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_engcod_mexecu": {
+    "team_engcod_mexiko": {
       "score": null,
       "isLive": false,
       "isFinished": false,
