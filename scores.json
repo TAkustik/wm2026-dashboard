@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T16:06:20.526Z",
+  "updatedAt": "2026-07-01T16:08:16.008Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -626,7 +626,7 @@
       "penaltyScore": null
     },
     "82106": {
-      "score": "0:0",
+      "score": "0:1",
       "isLive": true,
       "isFinished": false,
       "minute": null,
@@ -2042,7 +2042,7 @@
       "penaltyScore": null
     },
     "team_england_drkongo": {
-      "score": "0:0",
+      "score": "0:1",
       "isLive": true,
       "isFinished": false,
       "minute": null,
@@ -2050,7 +2050,7 @@
       "penaltyScore": null
     },
     "team_drkongo_england": {
-      "score": "0:0",
+      "score": "0:1",
       "isLive": true,
       "isFinished": false,
       "minute": null,
