@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T22:42:17.076Z",
+  "updatedAt": "2026-07-01T22:44:15.929Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -2273,7 +2273,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_usabih_belsen": {
+    "team_usabih_belgien": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2281,7 +2281,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_belsen_usabih": {
+    "team_belgien_usabih": {
       "score": null,
       "isLive": false,
       "isFinished": false,
