@@ -150,7 +150,6 @@ async function main() {
       // Reiner Elfmeter-Score = Gesamtscore minus reguläres Ergebnis
       penaltyScore  = `${psoRes.pointsTeam1 - regularRes.pointsTeam1}:${psoRes.pointsTeam2 - regularRes.pointsTeam2}`;
     }
-    }
     // Für die Anzeige immer das reguläre 90-Min-Ergebnis nutzen (z.B. "1:1"),
     // nicht das Elfmeter-Resultat — der Sieger und der genaue Elfmeter-Endstand
     // werden separat über penaltyWinner/penaltyScore mitgeteilt.
