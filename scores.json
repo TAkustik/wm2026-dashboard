@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-02T22:58:16.095Z",
+  "updatedAt": "2026-07-02T23:00:45.817Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -658,8 +658,8 @@
       "penaltyScore": null
     },
     "82110": {
-      "score": null,
-      "isLive": false,
+      "score": "0:0",
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2114,16 +2114,16 @@
       "penaltyScore": null
     },
     "team_portugal_kroatien": {
-      "score": null,
-      "isLive": false,
+      "score": "0:0",
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
     },
     "team_kroatien_portugal": {
-      "score": null,
-      "isLive": false,
+      "score": "0:0",
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
