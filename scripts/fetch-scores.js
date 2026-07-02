@@ -142,13 +142,14 @@ async function main() {
     // UND beide Teams im regulären Ergebnis gleichauf waren -> Elfmeterschießen
     let penaltyWinner = null;
     let penaltyScore  = null;
-    if (regularRes && res && res.resultTypeID > 2 &&
-        regularRes.pointsTeam1 === regularRes.pointsTeam2) {
-      penaltyWinner = res.pointsTeam1 > res.pointsTeam2 ? 1 : (res.pointsTeam2 > res.pointsTeam1 ? 2 : null);
-      // OpenLigaDB zählt beim Elfmeterschießen-Ergebnis KUMULATIV
-      // (reguläres Ergebnis + Elfmetertore), z.B. 4:5 bei 1:1 reguär.
-      // Üblich ist aber der REINE Elfmeter-Score (3:4) — also Differenz bilden.
-      penaltyScore  = `${res.pointsTeam1 - regularRes.pointsTeam1}:${res.pointsTeam2 - regularRes.pointsTeam2}`;
+    // Nur resultTypeID === 5 ist echtes Elfmeterschießen (n.E.)
+    // resultTypeID 3 = nach Verlängerung (n.V.), 4 = Sonderfall — kein Elfmeterschießen!
+    const psoRes = results.find(r => r.resultTypeID === 5);
+    if (regularRes && psoRes && regularRes.pointsTeam1 === regularRes.pointsTeam2) {
+      penaltyWinner = psoRes.pointsTeam1 > psoRes.pointsTeam2 ? 1 : (psoRes.pointsTeam2 > psoRes.pointsTeam1 ? 2 : null);
+      // Reiner Elfmeter-Score = Gesamtscore minus reguläres Ergebnis
+      penaltyScore  = `${psoRes.pointsTeam1 - regularRes.pointsTeam1}:${psoRes.pointsTeam2 - regularRes.pointsTeam2}`;
+    }
     }
     // Für die Anzeige immer das reguläre 90-Min-Ergebnis nutzen (z.B. "1:1"),
     // nicht das Elfmeter-Resultat — der Sieger und der genaue Elfmeter-Endstand
