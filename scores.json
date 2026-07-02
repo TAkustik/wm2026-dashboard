@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-02T20:58:19.295Z",
+  "updatedAt": "2026-07-02T21:00:48.186Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -651,8 +651,8 @@
     },
     "82109": {
       "score": "3:0",
-      "isLive": true,
-      "isFinished": false,
+      "isLive": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2099,16 +2099,16 @@
     },
     "team_spanien_osterreich": {
       "score": "3:0",
-      "isLive": true,
-      "isFinished": false,
+      "isLive": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
     },
     "team_osterreich_spanien": {
       "score": "3:0",
-      "isLive": true,
-      "isFinished": false,
+      "isLive": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2257,7 +2257,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_porcro_espaut": {
+    "team_porcro_spanien": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2265,7 +2265,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_espaut_porcro": {
+    "team_spanien_porcro": {
       "score": null,
       "isLive": false,
       "isFinished": false,
