@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-02T09:42:17.307Z",
+  "updatedAt": "2026-07-02T11:22:16.009Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -638,8 +638,8 @@
       "isLive": false,
       "isFinished": true,
       "minute": null,
-      "penaltyWinner": 1,
-      "penaltyScore": "1:0"
+      "penaltyWinner": null,
+      "penaltyScore": null
     },
     "82108": {
       "score": "2:0",
@@ -2070,16 +2070,16 @@
       "isLive": false,
       "isFinished": true,
       "minute": null,
-      "penaltyWinner": 1,
-      "penaltyScore": "1:0"
+      "penaltyWinner": null,
+      "penaltyScore": null
     },
     "team_senegal_belgien": {
       "score": "2:2",
       "isLive": false,
       "isFinished": true,
       "minute": null,
-      "penaltyWinner": 1,
-      "penaltyScore": "1:0"
+      "penaltyWinner": null,
+      "penaltyScore": null
     },
     "team_usa_bosnienundherzegowina": {
       "score": "2:0",
