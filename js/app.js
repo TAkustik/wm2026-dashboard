@@ -1267,6 +1267,21 @@ function applyScores(data) {
     }
   });
 
+  // ── Bekannte API-Fehler korrigieren ──────────────────────────
+  // Greift nur wenn OpenLigaDB den falschen Wert liefert.
+  // Automatisch inaktiv sobald API den korrekten Wert liefert.
+  const SCORE_FIXES = [
+    { home: 'Belgien', away: 'Senegal', wrongScore: '2:2', correctScore: '3:2' },
+  ];
+  SCORE_FIXES.forEach(fix => {
+    const m = matches.find(x => x.home === fix.home && x.away === fix.away);
+    if (m && m.score === fix.wrongScore && m.isFinished) {
+      m.score = fix.correctScore;
+      hasChanges = true;
+      console.log(`Score-Fix: ${fix.home}-${fix.away} ${fix.wrongScore} -> ${fix.correctScore}`);
+    }
+  });
+
   if (hasChanges) {
     console.log('Neue Ergebnisse — Dashboard wird aktualisiert');
     renderAll();
