@@ -175,6 +175,22 @@ async function main() {
     }
   });
 
+  // ── Bedingte Score-Korrekturen ───────────────────────────────
+  // Korrigiert bekannte OpenLigaDB-Fehler NUR wenn der falsche Wert
+  // geliefert wird — greift automatisch nicht mehr sobald OpenLigaDB
+  // den korrekten Wert einträgt.
+  const SCORE_CORRECTIONS = [
+    // Belgien-Senegal: OpenLigaDB zeigt fälschlich 2:2, korrekt ist 3:2
+    { key: 'team_belgien_senegal', wrongScore: '2:2', correctScore: '3:2' },
+    { key: 'team_senegal_belgien', wrongScore: '2:2', correctScore: '2:3' },
+  ];
+  for (const { key, wrongScore, correctScore } of SCORE_CORRECTIONS) {
+    if (scores[key]?.score === wrongScore && scores[key]?.isFinished) {
+      scores[key].score = correctScore;
+      console.log(`Score-Korrektur: ${key} ${wrongScore} -> ${correctScore}`);
+    }
+  }
+
   // TV aus Mediathek
   const [ardEntries, zdfEntries] = await Promise.all([
     fetchTVFromMediathek(),
