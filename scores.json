@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T23:58:15.896Z",
+  "updatedAt": "2026-07-02T00:00:48.858Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -642,8 +642,8 @@
       "penaltyScore": "1:0"
     },
     "82108": {
-      "score": null,
-      "isLive": false,
+      "score": "0:0",
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2082,16 +2082,16 @@
       "penaltyScore": "1:0"
     },
     "team_usa_bosnienundherzegowina": {
-      "score": null,
-      "isLive": false,
+      "score": "0:0",
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
     },
     "team_bosnienundherzegowina_usa": {
-      "score": null,
-      "isLive": false,
+      "score": "0:0",
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
