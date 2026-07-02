@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-02T18:58:15.485Z",
+  "updatedAt": "2026-07-02T19:00:49.807Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -651,7 +651,7 @@
     },
     "82109": {
       "score": null,
-      "isLive": false,
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2099,7 +2099,7 @@
     },
     "team_spanien_osterreich": {
       "score": null,
-      "isLive": false,
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2107,7 +2107,7 @@
     },
     "team_osterreich_spanien": {
       "score": null,
-      "isLive": false,
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
