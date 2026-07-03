@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T20:48:16.198Z",
+  "updatedAt": "2026-07-03T20:50:32.295Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -678,8 +678,8 @@
       "isLive": false,
       "isFinished": false,
       "minute": null,
-      "penaltyWinner": null,
-      "penaltyScore": null
+      "penaltyWinner": 2,
+      "penaltyScore": "2:3"
     },
     "82113": {
       "score": null,
@@ -2158,16 +2158,16 @@
       "isLive": false,
       "isFinished": false,
       "minute": null,
-      "penaltyWinner": null,
-      "penaltyScore": null
+      "penaltyWinner": 2,
+      "penaltyScore": "2:3"
     },
     "team_agypten_australien": {
       "score": "1:1",
       "isLive": false,
       "isFinished": false,
       "minute": null,
-      "penaltyWinner": null,
-      "penaltyScore": null
+      "penaltyWinner": 2,
+      "penaltyScore": "2:3"
     },
     "team_argentinien_kapverde": {
       "score": null,
