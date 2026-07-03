@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T11:28:18.159Z",
+  "updatedAt": "2026-07-03T11:30:37.410Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -778,6 +778,14 @@
       "penaltyScore": null
     },
     "83126": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "83462": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2330,6 +2338,22 @@
       "penaltyScore": null
     },
     "team_canmar_parfra": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_prtesp_usabel": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_usabel_prtesp": {
       "score": null,
       "isLive": false,
       "isFinished": false,
