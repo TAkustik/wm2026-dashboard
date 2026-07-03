@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T01:08:16.010Z",
+  "updatedAt": "2026-07-03T01:10:35.930Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -658,9 +658,9 @@
       "penaltyScore": null
     },
     "82110": {
-      "score": "0:0",
+      "score": "2:1",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2114,17 +2114,17 @@
       "penaltyScore": null
     },
     "team_portugal_kroatien": {
-      "score": "0:0",
+      "score": "2:1",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
     },
     "team_kroatien_portugal": {
-      "score": "0:0",
+      "score": "2:1",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2257,7 +2257,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_porcro_spanien": {
+    "team_portugal_spanien": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2265,7 +2265,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_spanien_porcro": {
+    "team_spanien_portugal": {
       "score": null,
       "isLive": false,
       "isFinished": false,
