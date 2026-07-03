@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T05:02:15.520Z",
+  "updatedAt": "2026-07-03T05:04:15.338Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -668,7 +668,7 @@
     "82111": {
       "score": "2:0",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2132,7 +2132,7 @@
     "team_schweiz_algerien": {
       "score": "2:0",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2140,7 +2140,7 @@
     "team_algerien_schweiz": {
       "score": "2:0",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
