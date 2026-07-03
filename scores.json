@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T05:14:17.255Z",
+  "updatedAt": "2026-07-03T05:16:18.668Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -2305,7 +2305,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_suialg_colgha": {
+    "team_schweiz_colgha": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2313,7 +2313,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_colgha_suialg": {
+    "team_colgha_schweiz": {
       "score": null,
       "isLive": false,
       "isFinished": false,
