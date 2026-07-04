@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-04T23:04:15.039Z",
+  "updatedAt": "2026-07-04T23:06:15.254Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -708,7 +708,7 @@
     "82128": {
       "score": "0:1",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2228,7 +2228,7 @@
     "team_paraguay_frankreich": {
       "score": "0:1",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2236,7 +2236,7 @@
     "team_frankreich_paraguay": {
       "score": "0:1",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
