@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-04T16:58:15.656Z",
+  "updatedAt": "2026-07-04T17:00:49.580Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -699,7 +699,7 @@
     },
     "82127": {
       "score": null,
-      "isLive": false,
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2203,7 +2203,7 @@
     },
     "team_kanada_marokko": {
       "score": null,
-      "isLive": false,
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2211,7 +2211,7 @@
     },
     "team_marokko_kanada": {
       "score": null,
-      "isLive": false,
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
