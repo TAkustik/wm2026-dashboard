@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-04T05:38:17.399Z",
+  "updatedAt": "2026-07-04T05:40:34.666Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -2313,7 +2313,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_schweiz_colgha": {
+    "team_schweiz_kolumbien": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2321,7 +2321,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_colgha_schweiz": {
+    "team_kolumbien_schweiz": {
       "score": null,
       "isLive": false,
       "isFinished": false,
