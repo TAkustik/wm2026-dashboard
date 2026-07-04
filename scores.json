@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-04T20:58:14.515Z",
+  "updatedAt": "2026-07-04T21:00:48.715Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -707,7 +707,7 @@
     },
     "82128": {
       "score": null,
-      "isLive": false,
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2219,7 +2219,7 @@
     },
     "team_paraguay_frankreich": {
       "score": null,
-      "isLive": false,
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2227,7 +2227,7 @@
     },
     "team_frankreich_paraguay": {
       "score": null,
-      "isLive": false,
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2329,7 +2329,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_parfra_canmar": {
+    "team_parfra_marokko": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2337,7 +2337,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_canmar_parfra": {
+    "team_marokko_parfra": {
       "score": null,
       "isLive": false,
       "isFinished": false,
