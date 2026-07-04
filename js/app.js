@@ -1272,6 +1272,7 @@ function applyScores(data) {
   // Automatisch inaktiv sobald API den korrekten Wert liefert.
   const SCORE_FIXES = [
     { home: 'Belgien', away: 'Senegal', wrongScore: '2:2', correctScore: '3:2' },
+    { home: 'Argentinien', away: 'Kap Verde', wrongScore: '1:1', correctScore: '3:2' },
   ];
   SCORE_FIXES.forEach(fix => {
     const m = matches.find(x => x.home === fix.home && x.away === fix.away);

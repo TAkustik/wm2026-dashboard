@@ -180,9 +180,12 @@ async function main() {
   // geliefert wird — greift automatisch nicht mehr sobald OpenLigaDB
   // den korrekten Wert einträgt.
   const SCORE_CORRECTIONS = [
-    // Belgien-Senegal: OpenLigaDB zeigt fälschlich 2:2, korrekt ist 3:2
+    // Belgien-Senegal: OpenLigaDB zeigt fälschlich 2:2, korrekt ist 3:2 n.V.
     { key: 'team_belgien_senegal', wrongScore: '2:2', correctScore: '3:2' },
     { key: 'team_senegal_belgien', wrongScore: '2:2', correctScore: '2:3' },
+    // Argentinien-Kap Verde: OpenLigaDB zeigt fälschlich 1:1, korrekt ist 3:2 n.V.
+    { key: 'team_argentinien_kapverde', wrongScore: '1:1', correctScore: '3:2' },
+    { key: 'team_kapverde_argentinien', wrongScore: '1:1', correctScore: '2:3' },
   ];
   for (const { key, wrongScore, correctScore } of SCORE_CORRECTIONS) {
     if (scores[key]?.score === wrongScore && scores[key]?.isFinished) {
