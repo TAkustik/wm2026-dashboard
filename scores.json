@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-04T04:30:43.266Z",
+  "updatedAt": "2026-07-04T04:32:15.084Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -692,7 +692,7 @@
     "82114": {
       "score": "1:0",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2188,7 +2188,7 @@
     "team_kolumbien_ghana": {
       "score": "1:0",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2196,7 +2196,7 @@
     "team_ghana_kolumbien": {
       "score": "1:0",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
