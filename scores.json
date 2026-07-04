@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-04T09:32:17.364Z",
+  "updatedAt": "2026-07-04T09:34:15.531Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -682,7 +682,7 @@
       "penaltyScore": "2:4"
     },
     "82113": {
-      "score": "1:1",
+      "score": "3:2",
       "isLive": false,
       "isFinished": true,
       "minute": null,
@@ -2170,7 +2170,7 @@
       "penaltyScore": "2:4"
     },
     "team_argentinien_kapverde": {
-      "score": "1:1",
+      "score": "3:2",
       "isLive": false,
       "isFinished": true,
       "minute": null,
@@ -2178,7 +2178,7 @@
       "penaltyScore": null
     },
     "team_kapverde_argentinien": {
-      "score": "1:1",
+      "score": "3:2",
       "isLive": false,
       "isFinished": true,
       "minute": null,
