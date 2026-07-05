@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-05T22:04:15.468Z",
+  "updatedAt": "2026-07-05T22:06:15.272Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -716,7 +716,7 @@
     "82129": {
       "score": "1:2",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2244,7 +2244,7 @@
     "team_brasilien_norwegen": {
       "score": "1:2",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2252,7 +2252,7 @@
     "team_norwegen_brasilien": {
       "score": "1:2",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
