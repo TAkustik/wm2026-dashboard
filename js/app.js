@@ -622,7 +622,7 @@ function renderBracketHalf(rounds, startX, goRight, cc, totalH) {
         : '–';
       const timeLabel = m.time && m.time !== '–' ? ` · ${m.time} Uhr` : '';
       const isTbd = m.home === 'TBD' || m.away === 'TBD';
-      const tvBadge = isTbd ? '' : renderTVBadge(m, true).replace('tv-mini', 'tv-mini b-tv-badge');
+      const tvBadge = (isTbd && !m.tv) ? '' : renderTVBadge(m, true).replace('tv-mini', 'tv-mini b-tv-badge');
 
       boxesHtml += `<div class="b-match-box${stateClass}" style="left:${x}px;top:${y}px;"${m.id ? ` data-match-id="${m.id}"` : ''}>
         ${renderBracketTeamRow(m, true,  cc)}
@@ -982,7 +982,7 @@ function renderBracket() {
   </div>`;
 
   // Finale-Box (hervorgehoben: goldener Rahmen + Glow)
-  const finaleTv = (fm.home === 'TBD' || fm.away === 'TBD') ? '' : renderTVBadge(fm, true).replace('tv-mini', 'tv-mini b-tv-badge');
+  const finaleTv = (!fm.tv) ? '' : renderTVBadge(fm, true).replace('tv-mini', 'tv-mini b-tv-badge');
   const finaleBox = `<div class="b-match-box b-finale" style="left:${finaleX}px;top:${finY}px;width:${FIN_W}px;">
     ${renderBracketTeamRow(fm, true,  cc)}
     ${renderBracketTeamRow(fm, false, cc)}
@@ -990,7 +990,7 @@ function renderBracket() {
   </div>`;
 
   // Platz-3-Box (kein separater Header, Label im Datum-Feld)
-  const p3Tv = (p3m.home === 'TBD' || p3m.away === 'TBD') ? '' : renderTVBadge(p3m, true).replace('tv-mini', 'tv-mini b-tv-badge');
+  const p3Tv = (!p3m.tv) ? '' : renderTVBadge(p3m, true).replace('tv-mini', 'tv-mini b-tv-badge');
   const p3Box = `<div class="b-match-box" style="left:${p3X}px;top:${p3Y}px;width:${P3_W}px;opacity:0.8;">
     ${renderBracketTeamRow(p3m, true,  cc)}
     ${renderBracketTeamRow(p3m, false, cc)}
@@ -1273,13 +1273,20 @@ function applyScores(data) {
   const SCORE_FIXES = [
     { home: 'Belgien', away: 'Senegal', wrongScore: '2:2', correctScore: '3:2' },
     { home: 'Argentinien', away: 'Kap Verde', wrongScore: '1:1', correctScore: '3:2' },
+    { home: 'Kanada', away: 'Marokko', wrongScore: null, correctScore: '0:3' },
   ];
   SCORE_FIXES.forEach(fix => {
     const m = matches.find(x => x.home === fix.home && x.away === fix.away);
-    if (m && m.score === fix.wrongScore && m.isFinished) {
+    // wrongScore: null = greift wenn kein Score vorhanden (OpenLigaDB-Mismatch)
+    // wrongScore: 'x:y' = greift nur bei diesem bestimmten falschen Wert
+    const shouldFix = fix.wrongScore === null
+      ? (!m?.score && m?.isFinished)
+      : (m?.score === fix.wrongScore && m?.isFinished);
+    if (m && shouldFix) {
       m.score = fix.correctScore;
+      m.isFinished = true;
       hasChanges = true;
-      console.log(`Score-Fix: ${fix.home}-${fix.away} ${fix.wrongScore} -> ${fix.correctScore}`);
+      console.log(`Score-Fix: ${fix.home}-${fix.away} -> ${fix.correctScore}`);
     }
   });
 
@@ -1316,5 +1323,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderAll();
   setInterval(updateClock, 1000);
   updateClock();
-  checkForUpdates();
+  // Beim ersten Laden sofort Scores laden und danach nochmal rendern,
+  // damit K.o.-Spiele ohne openligaId (Team-Namen-Matching) sofort
+  // korrekte Spielstände zeigen ohne manuellen Refresh.
+  checkForUpdates().then(() => renderAll());
 });
