@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-05T23:58:13.951Z",
+  "updatedAt": "2026-07-06T00:00:56.249Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -723,7 +723,7 @@
     },
     "82130": {
       "score": null,
-      "isLive": false,
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2259,7 +2259,7 @@
     },
     "team_mexiko_england": {
       "score": null,
-      "isLive": false,
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2267,7 +2267,7 @@
     },
     "team_england_mexiko": {
       "score": null,
-      "isLive": false,
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
