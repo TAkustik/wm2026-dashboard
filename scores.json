@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-06T07:04:18.273Z",
+  "updatedAt": "2026-07-06T07:06:18.591Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -2369,7 +2369,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_norwegen_mexeng": {
+    "team_norwegen_england": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2377,7 +2377,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_mexeng_norwegen": {
+    "team_england_norwegen": {
       "score": null,
       "isLive": false,
       "isFinished": false,
