@@ -1290,8 +1290,9 @@ function applyScores(data) {
     }
   });
 
-  if (hasChanges) {
-    console.log('Neue Ergebnisse — Dashboard wird aktualisiert');
+  if (hasChanges || !applyScores._initialLoadDone) {
+    applyScores._initialLoadDone = true;
+    console.log('Scores geladen — Dashboard wird aktualisiert');
     renderAll();
   }
 
