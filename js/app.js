@@ -1322,13 +1322,20 @@ async function checkForUpdates() {
 // ═══════════════════════════════════════════════════════════════
 // INIT
 // ═══════════════════════════════════════════════════════════════
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   readURLParams();
   renderAll();
   setInterval(updateClock, 1000);
   updateClock();
-  // Beim ersten Laden sofort Scores laden und danach nochmal rendern,
-  // damit K.o.-Spiele ohne openligaId (Team-Namen-Matching) sofort
-  // korrekte Spielstände zeigen ohne manuellen Refresh.
-  checkForUpdates().then(() => renderAll());
+
+  // Erster Fetch: Scores laden + Teams in K.o.-Matches eintragen
+  const data = await fetchScores();
+  applyScores(data);
+
+  // Zweiter Render: jetzt wo Teams bekannt sind, Bracket korrekt propagieren
+  populateBracketFromGroups();
+  renderAll();
+
+  // Danach normaler Refresh-Zyklus
+  checkForUpdates();
 });
