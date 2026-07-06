@@ -1292,6 +1292,9 @@ function applyScores(data) {
 
   if (hasChanges || !applyScores._initialLoadDone) {
     applyScores._initialLoadDone = true;
+    // Sofort propagieren damit K.o.-Sieger ohne weiteren Render-Zyklus
+    // ins nächste Feld wandern — verhindert leere Achtelfinale beim Laden
+    propagateKnockoutWinners();
     console.log('Scores geladen — Dashboard wird aktualisiert');
     renderAll();
   }
