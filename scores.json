@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T19:12:18.514Z",
+  "updatedAt": "2026-07-07T19:14:21.049Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -2393,7 +2393,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_argegy_suicol": {
+    "team_argentinien_suicol": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2401,7 +2401,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_suicol_argegy": {
+    "team_suicol_argentinien": {
       "score": null,
       "isLive": false,
       "isFinished": false,
