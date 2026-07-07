@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T22:52:15.245Z",
+  "updatedAt": "2026-07-07T22:54:19.302Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -754,12 +754,12 @@
       "penaltyScore": null
     },
     "82134": {
-      "score": "4:3",
+      "score": "0:0",
       "isLive": false,
       "isFinished": true,
       "minute": null,
-      "penaltyWinner": null,
-      "penaltyScore": null
+      "penaltyWinner": 1,
+      "penaltyScore": "4:3"
     },
     "83124": {
       "score": "2:1",
@@ -2338,20 +2338,20 @@
       "penaltyScore": null
     },
     "team_schweiz_kolumbien": {
-      "score": "4:3",
+      "score": "0:0",
       "isLive": false,
       "isFinished": true,
       "minute": null,
-      "penaltyWinner": null,
-      "penaltyScore": null
+      "penaltyWinner": 1,
+      "penaltyScore": "4:3"
     },
     "team_kolumbien_schweiz": {
-      "score": "4:3",
+      "score": "0:0",
       "isLive": false,
       "isFinished": true,
       "minute": null,
-      "penaltyWinner": null,
-      "penaltyScore": null
+      "penaltyWinner": 1,
+      "penaltyScore": "4:3"
     },
     "team_frankreich_marokko": {
       "score": null,
