@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T18:04:16.868Z",
+  "updatedAt": "2026-07-07T18:06:17.650Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -748,7 +748,7 @@
     "82133": {
       "score": "3:2",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2316,7 +2316,7 @@
     "team_argentinien_agypten": {
       "score": "3:2",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2324,7 +2324,7 @@
     "team_agypten_argentinien": {
       "score": "3:2",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
