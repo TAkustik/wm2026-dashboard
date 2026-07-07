@@ -1,6 +1,2431 @@
 {
-  "updatedAt": "2026-07-07T16:18:17.550Z",
-  "scores": {},
+  "updatedAt": "2026-07-07T16:20:50.404Z",
+  "scores": {
+    "80099": {
+      "score": "2:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80100": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80101": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80102": {
+      "score": "4:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80103": {
+      "score": "2:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80104": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80105": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80106": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80107": {
+      "score": "7:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80108": {
+      "score": "2:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80109": {
+      "score": "1:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80110": {
+      "score": "5:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80111": {
+      "score": "0:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80112": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80113": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80114": {
+      "score": "2:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80115": {
+      "score": "3:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80116": {
+      "score": "3:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80117": {
+      "score": "1:4",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80118": {
+      "score": "3:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80119": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80120": {
+      "score": "4:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80121": {
+      "score": "1:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80122": {
+      "score": "1:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80124": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80125": {
+      "score": "4:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80126": {
+      "score": "6:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80127": {
+      "score": "1:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80128": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80129": {
+      "score": "2:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80130": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80131": {
+      "score": "3:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80132": {
+      "score": "0:4",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80133": {
+      "score": "5:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80134": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80135": {
+      "score": "0:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80136": {
+      "score": "4:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80137": {
+      "score": "0:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80138": {
+      "score": "2:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80139": {
+      "score": "1:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80140": {
+      "score": "2:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80141": {
+      "score": "3:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80142": {
+      "score": "3:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80143": {
+      "score": "1:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80144": {
+      "score": "5:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80145": {
+      "score": "0:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80146": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80147": {
+      "score": "1:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80148": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80149": {
+      "score": "3:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80150": {
+      "score": "4:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80151": {
+      "score": "0:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80152": {
+      "score": "1:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80153": {
+      "score": "0:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80154": {
+      "score": "0:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80155": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80156": {
+      "score": "1:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80157": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80158": {
+      "score": "3:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80159": {
+      "score": "0:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80160": {
+      "score": "1:4",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80161": {
+      "score": "5:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80162": {
+      "score": "0:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80163": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80164": {
+      "score": "1:5",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80165": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80166": {
+      "score": "0:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80167": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80168": {
+      "score": "0:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80169": {
+      "score": "3:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80170": {
+      "score": "3:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "80171": {
+      "score": "1:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82099": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82101": {
+      "score": "4:5",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82102": {
+      "score": "3:4",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82103": {
+      "score": "1:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82104": {
+      "score": "3:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82105": {
+      "score": "2:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82106": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82107": {
+      "score": "3:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82108": {
+      "score": "2:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82109": {
+      "score": "3:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82110": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82111": {
+      "score": "2:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82112": {
+      "score": "3:5",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82113": {
+      "score": "3:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82114": {
+      "score": "1:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82127": {
+      "score": "0:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82128": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82129": {
+      "score": "1:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82130": {
+      "score": "2:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82131": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82132": {
+      "score": "1:4",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82133": {
+      "score": "0:1",
+      "isLive": true,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "82134": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "83124": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "83125": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "83126": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "83462": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "84295": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "84682": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_mexiko_sudafrika": {
+      "score": "2:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_sudafrika_mexiko": {
+      "score": "2:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_sudkorea_tschechien": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_tschechien_sudkorea": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_kanada_bosnienundherzegowina": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_bosnienundherzegowina_kanada": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_usa_paraguay": {
+      "score": "4:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_paraguay_usa": {
+      "score": "4:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_katar_schweiz": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_schweiz_katar": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_brasilien_marokko": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_marokko_brasilien": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_haiti_schottland": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_schottland_haiti": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_australien_turkei": {
+      "score": "2:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_turkei_australien": {
+      "score": "2:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_deutschland_curacao": {
+      "score": "7:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_curacao_deutschland": {
+      "score": "7:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_niederlande_japan": {
+      "score": "2:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_japan_niederlande": {
+      "score": "2:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_elfenbeinkuste_ecuador": {
+      "score": "1:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_ecuador_elfenbeinkuste": {
+      "score": "1:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_schweden_tunesien": {
+      "score": "5:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_tunesien_schweden": {
+      "score": "5:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_spanien_kapverde": {
+      "score": "0:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_kapverde_spanien": {
+      "score": "0:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_belgien_agypten": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_agypten_belgien": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_saudiarabien_uruguay": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_uruguay_saudiarabien": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_iran_neuseeland": {
+      "score": "2:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_neuseeland_iran": {
+      "score": "2:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_frankreich_senegal": {
+      "score": "3:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_senegal_frankreich": {
+      "score": "3:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_irak_norwegen": {
+      "score": "1:4",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_norwegen_irak": {
+      "score": "1:4",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_argentinien_algerien": {
+      "score": "3:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_algerien_argentinien": {
+      "score": "3:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_osterreich_jordanien": {
+      "score": "3:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_jordanien_osterreich": {
+      "score": "3:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_portugal_drkongo": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_drkongo_portugal": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_england_kroatien": {
+      "score": "4:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_kroatien_england": {
+      "score": "4:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_ghana_panama": {
+      "score": "1:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_panama_ghana": {
+      "score": "1:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_usbekistan_kolumbien": {
+      "score": "1:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_kolumbien_usbekistan": {
+      "score": "1:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_tschechien_sudafrika": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_sudafrika_tschechien": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_schweiz_bosnienundherzegowina": {
+      "score": "4:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_bosnienundherzegowina_schweiz": {
+      "score": "4:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_kanada_katar": {
+      "score": "6:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_katar_kanada": {
+      "score": "6:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_mexiko_sudkorea": {
+      "score": "1:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_sudkorea_mexiko": {
+      "score": "1:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_usa_australien": {
+      "score": "2:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_australien_usa": {
+      "score": "2:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_schottland_marokko": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_marokko_schottland": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_brasilien_haiti": {
+      "score": "3:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_haiti_brasilien": {
+      "score": "3:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_turkei_paraguay": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_paraguay_turkei": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_niederlande_schweden": {
+      "score": "5:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_schweden_niederlande": {
+      "score": "5:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_deutschland_elfenbeinkuste": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_elfenbeinkuste_deutschland": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_ecuador_curacao": {
+      "score": "0:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_curacao_ecuador": {
+      "score": "0:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_tunesien_japan": {
+      "score": "0:4",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_japan_tunesien": {
+      "score": "0:4",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_spanien_saudiarabien": {
+      "score": "4:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_saudiarabien_spanien": {
+      "score": "4:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_belgien_iran": {
+      "score": "0:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_iran_belgien": {
+      "score": "0:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_uruguay_kapverde": {
+      "score": "2:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_kapverde_uruguay": {
+      "score": "2:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_neuseeland_agypten": {
+      "score": "1:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_agypten_neuseeland": {
+      "score": "1:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_argentinien_osterreich": {
+      "score": "2:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_osterreich_argentinien": {
+      "score": "2:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_frankreich_irak": {
+      "score": "3:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_irak_frankreich": {
+      "score": "3:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_norwegen_senegal": {
+      "score": "3:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_senegal_norwegen": {
+      "score": "3:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_jordanien_algerien": {
+      "score": "1:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_algerien_jordanien": {
+      "score": "1:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_portugal_usbekistan": {
+      "score": "5:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_usbekistan_portugal": {
+      "score": "5:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_england_ghana": {
+      "score": "0:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_ghana_england": {
+      "score": "0:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_panama_kroatien": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_kroatien_panama": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_kolumbien_drkongo": {
+      "score": "1:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_drkongo_kolumbien": {
+      "score": "1:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_schweiz_kanada": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_kanada_schweiz": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_bosnienundherzegowina_katar": {
+      "score": "3:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_katar_bosnienundherzegowina": {
+      "score": "3:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_marokko_haiti": {
+      "score": "4:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_haiti_marokko": {
+      "score": "4:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_schottland_brasilien": {
+      "score": "0:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_brasilien_schottland": {
+      "score": "0:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_sudafrika_sudkorea": {
+      "score": "1:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_sudkorea_sudafrika": {
+      "score": "1:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_tschechien_mexiko": {
+      "score": "0:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_mexiko_tschechien": {
+      "score": "0:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_curacao_elfenbeinkuste": {
+      "score": "0:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_elfenbeinkuste_curacao": {
+      "score": "0:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_ecuador_deutschland": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_deutschland_ecuador": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_tunesien_niederlande": {
+      "score": "1:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_niederlande_tunesien": {
+      "score": "1:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_japan_schweden": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_schweden_japan": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_turkei_usa": {
+      "score": "3:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_usa_turkei": {
+      "score": "3:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_paraguay_australien": {
+      "score": "0:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_australien_paraguay": {
+      "score": "0:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_norwegen_frankreich": {
+      "score": "1:4",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_frankreich_norwegen": {
+      "score": "1:4",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_senegal_irak": {
+      "score": "5:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_irak_senegal": {
+      "score": "5:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_kapverde_saudiarabien": {
+      "score": "0:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_saudiarabien_kapverde": {
+      "score": "0:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_uruguay_spanien": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_spanien_uruguay": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_neuseeland_belgien": {
+      "score": "1:5",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_belgien_neuseeland": {
+      "score": "1:5",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_agypten_iran": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_iran_agypten": {
+      "score": "1:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_panama_england": {
+      "score": "0:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_england_panama": {
+      "score": "0:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_kroatien_ghana": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_ghana_kroatien": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_kolumbien_portugal": {
+      "score": "0:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_portugal_kolumbien": {
+      "score": "0:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_drkongo_usbekistan": {
+      "score": "3:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_usbekistan_drkongo": {
+      "score": "3:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_algerien_osterreich": {
+      "score": "3:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_osterreich_algerien": {
+      "score": "3:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_jordanien_argentinien": {
+      "score": "1:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_argentinien_jordanien": {
+      "score": "1:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_sudafrika_kanada": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_kanada_sudafrika": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_brasilien_japan": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_japan_brasilien": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_deutschland_paraguay": {
+      "score": "4:5",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_paraguay_deutschland": {
+      "score": "4:5",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_niederlande_marokko": {
+      "score": "3:4",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_marokko_niederlande": {
+      "score": "3:4",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_elfenbeinkuste_norwegen": {
+      "score": "1:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_norwegen_elfenbeinkuste": {
+      "score": "1:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_frankreich_schweden": {
+      "score": "3:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_schweden_frankreich": {
+      "score": "3:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_mexiko_ecuador": {
+      "score": "2:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_ecuador_mexiko": {
+      "score": "2:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_england_drkongo": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_drkongo_england": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_belgien_senegal": {
+      "score": "3:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_senegal_belgien": {
+      "score": "3:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_usa_bosnienundherzegowina": {
+      "score": "2:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_bosnienundherzegowina_usa": {
+      "score": "2:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_spanien_osterreich": {
+      "score": "3:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_osterreich_spanien": {
+      "score": "3:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_portugal_kroatien": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_kroatien_portugal": {
+      "score": "2:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_schweiz_algerien": {
+      "score": "2:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_algerien_schweiz": {
+      "score": "2:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_australien_agypten": {
+      "score": "3:5",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_agypten_australien": {
+      "score": "3:5",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_argentinien_kapverde": {
+      "score": "3:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_kapverde_argentinien": {
+      "score": "3:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_kolumbien_ghana": {
+      "score": "1:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_ghana_kolumbien": {
+      "score": "1:0",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_kanada_marokko": {
+      "score": "0:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_marokko_kanada": {
+      "score": "0:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_paraguay_frankreich": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_frankreich_paraguay": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_brasilien_norwegen": {
+      "score": "1:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_norwegen_brasilien": {
+      "score": "1:2",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_mexiko_england": {
+      "score": "2:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_england_mexiko": {
+      "score": "2:3",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_portugal_spanien": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_spanien_portugal": {
+      "score": "0:1",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_usa_belgien": {
+      "score": "1:4",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_belgien_usa": {
+      "score": "1:4",
+      "isLive": false,
+      "isFinished": true,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_argentinien_agypten": {
+      "score": "0:1",
+      "isLive": true,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_agypten_argentinien": {
+      "score": "0:1",
+      "isLive": true,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_schweiz_kolumbien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_kolumbien_schweiz": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_frankreich_marokko": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_marokko_frankreich": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_spanien_belgien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_belgien_spanien": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_norwegen_england": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_england_norwegen": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_argegy_suicol": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_suicol_argegy": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_framar_espbel": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_espbel_framar": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    }
+  },
   "tvData": {
     "80099": {
       "tv": "ZDF",
