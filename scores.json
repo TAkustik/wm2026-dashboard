@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T19:58:17.228Z",
+  "updatedAt": "2026-07-07T20:01:07.677Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -754,8 +754,8 @@
       "penaltyScore": null
     },
     "82134": {
-      "score": null,
-      "isLive": false,
+      "score": "0:0",
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2330,16 +2330,16 @@
       "penaltyScore": null
     },
     "team_schweiz_kolumbien": {
-      "score": null,
-      "isLive": false,
+      "score": "0:0",
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
     },
     "team_kolumbien_schweiz": {
-      "score": null,
-      "isLive": false,
+      "score": "0:0",
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
