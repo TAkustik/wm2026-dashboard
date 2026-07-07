@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T07:38:15.969Z",
+  "updatedAt": "2026-07-07T07:40:36.618Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -794,6 +794,14 @@
       "penaltyScore": null
     },
     "84295": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "84682": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2394,6 +2402,22 @@
       "penaltyScore": null
     },
     "team_suicol_argegy": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_framar_espbel": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_espbel_framar": {
       "score": null,
       "isLive": false,
       "isFinished": false,
