@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T22:50:48.241Z",
+  "updatedAt": "2026-07-07T22:52:15.245Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -754,9 +754,9 @@
       "penaltyScore": null
     },
     "82134": {
-      "score": "0:0",
+      "score": "4:3",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -802,6 +802,14 @@
       "penaltyScore": null
     },
     "84682": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "84684": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2330,17 +2338,17 @@
       "penaltyScore": null
     },
     "team_schweiz_kolumbien": {
-      "score": "0:0",
+      "score": "4:3",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
     },
     "team_kolumbien_schweiz": {
-      "score": "0:0",
+      "score": "4:3",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2393,7 +2401,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_argentinien_suicol": {
+    "team_argentinien_schweiz": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2401,7 +2409,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_suicol_argentinien": {
+    "team_schweiz_argentinien": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2418,6 +2426,22 @@
       "penaltyScore": null
     },
     "team_espbel_framar": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_noreng_argsui": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_argsui_noreng": {
       "score": null,
       "isLive": false,
       "isFinished": false,
