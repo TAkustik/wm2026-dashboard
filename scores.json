@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T22:56:20.459Z",
+  "updatedAt": "2026-07-07T22:58:15.337Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -586,12 +586,12 @@
       "penaltyScore": null
     },
     "82101": {
-      "score": "1:1",
+      "score": "4:5",
       "isLive": false,
       "isFinished": true,
       "minute": null,
-      "penaltyWinner": 2,
-      "penaltyScore": "3:4"
+      "penaltyWinner": null,
+      "penaltyScore": null
     },
     "82102": {
       "score": "3:4",
@@ -754,12 +754,12 @@
       "penaltyScore": null
     },
     "82134": {
-      "score": "0:0",
+      "score": "4:3",
       "isLive": false,
       "isFinished": true,
       "minute": null,
-      "penaltyWinner": 1,
-      "penaltyScore": "4:3"
+      "penaltyWinner": null,
+      "penaltyScore": null
     },
     "83124": {
       "score": "2:1",
@@ -2002,20 +2002,20 @@
       "penaltyScore": null
     },
     "team_deutschland_paraguay": {
-      "score": "1:1",
+      "score": "4:5",
       "isLive": false,
       "isFinished": true,
       "minute": null,
-      "penaltyWinner": 2,
-      "penaltyScore": "3:4"
+      "penaltyWinner": null,
+      "penaltyScore": null
     },
     "team_paraguay_deutschland": {
-      "score": "1:1",
+      "score": "4:5",
       "isLive": false,
       "isFinished": true,
       "minute": null,
-      "penaltyWinner": 2,
-      "penaltyScore": "3:4"
+      "penaltyWinner": null,
+      "penaltyScore": null
     },
     "team_niederlande_marokko": {
       "score": "3:4",
@@ -2338,20 +2338,20 @@
       "penaltyScore": null
     },
     "team_schweiz_kolumbien": {
-      "score": "0:0",
+      "score": "4:3",
       "isLive": false,
       "isFinished": true,
       "minute": null,
-      "penaltyWinner": 1,
-      "penaltyScore": "4:3"
+      "penaltyWinner": null,
+      "penaltyScore": null
     },
     "team_kolumbien_schweiz": {
-      "score": "0:0",
+      "score": "4:3",
       "isLive": false,
       "isFinished": true,
       "minute": null,
-      "penaltyWinner": 1,
-      "penaltyScore": "4:3"
+      "penaltyWinner": null,
+      "penaltyScore": null
     },
     "team_frankreich_marokko": {
       "score": null,
