@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T00:12:16.683Z",
+  "updatedAt": "2026-07-07T00:14:18.264Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -738,7 +738,7 @@
       "penaltyScore": null
     },
     "82132": {
-      "score": "0:0",
+      "score": "0:1",
       "isLive": true,
       "isFinished": false,
       "minute": null,
@@ -2290,7 +2290,7 @@
       "penaltyScore": null
     },
     "team_usa_belgien": {
-      "score": "0:0",
+      "score": "0:1",
       "isLive": true,
       "isFinished": false,
       "minute": null,
@@ -2298,7 +2298,7 @@
       "penaltyScore": null
     },
     "team_belgien_usa": {
-      "score": "0:0",
+      "score": "0:1",
       "isLive": true,
       "isFinished": false,
       "minute": null,
