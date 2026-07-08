@@ -510,16 +510,16 @@ const FIN_W    = 140;
 // Spiel gegeneinander antreten — sonst stimmen Linien und Inhalt nicht zusammen!
 // af1=szf2+szf5, af2=szf1+szf3, af3=szf4+szf6, af4=szf7+szf8
 const LEFT_ROUNDS = [
-  { key: 'r32', count: 8, ids: [74,77,73,75,76,78,79,80] },
-  { key: 'r16', count: 4, ids: [89,90,91,92] },
+  { key: 'r32', count: 8, ids: [74,77,73,75,83,84,81,82] },  // szf2,szf5,szf1,szf3,szf11,szf12,szf9,szf10
+  { key: 'r16', count: 4, ids: [89,90,93,94] },  // af1,af2,af5,af6 -> vf1,vf2
   { key: 'qf',  count: 2, ids: [97,98] },
   { key: 'sf',  count: 1, ids: [101] },
 ];
 const RIGHT_ROUNDS = [
   { key: 'sf',  count: 1, ids: [102] },
   { key: 'qf',  count: 2, ids: [100,99] },
-  { key: 'r16', count: 4, ids: [96,95,94,93] },
-  { key: 'r32', count: 8, ids: [85,87,86,88,81,82,83,84] },
+  { key: 'r16', count: 4, ids: [96,95,92,91] },  // af8,af7,af4,af3 -> vf4,vf3
+  { key: 'r32', count: 8, ids: [85,87,86,88,76,78,79,80] },  // szf13,szf15,szf14,szf16,szf4,szf6,szf7,szf8
 ];
 
 // Korrekte Daten für TBD-Platzhalter je Runde (laut Poster)
@@ -853,11 +853,21 @@ function propagateKnockoutWinners() {
     if (w2 && af.awayCode !== w2.code) { af.away = w2.name; af.awayflag = w2.flag; af.awayCode = w2.code; }
   }
 
-  // AF(2n-1) + AF(2n) → VF(n)
-  for (let n = 1; n <= 4; n++) {
-    const a1 = matches.find(x => x.af === (2 * n - 1));
-    const a2 = matches.find(x => x.af === (2 * n));
-    const vf = matches.find(x => x.vf === n);
+  // AF → VF nach offizieller FIFA-Paarungslogik WM 2026
+  // vf1(97) = af1+af2 = Frankreich/Marokko  -> HF1
+  // vf2(98) = af5+af6 = Spanien/Belgien     -> HF1
+  // vf3(99) = af3+af4 = Norwegen/England    -> HF2
+  // vf4(100)= af7+af8 = rechte Seite        -> HF2
+  const VF_PAIRINGS = {
+    1: [1, 2],   // vf1 = af1+af2
+    2: [5, 6],   // vf2 = af5+af6 (Spanien/Belgien-Seite)
+    3: [3, 4],   // vf3 = af3+af4 (Norwegen/England-Seite)
+    4: [7, 8],   // vf4 = af7+af8
+  };
+  for (const [vfNum, [afA, afB]] of Object.entries(VF_PAIRINGS)) {
+    const a1 = matches.find(x => x.af === afA);
+    const a2 = matches.find(x => x.af === afB);
+    const vf = matches.find(x => x.vf === parseInt(vfNum));
     if (!vf) continue;
     const w1 = getWinner(a1);
     const w2 = getWinner(a2);
