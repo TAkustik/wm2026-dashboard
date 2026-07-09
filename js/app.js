@@ -518,8 +518,8 @@ const LEFT_ROUNDS = [
 const RIGHT_ROUNDS = [
   { key: 'sf',  count: 1, ids: [102] },
   { key: 'qf',  count: 2, ids: [100,99] },
-  { key: 'r16', count: 4, ids: [96,95,92,91] },  // af8,af7,af4,af3 -> vf4,vf3
-  { key: 'r32', count: 8, ids: [85,87,86,88,76,78,79,80] },  // szf13,szf15,szf14,szf16,szf4,szf6,szf7,szf8
+  { key: 'r16', count: 4, ids: [96,95,91,92] },  // af8,af7,af3,af4 -> vf4,vf3
+  { key: 'r32', count: 8, ids: [85,87,86,88,79,80,76,78] },  // szf13,szf15,szf14,szf16,szf7,szf8,szf4,szf6
 ];
 
 // Korrekte Daten für TBD-Platzhalter je Runde (laut Poster)
