@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-09T22:00:55.645Z",
+  "updatedAt": "2026-07-09T22:02:18.004Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -772,7 +772,7 @@
     "83125": {
       "score": "2:0",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2356,7 +2356,7 @@
     "team_frankreich_marokko": {
       "score": "2:0",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2364,7 +2364,7 @@
     "team_marokko_frankreich": {
       "score": "2:0",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2417,7 +2417,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_framar_espbel": {
+    "team_frankreich_espbel": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2425,7 +2425,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_espbel_framar": {
+    "team_espbel_frankreich": {
       "score": null,
       "isLive": false,
       "isFinished": false,
