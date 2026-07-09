@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-09T19:58:16.588Z",
+  "updatedAt": "2026-07-09T20:00:58.228Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -771,7 +771,7 @@
     },
     "83125": {
       "score": null,
-      "isLive": false,
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2355,7 +2355,7 @@
     },
     "team_frankreich_marokko": {
       "score": null,
-      "isLive": false,
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2363,7 +2363,7 @@
     },
     "team_marokko_frankreich": {
       "score": null,
-      "isLive": false,
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
