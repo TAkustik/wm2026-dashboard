@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-10T21:02:18.493Z",
+  "updatedAt": "2026-07-10T21:04:19.966Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -2417,7 +2417,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_frankreich_espbel": {
+    "team_frankreich_spanien": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2425,7 +2425,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_espbel_frankreich": {
+    "team_spanien_frankreich": {
       "score": null,
       "isLive": false,
       "isFinished": false,
