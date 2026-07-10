@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-10T18:58:15.723Z",
+  "updatedAt": "2026-07-10T19:01:01.641Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -787,7 +787,7 @@
     },
     "83462": {
       "score": null,
-      "isLive": false,
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2371,7 +2371,7 @@
     },
     "team_spanien_belgien": {
       "score": null,
-      "isLive": false,
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2379,7 +2379,7 @@
     },
     "team_belgien_spanien": {
       "score": null,
-      "isLive": false,
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
