@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-11T20:58:15.642Z",
+  "updatedAt": "2026-07-11T21:01:04.736Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -779,7 +779,7 @@
     },
     "83126": {
       "score": null,
-      "isLive": false,
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2387,7 +2387,7 @@
     },
     "team_norwegen_england": {
       "score": null,
-      "isLive": false,
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2395,7 +2395,7 @@
     },
     "team_england_norwegen": {
       "score": null,
-      "isLive": false,
+      "isLive": true,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
