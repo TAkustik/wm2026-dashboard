@@ -510,16 +510,16 @@ const FIN_W    = 140;
 // Spiel gegeneinander antreten — sonst stimmen Linien und Inhalt nicht zusammen!
 // af1=szf2+szf5, af2=szf1+szf3, af3=szf4+szf6, af4=szf7+szf8
 const LEFT_ROUNDS = [
-  { key: 'r32', count: 8, ids: [74,77,73,75,83,84,81,82] },  // szf2,szf5,szf1,szf3,szf11,szf12,szf9,szf10
-  { key: 'r16', count: 4, ids: [89,90,93,94] },  // af1,af2,af5,af6 -> vf1,vf2
+    { key: 'r32', count: 8, ids: [74,77,73,75,83,84,81,82] },
+    { key: 'r16', count: 4, ids: [89,90,93,94] },
   { key: 'qf',  count: 2, ids: [97,98] },
   { key: 'sf',  count: 1, ids: [101] },
 ];
 const RIGHT_ROUNDS = [
   { key: 'sf',  count: 1, ids: [102] },
   { key: 'qf',  count: 2, ids: [100,99] },
-  { key: 'r16', count: 4, ids: [96,95,91,92] },  // af8,af7,af3,af4 -> vf4,vf3
-  { key: 'r32', count: 8, ids: [85,87,86,88,79,80,76,78] },  // szf13,szf15,szf14,szf16,szf7,szf8,szf4,szf6
+    { key: 'r16', count: 4, ids: [96,95,91,92] },
+    { key: 'r32', count: 8, ids: [85,87,86,88,76,78,79,80] },
 ];
 
 // Korrekte Daten für TBD-Platzhalter je Runde (laut Poster)
@@ -1302,8 +1302,9 @@ function applyScores(data) {
 
   if (hasChanges || !applyScores._initialLoadDone) {
     applyScores._initialLoadDone = true;
-    // Sofort propagieren damit K.o.-Sieger ohne weiteren Render-Zyklus
-    // ins nächste Feld wandern — verhindert leere Achtelfinale beim Laden
+    // Mehrfach propagieren damit alle K.o.-Runden (AF→VF→HF) durchlaufen werden
+    propagateKnockoutWinners();
+    propagateKnockoutWinners();
     propagateKnockoutWinners();
     console.log('Scores geladen — Dashboard wird aktualisiert');
     renderAll();
@@ -1338,12 +1339,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   setInterval(updateClock, 1000);
   updateClock();
 
-  // Erster Fetch: Scores laden + Teams in K.o.-Matches eintragen
+  // Scores laden
   const data = await fetchScores();
   applyScores(data);
 
-  // Zweiter Render: jetzt wo Teams bekannt sind, Bracket korrekt propagieren
+  // Mehrfach propagieren: jede Runde braucht einen eigenen Durchlauf
+  // (SZF→AF→VF→HF→Finale), damit auch spätere Runden sofort befüllt sind
   populateBracketFromGroups();
+  propagateKnockoutWinners();
+  propagateKnockoutWinners();
+  propagateKnockoutWinners();
   renderAll();
 
   // Danach normaler Refresh-Zyklus
