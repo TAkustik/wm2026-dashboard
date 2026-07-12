@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-12T03:32:15.193Z",
+  "updatedAt": "2026-07-12T03:34:15.977Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -794,7 +794,7 @@
       "penaltyScore": null
     },
     "84295": {
-      "score": "1:1",
+      "score": "2:1",
       "isLive": false,
       "isFinished": false,
       "minute": null,
@@ -2402,7 +2402,7 @@
       "penaltyScore": null
     },
     "team_argentinien_schweiz": {
-      "score": "1:1",
+      "score": "2:1",
       "isLive": false,
       "isFinished": false,
       "minute": null,
@@ -2410,7 +2410,7 @@
       "penaltyScore": null
     },
     "team_schweiz_argentinien": {
-      "score": "1:1",
+      "score": "2:1",
       "isLive": false,
       "isFinished": false,
       "minute": null,
