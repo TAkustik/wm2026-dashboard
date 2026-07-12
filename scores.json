@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-12T07:54:17.602Z",
+  "updatedAt": "2026-07-12T07:56:15.422Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -2433,7 +2433,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_england_argsui": {
+    "team_england_argentinien": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2441,7 +2441,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_argsui_england": {
+    "team_argentinien_england": {
       "score": null,
       "isLive": false,
       "isFinished": false,
