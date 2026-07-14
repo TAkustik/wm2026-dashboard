@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-14T08:08:18.810Z",
+  "updatedAt": "2026-07-14T08:10:48.912Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -810,6 +810,22 @@
       "penaltyScore": null
     },
     "84684": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "85182": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "85183": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2442,6 +2458,22 @@
       "penaltyScore": null
     },
     "team_argentinien_england": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_fraesp_engarg": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_engarg_fraesp": {
       "score": null,
       "isLive": false,
       "isFinished": false,
