@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-14T20:56:17.102Z",
+  "updatedAt": "2026-07-14T20:58:19.843Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -2465,7 +2465,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_fraesp_engarg": {
+    "team_frankreich_engarg": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2473,7 +2473,23 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_engarg_fraesp": {
+    "team_engarg_frankreich": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_spanien_engarg": {
+      "score": null,
+      "isLive": false,
+      "isFinished": false,
+      "minute": null,
+      "penaltyWinner": null,
+      "penaltyScore": null
+    },
+    "team_engarg_spanien": {
       "score": null,
       "isLive": false,
       "isFinished": false,
