@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-15T20:58:20.814Z",
+  "updatedAt": "2026-07-15T21:01:10.233Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -811,7 +811,7 @@
     },
     "84684": {
       "score": "1:2",
-      "isLive": true,
+      "isLive": false,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2451,7 +2451,7 @@
     },
     "team_england_argentinien": {
       "score": "1:2",
-      "isLive": true,
+      "isLive": false,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2459,7 +2459,7 @@
     },
     "team_argentinien_england": {
       "score": "1:2",
-      "isLive": true,
+      "isLive": false,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
