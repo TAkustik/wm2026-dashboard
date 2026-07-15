@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-15T21:02:18.449Z",
+  "updatedAt": "2026-07-15T21:04:18.111Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -812,7 +812,7 @@
     "84684": {
       "score": "1:2",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2452,7 +2452,7 @@
     "team_england_argentinien": {
       "score": "1:2",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
@@ -2460,12 +2460,12 @@
     "team_argentinien_england": {
       "score": "1:2",
       "isLive": false,
-      "isFinished": false,
+      "isFinished": true,
       "minute": null,
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_frankreich_engarg": {
+    "team_frankreich_england": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2473,7 +2473,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_engarg_frankreich": {
+    "team_england_frankreich": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2481,7 +2481,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_spanien_engarg": {
+    "team_spanien_argentinien": {
       "score": null,
       "isLive": false,
       "isFinished": false,
@@ -2489,7 +2489,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_engarg_spanien": {
+    "team_argentinien_spanien": {
       "score": null,
       "isLive": false,
       "isFinished": false,
