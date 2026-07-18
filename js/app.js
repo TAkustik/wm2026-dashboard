@@ -1334,25 +1334,45 @@ document.addEventListener('DOMContentLoaded', async () => {
   setInterval(updateClock, 1000);
   updateClock();
 
-  // Scores ZUERST laden — kein renderAll() vorher, damit Bracket nie leer erscheint
+  // Phase 1: Scores laden und direkt in matches eintragen
   try {
     const data = await fetchScores();
-    // _initialLoadDone NOCH NICHT setzen — damit applyScores() kein renderAll() auslöst
-    applyScores(data);
-    // Jetzt setzen — ab hier darf checkForUpdates() normal rendern
-    applyScores._initialLoadDone = true;
+    if (data?.scores) {
+      matches.forEach(m => {
+        let entry = m.openligaId
+          ? data.scores[m.openligaId]
+          : (m.home && m.away && m.home !== 'TBD' && m.away !== 'TBD'
+              ? data.scores[`team_${normalizeTeam(m.home)}_${normalizeTeam(m.away)}`]
+              : null);
+        if (!entry) return;
+        if (entry.score)                          m.score         = entry.score;
+        if (entry.isFinished !== undefined)       m.isFinished    = entry.isFinished;
+        if (entry.isLive !== undefined)           m.isLive        = entry.isLive;
+        if (entry.penaltyWinner !== undefined)    m.penaltyWinner = entry.penaltyWinner;
+        if (entry.penaltyScore  !== undefined)    m.penaltyScore  = entry.penaltyScore;
+      });
+
+      // Score-Korrekturen
+      [
+        { home: 'Belgien',     away: 'Senegal',   wrong: '2:2', fix: '3:2' },
+        { home: 'Argentinien', away: 'Kap Verde', wrong: '1:1', fix: '3:2' },
+      ].forEach(({home, away, wrong, fix}) => {
+        const m = matches.find(x => x.home === home && x.away === away);
+        if (m?.score === wrong && m?.isFinished) m.score = fix;
+      });
+    }
   } catch(e) {
     console.warn('Score-Fetch fehlgeschlagen:', e);
-    applyScores._initialLoadDone = true;
   }
 
-  // Vollständige Propagierung aller K.o.-Runden (SZF→AF→VF→HF→Finale)
+  // Phase 2: Vollständige K.o.-Propagierung (alle Runden)
   populateBracketFromGroups();
-  for (let i = 0; i < 5; i++) propagateKnockoutWinners();
+  for (let i = 0; i < 6; i++) propagateKnockoutWinners();
 
-  // Einmaliger Render mit vollem Stand
+  // Phase 3: Einmaliger Render
   renderAll();
 
-  // Normaler Refresh-Zyklus
+  // Phase 4: Laufenden Refresh-Zyklus starten (applyScores darf jetzt rendern)
+  applyScores._initialLoadDone = true;
   checkForUpdates();
 });
