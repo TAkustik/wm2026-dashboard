@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-18T22:58:15.894Z",
+  "updatedAt": "2026-07-18T23:00:45.047Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -819,7 +819,7 @@
     },
     "85182": {
       "score": "3:5",
-      "isLive": true,
+      "isLive": false,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2467,7 +2467,7 @@
     },
     "team_frankreich_england": {
       "score": "3:5",
-      "isLive": true,
+      "isLive": false,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2475,7 +2475,7 @@
     },
     "team_england_frankreich": {
       "score": "3:5",
-      "isLive": true,
+      "isLive": false,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
