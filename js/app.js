@@ -1314,18 +1314,12 @@ function applyScores(data) {
   return hasLive;
 }
 
-async function checkForUpdates(skipFirstFetch = false) {
-  if (!skipFirstFetch) {
-    const data   = await fetchScores();
-    const isLive = applyScores(data);
-    const interval = isLive ? 30_000 : 60_000;
-    if (liveRefreshTimer) clearTimeout(liveRefreshTimer);
-    liveRefreshTimer = setTimeout(checkForUpdates, interval);
-  } else {
-    // Erster Aufruf aus Init: nur Timer starten, kein sofortiger Fetch
-    if (liveRefreshTimer) clearTimeout(liveRefreshTimer);
-    liveRefreshTimer = setTimeout(checkForUpdates, 60_000);
-  }
+async function checkForUpdates() {
+  const data   = await fetchScores();
+  const isLive = applyScores(data);
+  const interval = isLive ? 30_000 : 60_000;
+  if (liveRefreshTimer) clearTimeout(liveRefreshTimer);
+  liveRefreshTimer = setTimeout(checkForUpdates, interval);
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -1336,60 +1330,25 @@ document.addEventListener('DOMContentLoaded', async () => {
   setInterval(updateClock, 1000);
   updateClock();
 
-  // Scores einmal laden, dann mehrfach anwenden
-  let scoresData = null;
-  try {
-    scoresData = await fetchScores();
-  } catch(e) {
-    console.warn('Score-Fetch fehlgeschlagen:', e);
-  }
+  // Schritt 1: Scores laden via checkForUpdates (setzt auch _initialLoadDone nicht)
+  // applyScores rendert NICHT weil _initialLoadDone noch false
+  const initData = await fetchScores();
+  if (initData) applyScores(initData);
 
-  // Hilfsfunktion: Scores in matches eintragen (ohne neuen Fetch)
-  function applyScoresInline() {
-    if (!scoresData?.scores) return;
-    matches.forEach(m => {
-      if (!m.home || !m.away || m.home === 'TBD' || m.away === 'TBD') return;
-      const key = m.openligaId
-        ? m.openligaId
-        : `team_${normalizeTeam(m.home)}_${normalizeTeam(m.away)}`;
-      const entry = scoresData.scores[key];
-      if (!entry) return;
-      if (entry.score)                       m.score         = entry.score;
-      if (entry.isFinished !== undefined)    m.isFinished    = entry.isFinished;
-      if (entry.isLive !== undefined)        m.isLive        = entry.isLive;
-      if (entry.penaltyWinner !== undefined) m.penaltyWinner = entry.penaltyWinner;
-      if (entry.penaltyScore  !== undefined) m.penaltyScore  = entry.penaltyScore;
-    });
-    [
-      { home: 'Belgien',     away: 'Senegal',   wrong: '2:2', fix: '3:2' },
-      { home: 'Argentinien', away: 'Kap Verde', wrong: '1:1', fix: '3:2' },
-    ].forEach(({home, away, wrong, fix}) => {
-      const m = matches.find(x => x.home === home && x.away === away);
-      if (m?.score === wrong && m?.isFinished) m.score = fix;
-    });
-  }
-
-  // Runde 1: Scores für SZF (haben bereits Team-Namen)
-  applyScoresInline();
-  console.log('Nach Runde 1 - HF1 score:', matches.find(m=>m.id===101)?.score, 'isFinished:', matches.find(m=>m.id===101)?.isFinished);
-
-  // Propagierung: SZF→AF→VF→HF (Teams werden bekannt)
+  // Schritt 2: Propagieren mit bekannten SZF-Teams
   populateBracketFromGroups();
   for (let i = 0; i < 6; i++) propagateKnockoutWinners();
-  console.log('Nach Propagierung 1 - HF1:', matches.find(m=>m.id===101)?.home, 'vs', matches.find(m=>m.id===101)?.away);
 
-  // Runde 2: Scores für AF/VF/HF (jetzt wo Team-Namen bekannt)
-  applyScoresInline();
-  console.log('Nach Runde 2 - HF1 score:', matches.find(m=>m.id===101)?.score, 'isFinished:', matches.find(m=>m.id===101)?.isFinished);
+  // Schritt 3: Scores nochmal für AF/VF/HF die jetzt Teams haben
+  if (initData) applyScores(initData);
 
-  // Nochmal propagieren mit vollständigen Scores
+  // Schritt 4: Nochmal propagieren
   for (let i = 0; i < 6; i++) propagateKnockoutWinners();
-  console.log('Nach Propagierung 2 - Finale:', matches.find(m=>m.id===104)?.home, 'vs', matches.find(m=>m.id===104)?.away);
 
-  // Einmaliger Render
+  // Schritt 5: Einmaliger Render mit vollem Stand
+  applyScores._initialLoadDone = true;
   renderAll();
 
-  // Normaler Refresh-Zyklus (erster Fetch überspringen — haben wir schon gemacht)
-  applyScores._initialLoadDone = true;
-  checkForUpdates(true);
+  // Schritt 6: Laufenden Refresh-Zyklus starten
+  checkForUpdates();
 });
