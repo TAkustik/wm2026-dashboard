@@ -1334,65 +1334,56 @@ document.addEventListener('DOMContentLoaded', async () => {
   setInterval(updateClock, 1000);
   updateClock();
 
-  // Phase 1: Scores laden und direkt in matches eintragen
+  // Scores einmal laden, dann mehrfach anwenden
+  let scoresData = null;
   try {
-    const data = await fetchScores();
-    if (data?.scores) {
-      matches.forEach(m => {
-        let entry = m.openligaId
-          ? data.scores[m.openligaId]
-          : (m.home && m.away && m.home !== 'TBD' && m.away !== 'TBD'
-              ? data.scores[`team_${normalizeTeam(m.home)}_${normalizeTeam(m.away)}`]
-              : null);
-        if (!entry) return;
-        if (entry.score)                          m.score         = entry.score;
-        if (entry.isFinished !== undefined)       m.isFinished    = entry.isFinished;
-        if (entry.isLive !== undefined)           m.isLive        = entry.isLive;
-        if (entry.penaltyWinner !== undefined)    m.penaltyWinner = entry.penaltyWinner;
-        if (entry.penaltyScore  !== undefined)    m.penaltyScore  = entry.penaltyScore;
-      });
-
-      // Score-Korrekturen
-      [
-        { home: 'Belgien',     away: 'Senegal',   wrong: '2:2', fix: '3:2' },
-        { home: 'Argentinien', away: 'Kap Verde', wrong: '1:1', fix: '3:2' },
-      ].forEach(({home, away, wrong, fix}) => {
-        const m = matches.find(x => x.home === home && x.away === away);
-        if (m?.score === wrong && m?.isFinished) m.score = fix;
-      });
-    }
+    scoresData = await fetchScores();
   } catch(e) {
     console.warn('Score-Fetch fehlgeschlagen:', e);
   }
 
-  // Phase 2: Erst propagieren damit AF/VF/HF Team-Namen bekommen
+  // Hilfsfunktion: Scores in matches eintragen (ohne neuen Fetch)
+  function applyScoresInline() {
+    if (!scoresData?.scores) return;
+    matches.forEach(m => {
+      if (!m.home || !m.away || m.home === 'TBD' || m.away === 'TBD') return;
+      const key = m.openligaId
+        ? m.openligaId
+        : `team_${normalizeTeam(m.home)}_${normalizeTeam(m.away)}`;
+      const entry = scoresData.scores[key];
+      if (!entry) return;
+      if (entry.score)                       m.score         = entry.score;
+      if (entry.isFinished !== undefined)    m.isFinished    = entry.isFinished;
+      if (entry.isLive !== undefined)        m.isLive        = entry.isLive;
+      if (entry.penaltyWinner !== undefined) m.penaltyWinner = entry.penaltyWinner;
+      if (entry.penaltyScore  !== undefined) m.penaltyScore  = entry.penaltyScore;
+    });
+    [
+      { home: 'Belgien',     away: 'Senegal',   wrong: '2:2', fix: '3:2' },
+      { home: 'Argentinien', away: 'Kap Verde', wrong: '1:1', fix: '3:2' },
+    ].forEach(({home, away, wrong, fix}) => {
+      const m = matches.find(x => x.home === home && x.away === away);
+      if (m?.score === wrong && m?.isFinished) m.score = fix;
+    });
+  }
+
+  // Runde 1: Scores für SZF (haben bereits Team-Namen)
+  applyScoresInline();
+
+  // Propagierung: SZF→AF→VF→HF (Teams werden bekannt)
   populateBracketFromGroups();
   for (let i = 0; i < 6; i++) propagateKnockoutWinners();
 
-  // Phase 2b: Nochmal Score-Matching — jetzt wo AF/VF/HF Team-Namen haben
-  try {
-    const data2 = await fetchScores();
-    if (data2?.scores) {
-      matches.forEach(m => {
-        if (!m.home || !m.away || m.home === 'TBD' || m.away === 'TBD') return;
-        const key = `team_${normalizeTeam(m.home)}_${normalizeTeam(m.away)}`;
-        const entry = data2.scores[key];
-        if (!entry) return;
-        if (entry.score)                       m.score         = entry.score;
-        if (entry.isFinished !== undefined)    m.isFinished    = entry.isFinished;
-        if (entry.penaltyWinner !== undefined) m.penaltyWinner = entry.penaltyWinner;
-        if (entry.penaltyScore  !== undefined) m.penaltyScore  = entry.penaltyScore;
-      });
-    }
-  } catch(e) {}
+  // Runde 2: Scores für AF/VF/HF (jetzt wo Team-Namen bekannt)
+  applyScoresInline();
 
-  // Phase 2c: Nochmal propagieren mit den neu gesetzten Scores
+  // Nochmal propagieren mit vollständigen Scores
   for (let i = 0; i < 6; i++) propagateKnockoutWinners();
 
-  // Phase 3: Einmaliger Render
+  // Einmaliger Render
   renderAll();
 
-  // Phase 4: Laufenden Refresh-Zyklus starten (applyScores darf jetzt rendern)
+  // Normaler Refresh-Zyklus
   applyScores._initialLoadDone = true;
   checkForUpdates();
 });
