@@ -1337,9 +1337,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Scores ZUERST laden — kein renderAll() vorher, damit Bracket nie leer erscheint
   try {
     const data = await fetchScores();
-    // _initialLoadDone vorab setzen damit applyScores() kein vorzeitiges renderAll() auslöst
-    applyScores._initialLoadDone = true;
+    // _initialLoadDone NOCH NICHT setzen — damit applyScores() kein renderAll() auslöst
     applyScores(data);
+    // Jetzt setzen — ab hier darf checkForUpdates() normal rendern
+    applyScores._initialLoadDone = true;
   } catch(e) {
     console.warn('Score-Fetch fehlgeschlagen:', e);
     applyScores._initialLoadDone = true;
