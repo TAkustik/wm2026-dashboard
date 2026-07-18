@@ -1369,16 +1369,20 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Runde 1: Scores für SZF (haben bereits Team-Namen)
   applyScoresInline();
+  console.log('Nach Runde 1 - HF1 score:', matches.find(m=>m.id===101)?.score, 'isFinished:', matches.find(m=>m.id===101)?.isFinished);
 
   // Propagierung: SZF→AF→VF→HF (Teams werden bekannt)
   populateBracketFromGroups();
   for (let i = 0; i < 6; i++) propagateKnockoutWinners();
+  console.log('Nach Propagierung 1 - HF1:', matches.find(m=>m.id===101)?.home, 'vs', matches.find(m=>m.id===101)?.away);
 
   // Runde 2: Scores für AF/VF/HF (jetzt wo Team-Namen bekannt)
   applyScoresInline();
+  console.log('Nach Runde 2 - HF1 score:', matches.find(m=>m.id===101)?.score, 'isFinished:', matches.find(m=>m.id===101)?.isFinished);
 
   // Nochmal propagieren mit vollständigen Scores
   for (let i = 0; i < 6; i++) propagateKnockoutWinners();
+  console.log('Nach Propagierung 2 - Finale:', matches.find(m=>m.id===104)?.home, 'vs', matches.find(m=>m.id===104)?.away);
 
   // Einmaliger Render
   renderAll();
