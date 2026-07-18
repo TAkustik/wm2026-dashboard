@@ -1314,16 +1314,18 @@ function applyScores(data) {
   return hasLive;
 }
 
-async function checkForUpdates() {
-  const data   = await fetchScores();
-  const isLive = applyScores(data);
-
-  // Wenn Spiel läuft: alle 30 Sek prüfen
-  // Sonst: alle 60 Sek
-  const interval = isLive ? 30_000 : 60_000;
-
-  if (liveRefreshTimer) clearTimeout(liveRefreshTimer);
-  liveRefreshTimer = setTimeout(checkForUpdates, interval);
+async function checkForUpdates(skipFirstFetch = false) {
+  if (!skipFirstFetch) {
+    const data   = await fetchScores();
+    const isLive = applyScores(data);
+    const interval = isLive ? 30_000 : 60_000;
+    if (liveRefreshTimer) clearTimeout(liveRefreshTimer);
+    liveRefreshTimer = setTimeout(checkForUpdates, interval);
+  } else {
+    // Erster Aufruf aus Init: nur Timer starten, kein sofortiger Fetch
+    if (liveRefreshTimer) clearTimeout(liveRefreshTimer);
+    liveRefreshTimer = setTimeout(checkForUpdates, 60_000);
+  }
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -1387,7 +1389,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Einmaliger Render
   renderAll();
 
-  // Normaler Refresh-Zyklus
+  // Normaler Refresh-Zyklus (erster Fetch überspringen — haben wir schon gemacht)
   applyScores._initialLoadDone = true;
-  checkForUpdates();
+  checkForUpdates(true);
 });
