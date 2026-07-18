@@ -1004,7 +1004,7 @@ function renderBracket() {
   const p3Box = `<div class="b-match-box" style="left:${p3X}px;top:${p3Y}px;width:${P3_W}px;opacity:0.8;">
     ${renderBracketTeamRow(p3m, true,  cc)}
     ${renderBracketTeamRow(p3m, false, cc)}
-    <div class="b-match-date"><span class="b-date-text">🥉 Platz 3 · 18.07 · 21:00 Uhr · Miami</span>${p3Tv}</div>
+    <div class="b-match-date"><span class="b-date-text">🥉 Platz 3 · 18.07 · 23:00 Uhr · Miami</span>${p3Tv}</div>
   </div>`;
 
   // Sieger-Box
@@ -1300,13 +1300,9 @@ function applyScores(data) {
     }
   });
 
-  if (hasChanges || !applyScores._initialLoadDone) {
-    applyScores._initialLoadDone = true;
-    // Mehrfach propagieren damit alle K.o.-Runden (AF→VF→HF) durchlaufen werden
-    propagateKnockoutWinners();
-    propagateKnockoutWinners();
-    propagateKnockoutWinners();
-    console.log('Scores geladen — Dashboard wird aktualisiert');
+  if (hasChanges && applyScores._initialLoadDone) {
+    for (let i = 0; i < 5; i++) propagateKnockoutWinners();
+    console.log('Neue Ergebnisse — Dashboard wird aktualisiert');
     renderAll();
   }
 
@@ -1335,22 +1331,27 @@ async function checkForUpdates() {
 // ═══════════════════════════════════════════════════════════════
 document.addEventListener('DOMContentLoaded', async () => {
   readURLParams();
-  renderAll();
   setInterval(updateClock, 1000);
   updateClock();
 
-  // Scores laden
-  const data = await fetchScores();
-  applyScores(data);
+  // Scores ZUERST laden — kein renderAll() vorher, damit Bracket nie leer erscheint
+  try {
+    const data = await fetchScores();
+    // _initialLoadDone vorab setzen damit applyScores() kein vorzeitiges renderAll() auslöst
+    applyScores._initialLoadDone = true;
+    applyScores(data);
+  } catch(e) {
+    console.warn('Score-Fetch fehlgeschlagen:', e);
+    applyScores._initialLoadDone = true;
+  }
 
-  // Mehrfach propagieren: jede Runde braucht einen eigenen Durchlauf
-  // (SZF→AF→VF→HF→Finale), damit auch spätere Runden sofort befüllt sind
+  // Vollständige Propagierung aller K.o.-Runden (SZF→AF→VF→HF→Finale)
   populateBracketFromGroups();
-  propagateKnockoutWinners();
-  propagateKnockoutWinners();
-  propagateKnockoutWinners();
+  for (let i = 0; i < 5; i++) propagateKnockoutWinners();
+
+  // Einmaliger Render mit vollem Stand
   renderAll();
 
-  // Danach normaler Refresh-Zyklus
+  // Normaler Refresh-Zyklus
   checkForUpdates();
 });

@@ -113,7 +113,7 @@ export const matches = [
   { id: 101, hf: 1, date: '2026-07-14', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'SF', tv: 'ARD', freeTv: true,  score: null },
   { id: 102, hf: 2, date: '2026-07-15', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'SF', tv: 'ZDF', freeTv: true,  score: null },
 
-  { id: 103,        date: '2026-07-18', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'P3', tv: 'Magenta', freeTv: false,  score: null },
+  { id: 103,        date: '2026-07-18', time: '23:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'P3', tv: 'Magenta', freeTv: false,  score: null },
 
   { id: 104,        date: '2026-07-19', time: '21:00', home: 'TBD', homeflag: '🏳️', homeCode: null, away: 'TBD', awayflag: '🏳️', awayCode: null, group: null, round: 'F',  tv: 'ZDF', freeTv: true,  score: null },
 ];
