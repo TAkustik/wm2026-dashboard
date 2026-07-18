@@ -1330,25 +1330,25 @@ document.addEventListener('DOMContentLoaded', async () => {
   setInterval(updateClock, 1000);
   updateClock();
 
-  // Schritt 1: Scores laden via checkForUpdates (setzt auch _initialLoadDone nicht)
-  // applyScores rendert NICHT weil _initialLoadDone noch false
+  // Schritt 1: Scores laden + SZF-Scores setzen
   const initData = await fetchScores();
   if (initData) applyScores(initData);
 
-  // Schritt 2: Propagieren mit bekannten SZF-Teams
+  // Schritt 2: Propagieren → AF/VF/HF bekommen Team-Namen
   populateBracketFromGroups();
   for (let i = 0; i < 6; i++) propagateKnockoutWinners();
 
-  // Schritt 3: Scores nochmal für AF/VF/HF die jetzt Teams haben
-  if (initData) applyScores(initData);
+  // Schritt 3: Zweiter Fetch — jetzt AF/VF/HF-Scores holen (Keys jetzt bekannt)
+  const initData2 = await fetchScores();
+  if (initData2) applyScores(initData2);
 
-  // Schritt 4: Nochmal propagieren
+  // Schritt 4: Nochmal propagieren mit vollständigen Scores + isFinished
   for (let i = 0; i < 6; i++) propagateKnockoutWinners();
 
-  // Schritt 5: Einmaliger Render mit vollem Stand
+  // Schritt 5: Einmaliger Render
   applyScores._initialLoadDone = true;
   renderAll();
 
-  // Schritt 6: Laufenden Refresh-Zyklus starten
+  // Schritt 6: Normaler Refresh-Zyklus
   checkForUpdates();
 });
