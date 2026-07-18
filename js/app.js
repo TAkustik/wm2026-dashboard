@@ -1365,8 +1365,28 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.warn('Score-Fetch fehlgeschlagen:', e);
   }
 
-  // Phase 2: Vollständige K.o.-Propagierung (alle Runden)
+  // Phase 2: Erst propagieren damit AF/VF/HF Team-Namen bekommen
   populateBracketFromGroups();
+  for (let i = 0; i < 6; i++) propagateKnockoutWinners();
+
+  // Phase 2b: Nochmal Score-Matching — jetzt wo AF/VF/HF Team-Namen haben
+  try {
+    const data2 = await fetchScores();
+    if (data2?.scores) {
+      matches.forEach(m => {
+        if (!m.home || !m.away || m.home === 'TBD' || m.away === 'TBD') return;
+        const key = `team_${normalizeTeam(m.home)}_${normalizeTeam(m.away)}`;
+        const entry = data2.scores[key];
+        if (!entry) return;
+        if (entry.score)                       m.score         = entry.score;
+        if (entry.isFinished !== undefined)    m.isFinished    = entry.isFinished;
+        if (entry.penaltyWinner !== undefined) m.penaltyWinner = entry.penaltyWinner;
+        if (entry.penaltyScore  !== undefined) m.penaltyScore  = entry.penaltyScore;
+      });
+    }
+  } catch(e) {}
+
+  // Phase 2c: Nochmal propagieren mit den neu gesetzten Scores
   for (let i = 0; i < 6; i++) propagateKnockoutWinners();
 
   // Phase 3: Einmaliger Render
