@@ -931,6 +931,8 @@ function getWinner(m) {
 
 function renderBracket() {
   populateBracketFromGroups();
+  // Mehrfach propagieren damit alle Runden (SZF→AF→VF→HF→Finale) befüllt sind
+  for (let i = 0; i < 5; i++) propagateKnockoutWinners();
   const container = document.getElementById('bracket-container');
   if (!container) return;
 
