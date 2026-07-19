@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-19T20:58:19.110Z",
+  "updatedAt": "2026-07-19T21:00:48.515Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -827,7 +827,7 @@
     },
     "85183": {
       "score": "0:0",
-      "isLive": true,
+      "isLive": false,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2483,7 +2483,7 @@
     },
     "team_spanien_argentinien": {
       "score": "0:0",
-      "isLive": true,
+      "isLive": false,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
@@ -2491,7 +2491,7 @@
     },
     "team_argentinien_spanien": {
       "score": "0:0",
-      "isLive": true,
+      "isLive": false,
       "isFinished": false,
       "minute": null,
       "penaltyWinner": null,
