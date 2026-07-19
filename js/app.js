@@ -1009,16 +1009,14 @@ function renderBracket() {
     <div class="b-match-date"><span class="b-date-text">🥉 Platz 3 · 18.07 · 23:00 Uhr · Miami</span>${p3Tv}</div>
   </div>`;
 
-  // Sieger-Box
+  // Sieger-Box — nur anzeigen wenn Finale wirklich beendet ist
   let winnerBox = '';
-  if (fm.score) {
-    const [h,a] = fm.score.split(':').map(Number);
-    const wFlag = h>a ? fm.homeflag : fm.awayflag;
-    const wName = h>a ? fm.home     : fm.away;
-    const winY  = finY + BOX_H + 16;
+  const finaleWinner = getWinner(fm);
+  if (finaleWinner) {
+    const winY = finY + BOX_H + 16;
     winnerBox = `<div class="b-winner-box" style="left:${finaleX+(FIN_W-148)/2}px;top:${winY}px;">
-      <div class="b-winner-flag">${wFlag}</div>
-      <div class="b-winner-label">🏆 ${wName}</div>
+      <div class="b-winner-flag">${finaleWinner.flag}</div>
+      <div class="b-winner-label">🏆 ${finaleWinner.name}</div>
     </div>`;
   }
 
