@@ -1013,7 +1013,7 @@ function renderBracket() {
   let winnerBox = '';
   const finaleWinner = getWinner(fm);
   if (finaleWinner) {
-    const winY = finY + BOX_H + 16;
+    const winY = finY - 90; // Über dem Finale-Feld
     winnerBox = `<div class="b-winner-box" style="left:${finaleX+(FIN_W-148)/2}px;top:${winY}px;">
       <div class="b-winner-flag">${finaleWinner.flag}</div>
       <div class="b-winner-label">🏆 ${finaleWinner.name}</div>
