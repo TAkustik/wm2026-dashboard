@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-28T10:52:29.387Z",
+  "updatedAt": "2026-07-28T10:54:25.826Z",
   "scores": {
     "80099": {
       "score": "2:0",
@@ -961,7 +961,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_deutschland_curacao": {
+    "team_deutschlandu21_curacao": {
       "score": "7:1",
       "isLive": false,
       "isFinished": true,
@@ -969,7 +969,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_curacao_deutschland": {
+    "team_curacao_deutschlandu21": {
       "score": "7:1",
       "isLive": false,
       "isFinished": true,
@@ -1361,7 +1361,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_deutschland_elfenbeinkuste": {
+    "team_deutschlandu21_elfenbeinkuste": {
       "score": "2:1",
       "isLive": false,
       "isFinished": true,
@@ -1369,7 +1369,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_elfenbeinkuste_deutschland": {
+    "team_elfenbeinkuste_deutschlandu21": {
       "score": "2:1",
       "isLive": false,
       "isFinished": true,
@@ -1713,7 +1713,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_ecuador_deutschland": {
+    "team_ecuador_deutschlandu21": {
       "score": "2:1",
       "isLive": false,
       "isFinished": true,
@@ -1721,7 +1721,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_deutschland_ecuador": {
+    "team_deutschlandu21_ecuador": {
       "score": "2:1",
       "isLive": false,
       "isFinished": true,
@@ -2017,7 +2017,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_deutschland_paraguay": {
+    "team_deutschlandu21_paraguay": {
       "score": "4:5",
       "isLive": false,
       "isFinished": true,
@@ -2025,7 +2025,7 @@
       "penaltyWinner": null,
       "penaltyScore": null
     },
-    "team_paraguay_deutschland": {
+    "team_paraguay_deutschlandu21": {
       "score": "4:5",
       "isLive": false,
       "isFinished": true,
